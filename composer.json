@@ -1,0 +1,10 @@
+{
+    "name": "asmaa/sakanat",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Asmaa\\Sakanat\\": "src/"
+        }
+    },
+    "require": {}
+}
