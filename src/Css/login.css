@@ -110,7 +110,33 @@ button {
     margin-top: 10%;
     transition: .5s;
     transform: translate(0px, 0px);
+    overflow: hidden;
+    position: relative;
 
+}
+button:focus span{
+    display: block;
+}
+span{
+    position: absolute;
+    background-color: #fff;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation: animate2 1s linear 1;
+    display: none;
+}
+@keyframes animate2 {
+    0%{
+        width: 0;
+        height: 0;
+        opacity: 0.5;
+    }
+    100%{
+        width: 500px;
+        height: 500px;
+        opacity: 0;
+    }
 }
 
 button:hover {
@@ -175,7 +201,7 @@ section{
     background-color: #001300;
     animation: changeclr 5s linear infinite;
     flex-direction: column;
-
+    animation-delay: 1s;
 }
 @keyframes changeclr {
     0%{

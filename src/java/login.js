@@ -41,4 +41,3 @@ function inIt(){
     },2000);
 }
 inIt();
-
