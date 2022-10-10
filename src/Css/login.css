@@ -1,7 +1,7 @@
 body {
 
-background-image:linear-gradient(90deg,#c4a384,#aa7a54);
-/*    background-size: 100% 100%;*/
+    background-image:linear-gradient(90deg,#c49f72,#c49f72,#1F5662);
+    /*    background-size: 100% 100%;*/
 }
 .containor{
     position: relative;
@@ -13,7 +13,7 @@ background-image:linear-gradient(90deg,#c4a384,#aa7a54);
     backdrop-filter: blur(2px);
     border-radius: 25px;
     top: -20px;
-display: none;
+    display: none;
     height: 550px;
 }
 
@@ -79,6 +79,7 @@ input {
     align-items: center;
     justify-content: center;
     color: white;
+    box-shadow: #1F5662 5px 4px 5px 0;
 }
 .cap2 {
     position: absolute;
@@ -98,13 +99,13 @@ input {
     height: 40px;
     right: 90px;
     border-radius: 25px 0 0 25px;
-    background-color: black;
+    background-color: #c49f72;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     font-size: 18px;
-    
+    box-shadow: #c49f72 12px 4px 5px 0;
 
 
 }
@@ -128,7 +129,7 @@ label {
 
 button {
     border: none;
-    background: linear-gradient(90deg,#70c4ee,#1F5662);
+    background: linear-gradient(90deg,#c49f72,#c49f72,#1F5662);
     color: #fff;
     font-weight: 500;
     padding: 10px;
@@ -152,7 +153,7 @@ span{
 
     transform: translate(-50%,-50%);
     pointer-events: none;
-top: 70%;
+    top: 70%;
     border-radius: 50%;
     animation: animate2 1s linear 1;
     display: none;
@@ -182,7 +183,7 @@ button:hover {
 .input-div{
     display: grid;
     grid-template-columns: 7% 93%;
-   position: relative;
+    position: relative;
 }
 .i{
     position: relative;
@@ -196,7 +197,7 @@ button:hover {
 .i i{
     position: absolute;
     transition: .3s;
-right: 0;
+    right: 0;
     bottom: 10px;
     color: #1F5662;
 }
@@ -227,7 +228,7 @@ section{
     justify-content: center;
     align-items: center;
     width: 100%;
-   height: 100vh;
+    height: 100vh;
     top: -50px;
     background-color: #1F5662;
     animation: changeclr 2s linear infinite;
@@ -257,7 +258,7 @@ section .loader .dot{
     margin: 20px 10px;
     border-radius: 50%;
     transform: scale(0.1);
-animation: animate 2s linear infinite;
+    animation: animate 2s linear infinite;
     animation-delay: calc(0.1s * var(--i));
     box-shadow: 0 0 10px #1F5662,
     0 0 20px #1F5662,
@@ -274,7 +275,7 @@ animation: animate 2s linear infinite;
     10%{
         transform: scale(1);
     }
-   50%, 100%{
+    50%, 100%{
         transform: scale(0.1);
     }
 }
