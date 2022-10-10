@@ -1,6 +1,6 @@
 body {
 
-background-image:linear-gradient(90deg,#70c4ee,#1F5662);
+background-image:linear-gradient(90deg,#c4a384,#aa7a54);
 /*    background-size: 100% 100%;*/
 }
 .containor{
@@ -47,17 +47,19 @@ input {
     position: absolute;
     width: 30px;
     height: 30px;
-    top: 60%;
+
     right: 10px;
     transform: translateY(-50%);
     background: url("../img/showPass.png");
     cursor: pointer;
+    bottom: 0;
+    background-color: red;
 }
 #toggle2.hide{
     background: url("../img/hide-password.png");
 }
 .wel{
-    font-size: 20px;
+    font-size: 100px;
     font-weight: bold;
     margin-top: 50px;
 }
@@ -102,6 +104,7 @@ input {
     justify-content: center;
     color: white;
     font-size: 18px;
+    
 
 
 }
@@ -146,8 +149,10 @@ button:focus span{
 span{
     position: absolute;
     background-color: #fff;
+
     transform: translate(-50%,-50%);
     pointer-events: none;
+top: 70%;
     border-radius: 50%;
     animation: animate2 1s linear 1;
     display: none;
@@ -224,8 +229,8 @@ section{
     width: 100%;
    height: 100vh;
     top: -50px;
-    background-color: #001300;
-    animation: changeclr 5s linear infinite;
+    background-color: #1F5662;
+    animation: changeclr 2s linear infinite;
     flex-direction: column;
     animation-delay: 1s;
 }
@@ -290,4 +295,7 @@ section h2{
 }
 section .loader:last-child .dot{
     animation-delay: calc(-0.1s * var(--i));
+}
+h1{
+    font-size: 100px;
 }
