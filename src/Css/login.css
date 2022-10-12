@@ -6,6 +6,7 @@ body {
 .containor{
     position: relative;
     overflow: hidden;
+
 }
 .main {
 
@@ -15,6 +16,10 @@ body {
     top: -20px;
     display: none;
     height: 550px;
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+
 }
 
 
@@ -223,19 +228,18 @@ button:hover {
 
 #overlay {
     background-color: #fff;
-    height: 600px;
-    width: 580px;
+    height: 580px;
+    width: 480px;
     position: absolute;
-    transform: translate(0px, -25px);
-    /*border-radius: 25px 300px 25px 25px;*/
+    transform: translate(0px, -15px);
+   overflow: hidden;
     border-radius: 20px;
     transition: .5s;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #1F5662;
-    /*background-image: url("../img/Apartment rent-pana.svg");*/
-    /*background-repeat: no-repeat;*/
+
 }
 #overlay img{
     width: 550px;
