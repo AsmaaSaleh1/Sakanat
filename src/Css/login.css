@@ -6,22 +6,20 @@ body {
 .containor{
     position: relative;
     overflow: hidden;
-
 }
 .main {
 
     background-color: white;
     backdrop-filter: blur(2px);
     border-radius: 25px;
-    top: -20px;
+    position: relative;
     display: none;
     height: 550px;
-    width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-
 }
-
+.j{
+    position: relative;
+    top: -40px;
+}
 
 input {
     outline: none;
@@ -33,7 +31,7 @@ input {
     bottom: 0px;
 }
 .form-group {
-    height: 40px;
+    height: 35px;
 }
 
 .h{
@@ -63,6 +61,7 @@ input {
 #toggle2.hide{
     background: url("../img/hide-password.png");
 }
+
 .wel{
     font-size: 100px;
     font-weight: bold;
@@ -72,6 +71,7 @@ input {
     font-family: 'Times New Roman', 'Times','serif';
     font-size: 22px;
 }
+
 
 .log{
     position: absolute;
@@ -138,9 +138,9 @@ label {
 
 .label-selected {
     position: relative;
-    font-size: 13px;
+    font-size: 12px;
     color: rgb(82, 82, 82);
-    top: 5px;
+    top: 9px;
     left: 5px;
 }
 
@@ -228,18 +228,18 @@ button:hover {
 
 #overlay {
     background-color: #fff;
-    height: 580px;
-    width: 480px;
+    height: 600px;
+    width: 580px;
     position: absolute;
-    transform: translate(0px, -15px);
-   overflow: hidden;
+    transform: translate(0px, -25px);
+
     border-radius: 20px;
     transition: .5s;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #1F5662;
-
+   overflow: hidden;
 }
 #overlay img{
     width: 550px;
@@ -339,4 +339,9 @@ h1, button{
     height: 180px;
     bottom: -20px;
     opacity: 0.1;
+}
+
+.cl{
+  margin-top: 0;
+    padding: 0;
 }

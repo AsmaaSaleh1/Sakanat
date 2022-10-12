@@ -16,7 +16,8 @@ document.getElementById("registerLink").addEventListener("click", function () {
         document.getElementById("login").style.display = 'none';
     }
     else {
-        document.getElementById("overlay").style.transform = 'translate(500px , -15px)';
+        document.getElementById("overlay").style.transform = 'translate(550px , -25px)';
+        // document.getElementById("overlay").style.borderRadius='300px 25px 25px 25px';
     }
 })
 document.getElementById("loginLink").addEventListener("click", function () {
@@ -25,7 +26,8 @@ document.getElementById("loginLink").addEventListener("click", function () {
         document.getElementById("signUp").style.display = 'none';
     }
     else {
-        document.getElementById("overlay").style.transform = 'translate(0px , -15px)';
+        document.getElementById("overlay").style.transform = 'translate(0px , -25px)';
+        // document.getElementById("overlay").style.borderRadius='25px 300px 25px 25px';
     }
 })
 const loader=document.querySelector('.load');
