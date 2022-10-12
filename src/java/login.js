@@ -40,7 +40,12 @@ function inIt(){
     },2000);
 }
 inIt();
-
+// function changeImage(){
+//     setTimeout(()=>{
+//         document.getElementById('overlay').innerHTML=' <img src="img/Home.png" class="im" alt="">'
+//     },4000);
+// }
+// changeImage();
 document.getElementById("lin").addEventListener("click", function () {
        window.open("index.html");
 

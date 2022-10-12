@@ -3,3 +3,38 @@ button{
     height: 100px;
     background: #1F5662;
 }
+
+.tst{
+    width: 550px;
+    height: 550px;
+    background-color: #1F5662;
+ position: relative;
+left: -275px;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+
+}
+.tst::before{
+    content: '';
+    position: absolute;
+    width: 550px;
+    height: 550px;
+    background-color: rgb(31, 86, 98,0.7);
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+  left: 90px;
+z-index: -5;
+
+}
+.tst::after{
+    content: '';
+    position: absolute;
+    width: 550px;
+    height: 550px;
+    background-color: rgb(31, 86, 98,0.5);
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    left:180px;
+    z-index: -8;
+
+}
