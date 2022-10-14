@@ -1,0 +1,600 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body,
+input, button {
+    font-family: 'Times New Roman', 'Times','serif';
+
+}
+
+main {
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background-image:linear-gradient(90deg,#c49f72,#c49f72,#1F5662);;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+.box {
+    position: relative;
+    width: 100%;
+    max-width: 1020px;
+    height: 550px;
+    background-color: #fff;
+    border-radius: 25px;
+
+
+    box-shadow: 0 60px 40px -30px rgba(0, 0, 0, 0.27);
+}
+
+.inner-box {
+    position: absolute;
+    width: calc(100% - 4.1rem);
+    height: calc(100% - 4.1rem);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.forms-wrap {
+    position: absolute;
+    height: 100%;
+    width: 45%;
+    top: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    transition: 0.8s ease-in-out;
+}
+
+form {
+    max-width: 260px;
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    transition: opacity 0.02s 0.4s;
+}
+
+form.sign-up-form {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.s{
+    display: flex;
+    position: relative;
+    top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+
+.heading h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #151111;
+}
+
+.actual-form{
+    position: relative;
+    top: 50px;
+}
+
+.toggle {
+    color: #151111;
+    text-decoration: none;
+
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+
+
+.input-wrap {
+    position: relative;
+    height: 37px;
+    margin-bottom: 2rem;
+}
+
+.input-field {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #1F5662;
+    padding: 0;
+    font-size: 0.95rem;
+    color: #151111;
+    transition: 0.4s;
+}
+
+label {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: rgb(58, 58, 58);
+    pointer-events: none;
+    transition: 0.4s;
+}
+#c img{
+    max-width: 100%;
+    height: 400px;
+}
+#c svg{
+    position: absolute;
+    width: 100%;
+    height: 180px;
+    bottom: -20px;
+    opacity: 0.1;
+}
+.input-field.active {
+    border-bottom-color: #151111;
+}
+
+.input-field.active + label {
+    font-size: 0.75rem;
+    top: -2px;
+}
+
+.sign-btn {
+    display: inline-block;
+    width: 100%;
+    height: 43px;
+    background: linear-gradient(90deg,#c49f72,#c49f72,#1F5662);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    font-size: 25px;
+    margin-bottom: 2rem;
+    transition: 0.3s;
+}
+
+.sign-btn:hover {
+    box-shadow: 0px 8px 15px -10px rgb(61, 61, 61);
+    transform: translate(0px, -3px);
+}
+
+.text {
+    color: #bbb;
+    font-size: 0.7rem;
+}
+
+.text a {
+    text-decoration: none;
+    font-family: 'Times New Roman', 'Times','serif';
+    color: #1F5662;
+    transition: 0.3s;
+    font-size: 18px;
+}
+
+.cap2 {
+    position: relative;
+    top: -50px;
+    right: -60px;
+}
+a{
+    text-decoration: none;
+    font-family: 'Times New Roman', 'Times','serif';
+    font-size: 22px;
+}
+.sign{
+    position: absolute;
+    width: 100px;
+    height: 38px;
+    right: 90px;
+    top: 0;
+    border-radius: 25px 0 0 25px;
+    background-color: #c49f72;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    box-shadow: #1F5662 5px 4px 5px 0;
+}
+.log{
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    right: 0px;
+    border-radius: 0px 25px 25px 0px;
+    background-color: #1F5662;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: #c49f72 5px 4px 5px 0;
+    top: 0;
+}
+main.sign-up-mode form.sign-in-form {
+    opacity: 0;
+    pointer-events: none;
+}
+
+main.sign-up-mode form.sign-up-form {
+    opacity: 1;
+    pointer-events: all;
+}
+
+main.sign-up-mode .forms-wrap {
+    left:0;
+}
+
+main.sign-up-mode .carousel {
+    left: 50%;
+}
+#toggle2{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+
+    right: 10px;
+    transform: translateY(-50%);
+    background-image:url(img/hide-password.png);
+    cursor: pointer;
+    bottom: 0;
+
+}
+#toggle2.hide{
+    background-image:url(img/hide-password.png);
+}
+
+.carousel {
+    position: absolute;
+    height: 120%;
+    width: 60%;
+    left: -40px;
+    top: -10%;
+    background-color: #1F5662;
+    border-radius: 2rem;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    padding-bottom: 2rem;
+    overflow: hidden;
+    transition: 0.8s ease-in-out;
+}
+button{
+    overflow: hidden;
+    position: relative;
+}
+button:focus span{
+    display: block;
+}
+span{
+    position: absolute;
+    background-color: #fff;
+
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+    top: 70%;
+    border-radius: 50%;
+    animation: animate2 1s linear 1;
+    display: none;
+    transition: 5s;
+}
+@keyframes animate2 {
+    0%{
+        width: 0;
+        height: 0;
+        opacity: 0.5;
+    }
+    100%{
+        width: 500px;
+        height: 500px;
+        opacity: 0;
+    }
+}
+.images-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+.image {
+    width: 100%;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.5s;
+}
+
+.img-1 {
+    transform: translate(0, -50px);
+}
+
+.img-2 {
+    transform: scale(0.4, 0.5);
+}
+
+.img-3 {
+    transform: scale(0.3) rotate(-20deg);
+}
+
+.image.show {
+    opacity: 1;
+    transform: none;
+}
+
+.text-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.s1{
+    box-shadow: #c49f72 5px 4px 5px 0;
+    height: 41px;
+}
+.l1{
+    box-shadow: #1F5662 5px 4px 5px 0;
+}
+.text-wrap {
+    max-height: 2.2rem;
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+}
+.cap{
+    position: absolute;
+    top: -20px;
+    left: 220px;
+}
+.text-group {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transform: translateY(0);
+    transition: 0.5s;
+}
+
+.text-group h2 {
+    line-height: 2.2rem;
+    font-weight: 600;
+    font-size: 1.6rem;
+}
+
+.bullets {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bullets span {
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #aaa;
+    margin: 0 0.25rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.bullets span.active {
+    width: 1.1rem;
+    background-color: #151111;
+    border-radius: 1rem;
+}
+#c{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media (max-width: 850px) {
+    .box {
+        height: auto;
+        max-width: 550px;
+        overflow: hidden;
+    }
+
+    .inner-box {
+        position: static;
+        transform: none;
+        width: revert;
+        height: revert;
+        padding: 2rem;
+    }
+
+    .forms-wrap {
+        position: revert;
+        width: 100%;
+        height: auto;
+    }
+
+    form {
+        max-width: revert;
+        padding: 1.5rem 2.5rem 2rem;
+        transition: transform 0.8s ease-in-out, opacity 0.45s linear;
+    }
+
+    .heading {
+        margin: 2rem 0;
+    }
+
+    form.sign-up-form {
+        transform: translateX(100%);
+    }
+
+    main.sign-up-mode form.sign-in-form {
+        transform: translateX(-100%);
+    }
+
+    main.sign-up-mode form.sign-up-form {
+        transform: translateX(0%);
+    }
+
+    .carousel {
+        position: revert;
+        height: auto;
+        width: 100%;
+        padding: 3rem 2rem;
+        display: flex;
+    }
+
+    .images-wrapper {
+        display: none;
+    }
+
+    .text-slider {
+        width: 100%;
+    }
+}
+
+@media (max-width: 530px) {
+    main {
+        padding: 1rem;
+    }
+    .logo{
+        left: -20px;
+    }
+    .box {
+        border-radius: 2rem;
+    }
+
+    .inner-box {
+        padding: 1rem;
+    }
+
+    .carousel {
+
+        display: none;
+        opacity: 0;
+    }
+
+    .text-wrap {
+        margin-bottom: 1rem;
+    }
+
+    .text-group h2 {
+        font-size: 1.2rem;
+    }
+
+    form {
+        padding: 1rem 2rem 1.5rem;
+    }
+}
+#toggle2{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+
+    right: 10px;
+    transform: translateY(-50%);
+    background: url("../img/showPass.png");
+    cursor: pointer;
+    bottom: 0;
+
+}
+i{
+    position: absolute;
+    transition: .3s;
+    left:-20px;
+    bottom: 10px;
+    color: #1F5662;
+}
+.cap {
+    position: absolute;
+    top: -10px;
+    left: 200px;
+}
+section{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh + 100px);
+    top: -50px;
+    background-color: #1F5662;
+    animation: changeclr 2s linear infinite;
+    flex-direction: column;
+    animation-delay: 1s;
+}
+@keyframes changeclr {
+    0%{
+        filter: hue-rotate(0deg);
+    }
+    100%{
+        filter: hue-rotate(360deg);
+    }
+}
+section .loader{
+    position: relative;
+    display: flex;
+    border-radius: 50%;
+
+}
+section .loader .dot{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    display: block;
+    background-color: #fff;
+    margin: 20px 10px;
+    border-radius: 50%;
+    transform: scale(0.1);
+    animation: animate 2s linear infinite;
+    animation-delay: calc(0.1s * var(--i));
+    box-shadow: 0 0 10px #1F5662,
+    0 0 20px #1F5662,
+    0 0 40px #1F5662,
+    0 0 60px #1F5662,
+    0 0 80px #1F5662,
+    0 0 100px #1F5662;
+
+}
+@keyframes animate {
+    0%{
+        transform: scale(0.1);
+    }
+    10%{
+        transform: scale(1);
+    }
+    50%, 100%{
+        transform: scale(0.1);
+    }
+}
+section h2{
+    font-weight: 300;
+    font-size: 25px;
+    color: #fff;
+    letter-spacing: 10px;
+    animation: changescale 2s 1s linear;
+}
+@keyframes changescale {
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.5);
+    }
+}
+section .loader:last-child .dot{
+    animation-delay: calc(-0.1s * var(--i));
+}

@@ -11,13 +11,16 @@ document.querySelectorAll('input').forEach((item) => {
 })
 
 document.getElementById("registerLink").addEventListener("click", function () {
-    if (window.innerWidth < 600) {
+    if (window.innerWidth < 800) {
         document.getElementById("signUp").style.display = 'block';
         document.getElementById("login").style.display = 'none';
     }
     else {
-        document.getElementById("overlay").style.transform = 'translate(550px , -25px)';
-        // document.getElementById("overlay").style.borderRadius='300px 25px 25px 25px';
+        if(window.innerWidth==1115){
+            document.getElementById("overlay").style.transform = 'translate(470px, -25px)';
+        }
+        else
+        document.getElementById("overlay").style.transform = 'translate(550px, -25px)';
     }
 })
 document.getElementById("loginLink").addEventListener("click", function () {
@@ -27,7 +30,6 @@ document.getElementById("loginLink").addEventListener("click", function () {
     }
     else {
         document.getElementById("overlay").style.transform = 'translate(0px , -25px)';
-        // document.getElementById("overlay").style.borderRadius='25px 300px 25px 25px';
     }
 })
 const loader=document.querySelector('.load');
@@ -66,4 +68,5 @@ else {
 }
 
 }
+
 
