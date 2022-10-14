@@ -257,13 +257,13 @@ main.sign-up-mode .carousel {
 
     right: 10px;
     transform: translateY(-50%);
-    background-image:url(img/hide-password.png);
+    background-image:url("../img/hide-password.png");
     cursor: pointer;
     bottom: 0;
 
 }
 #toggle2.hide{
-    background-image:url(img/hide-password.png);
+    background-image:url("../img/hide-password.png");
 }
 
 .carousel {
