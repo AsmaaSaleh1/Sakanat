@@ -65,7 +65,7 @@ header .nav>li>a:hover::before{
     left: 0;
 }
 section{
-    padding: 100px 120px;
+    padding: 30px 120px;
 }
 .main{
     width: 100%;
@@ -175,7 +175,6 @@ section{
 }
 .end{
     background-color: var(--main-clr);
-    padding: 30px 120px;
 }
 .end .title-diff {
     display: flex;
