@@ -44,13 +44,13 @@ function showHide() {
     if(pass.type=='password'){
         pass.setAttribute('type','text');
         toggle.classList.add('hide');
-        toggle.innerHTML=''
+        toggle.innerHTML='<i class="fa fa-eye-slash"style="left: 0;bottom: 0" aria-hidden="true"></i>'
 
     }
     else {
         pass.setAttribute('type','password');
         toggle.classList.remove('hide')
-        toggle.innerHTML='<img src="img/showPass.png" alt="">';
+        toggle.innerHTML='<i class="fa fa-eye"style="left: 0;bottom: 0" aria-hidden="true"></i>';
     }
 
 }
