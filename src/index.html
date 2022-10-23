@@ -14,14 +14,14 @@
 </head>
 <body>
 <!-- top of page -->
-<header>
+<header id="head">
     <div class="container">
         <a href="index.html" class="logo">Sakanat</a>
             <ul class="nav">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Browsers</a></li>
                 <li><a href="Contact-us.html">Contact Us</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="Log-Sign.html">LogIn</a></li>
             </ul>
     </div>
@@ -90,7 +90,7 @@
     </div>
 </section>
 <!-- about -->
-<section id="about reveal">
+<section id="about" class="about">
     <h2 class="title">ABOUT</h2>
     <div class="pre">
     <div class="pa">
@@ -103,7 +103,99 @@
 </section>
 <!-- counter of something  -->
 <section class="reveal">
-    <h2 class="title">COUNTER</h2>
+    <h2 class="title">OUR TEAM</h2>
+
+    <div class="owner">
+        <div class="cardp">
+            <div class="img">
+                <img src="img/x.png" alt="">
+            </div>
+            <div class="content">
+                <div class="info">
+                    <h2>Ruba Qawareeq <br><span>Backend developer</span></h2>
+                    <div class="data">
+                        <h3>Computer Engineer</h3><br>
+                        <div class="social">
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="#"> <i class="fa-brands fa-instagram"></i></a>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="cardp">
+            <div class="img">
+                <img src="img/x.png" alt="">
+            </div>
+            <div class="content">
+                <div class="info">
+                    <h2>Asmaa Saleh <br><span>Frontend developer</span></h2>
+                    <div class="data">
+                        <h3>Computer Engineer</h3><br>
+                        <div class="social">
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="#"> <i class="fa-brands fa-instagram"></i></a>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="cardp">
+            <div class="img">
+                <img src="img/x.png" alt="">
+            </div>
+            <div class="content">
+                <div class="info">
+                    <h2>Asmaa Saleh <br><span>Frontend developer</span></h2>
+                    <div class="data">
+                        <h3>Computer Engineer</h3><br>
+                        <div class="social">
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="#"> <i class="fa-brands fa-instagram"></i></a>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="reveal">
+    <div class="wrapper">
+        <div class="container2">
+            <i class="fa-solid fa-house z"></i>
+            <span class="num" data-val="400">000</span>
+            <span class="text">House</span>
+        </div>
+        <div class="container2">
+            <i class="fa-solid fa-users z"></i>
+            <span class="num" data-val="340">000</span>
+            <span class="text">Users</span>
+        </div>
+        <div class="container2">
+            <i class="fa-regular fa-comment z"></i>
+            <span class="num" data-val="225">000</span>
+            <span class="text">Contact</span>
+        </div>
+        <div class="container2">
+            <i class="fas fa-star z"></i>
+            <span class="num" data-val="280">000</span>
+            <span class="text">Five Stars</span>
+        </div>
+    </div>
+
 </section>
 
 <!-- at the end -->
@@ -124,6 +216,9 @@
         </div>
         <div class="copyright">
             © Copyright <strong><span>Sakanat</span></strong>.
+        </div>
+        <div class="up">
+          <a href="#head"> <i class="fa-solid fa-arrow-up"></i></a>
         </div>
     </div>
 </section>
@@ -151,10 +246,13 @@
         setTimeout(()=>{
             document.getElementById('land').innerHTML='        <h2>Welcome Dear,<br><span>Rent Home</span></h2>\n <h3>The Best House With Best Price,<br>Easier Website To Find The House You Search For</h3>'
         },2000);
-
+        setTimeout(()=>{
+            document.getElementById('land').innerHTML='        <h2>Welcome Dear,<br><span>Rent Home</span></h2>\n' +
+                '        <h3>Love where you line,<br>and who you live with</h3>'
+        },4000);
     }
-
-    changeText();
+window.addEventListener('load',changeText)
 </script>
+<script src="java/tst.js"></script>
 </body>
 </html>
