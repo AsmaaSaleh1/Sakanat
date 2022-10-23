@@ -67,7 +67,6 @@ form {
     justify-content: space-evenly;
     grid-column: 1 / 2;
     grid-row: 1 / 2;
-    /*transition: opacity 0.02s 0.4s;*/
 }
 
 form.sign-up-form {
@@ -230,6 +229,7 @@ a{
     color: white;
     box-shadow: #c49f72 5px 4px 5px 0;
     top: 0;
+    pointer-events: none;
 }
 main.sign-up-mode form.sign-in-form {
     opacity: 0;
@@ -347,9 +347,11 @@ span{
 .s1{
     box-shadow: #c49f72 5px 4px 5px 0;
     height: 41px;
+    pointer-events:none;
 }
 .l1{
     box-shadow: #1F5662 5px 4px 5px 0;
+    pointer-events:visible;
 }
 .text-wrap {
     max-height: 2.2rem;

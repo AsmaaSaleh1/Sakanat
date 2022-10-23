@@ -4,16 +4,13 @@
     <meta charset="UTF-8">
     <title>Sakanat</title>
     <link rel="stylesheet" href="Css/main.css">
-    <link rel="stylesheet" href="Css/all.min.css">
-<!--    <link rel="preconnect" href="https://fonts.googleapis.com">-->
-<!--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cairo:wght@400;500;600;700&family=Lobster&family=Open+Sans:wght@400;700&family=Work+Sans:ital,wght@0,300;0,800;1,700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cairo:wght@500;700&family=Lobster&family=Open+Sans:wght@400;700&family=Work+Sans:ital,wght@0,300;0,800;1,700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <link rel="stylesheet" href="Css/all.min.css">
+
 </head>
 <body>
 <!-- top of page -->
@@ -34,16 +31,16 @@
     <div class="land" id="land">
         <h2>Welcome Dear,<br><span>Rent Home</span></h2>
         <h3>Love where you line,<br>and who you live with</h3>
-        <div class="search">
-            <form action="#" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
-                <input type="text" class="form-control" placeholder="City or Street">
-                <button type="submit" class="btn btn-primary">Search</button>
-            </form>
-        </div>
+<!--        <div class="search">-->
+<!--            <form action="#" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">-->
+<!--                <input type="text" class="form-control" placeholder="City or Street">-->
+<!--                <button type="submit" class="btn btn-primary">Search</button>-->
+<!--            </form>-->
+<!--        </div>-->
     </div>
 </section>
 <!-- services section (card) -->
-<section class="cards" id="services">
+<section class="cards reveal" id="services">
     <h2 class="title">OUR SERVICES</h2>
     <div class="content">
         <div class="card">
@@ -92,16 +89,25 @@
         </div>
     </div>
 </section>
+<!-- about -->
+<section id="about reveal">
+    <h2 class="title">ABOUT</h2>
+    <div class="pre">
+    <div class="pa">
+    <p>
+        On the site, we offer you the best housing and the closest to the area you want, at the best price
+        We see the suffering of students, especially in trying to find housing close to his university at an affordable price, so we created this website to help you</p>
+
+    </div>
+    </div>
+</section>
 <!-- counter of something  -->
-<section>
+<section class="reveal">
     <h2 class="title">COUNTER</h2>
 </section>
-<!-- about -->
-<section>
-    <h2 class="title">ABOUT</h2>
-</section>
+
 <!-- at the end -->
-<section class="end">
+<section class="end reveal">
     <h3 class="title-diff">Sakanat</h3>
     <div class="contact">
         <p class="par">Thank you for visit my own website</p>
@@ -121,6 +127,34 @@
         </div>
     </div>
 </section>
+<script type="text/javascript">
+    window.addEventListener('scroll', reveal);
 
+    function reveal(){
+        var reveals = document.querySelectorAll('.reveal');
+
+        for(var i = 0; i < reveals.length; i++){
+
+            var windowheight = window.innerHeight;
+            var revealtop = reveals[i].getBoundingClientRect().top;
+            var revealpoint = 150;
+
+            if(revealtop < windowheight - revealpoint){
+                reveals[i].classList.add('active');
+            }
+            else{
+                reveals[i].classList.remove('active');
+            }
+        }
+    }
+    function changeText(){
+        setTimeout(()=>{
+            document.getElementById('land').innerHTML='        <h2>Welcome Dear,<br><span>Rent Home</span></h2>\n <h3>The Best House With Best Price,<br>Easier Website To Find The House You Search For</h3>'
+        },2000);
+
+    }
+
+    changeText();
+</script>
 </body>
 </html>
