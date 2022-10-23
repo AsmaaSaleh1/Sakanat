@@ -489,19 +489,30 @@ h3{
     display: flex;
     justify-content: center;
 }
-.social i{
+.container2 i{
     padding: 0 20px;
-    font-size: 20px;
+    font-size: 30px;
     color: #1F5662;
+    position: relative;
+    left: -40px;
+    top: 15px;
 }
 .wrapper {
     position: relative;
-    width: 80vw;
-    top: -200px;
+    width: 90vw;
+    height: 400px;
+    top: 50px;
     display: flex;
     justify-content: space-around;
     gap: 10px;
-
+}
+.wrapper img{
+    position: absolute;
+    top: -70px;
+    opacity: 0.2;
+}
+.container2 i ,span.num ,span.text{
+    transform: rotate(-45deg);
 }
 .container2 {
     width: 28vmin;
@@ -514,6 +525,7 @@ h3{
     border-radius: 20px;
     font-size: 16px;
     background-color: rgb(31, 86, 98,0.2);
+    transform: rotate(45deg);
 ]
 }
 .z {
@@ -533,8 +545,11 @@ span.text {
     font-size: 1em;
     text-align: center;
     padding: 0.7em 0;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 0;
+    position: relative;
+    left: 40px;
+    top: -20px;
 }
 .up{
     position: relative;
