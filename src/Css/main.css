@@ -380,7 +380,7 @@ input[type="submit"]{
     position: relative;
     transform: translateY(150px);
     opacity: 0;
-    transition: all 2s ease;
+    transition: all 0.5s ease;
 }
 
 .reveal.active{
@@ -450,6 +450,13 @@ a:hover i{
     height: 100%;
     overflow: hidden;
 }
+.cardp .data h3{
+    color: #28292d;
+}
+.cardp .social i{
+    color: #1F5662;
+    padding: 20px;
+}
 .cardp .content .info{
     padding: 40px;
     text-align: center;
@@ -458,7 +465,7 @@ a:hover i{
     transform: translateY(80px);
 }
 .cardp:hover .content .info{
-    transform: translateY(0px);
+    transform: translateY(40px);
 }
 .cardp .content .info h2{
     font-size: 1.25em;
@@ -497,11 +504,18 @@ h3{
     left: -40px;
     top: 15px;
 }
+.count{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: -200px;
+}
+
 .wrapper {
     position: relative;
     width: 90vw;
     height: 400px;
-    top: 50px;
+
     display: flex;
     justify-content: space-around;
     gap: 10px;
@@ -552,9 +566,9 @@ span.text {
     top: -20px;
 }
 .up{
-    position: relative;
-    left: 1100px;
-    top: -20px;
+    position: absolute;
+    top: 70%;
+    left: 80%;
 }
 .up i{
     font-size: 25px;
