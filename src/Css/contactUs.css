@@ -61,16 +61,16 @@ header .logo{
 ul{
     list-style: none;
     display: flex;
-    font-size: 1.1em;
+    font-size: 18px;
 }
 a{
     font-family: "cairo","sans-serif";
-
+font-size: 10px;
 }
 .nav>li>a{
     text-decoration: none;
     color: black;
-    height: 72px;
+    height: 42px;
     position: relative;
     padding: 0 30px;
     display: flex;
