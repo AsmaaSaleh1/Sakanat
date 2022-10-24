@@ -150,7 +150,7 @@ section{
     flex-direction: row;
     flex-wrap: wrap;
 }
-.card{
+.card, .house{
     background-color: #ffffff;
     width: 220px;
     box-shadow: 0 5px 25px RGBA(1 1 1 /15%);
@@ -599,6 +599,53 @@ span.text {
 }
 .t{
     margin-bottom: 240px;
+}
+.pic{
+    position: relative;
+    overflow: hidden;
+}
+.pic img{
+    width: 250px;
+    height: 220px;
+    transition: 0.3s;
+}
+.pic::before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    opacity: 0;
+    background-color: rgb(255 255 255 /20%);
+    z-index: 2;
+}
+.pic:hover::before{
+    animation: animat 0.7s;
+}
+.pic:hover img{
+    transform: rotate(5deg) scale(0.95);
+}
+@keyframes animat{
+    0%,40%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        width: 200%;
+        height: 200%;
+    }
+
+}
+a{
+    text-decoration: none;
+}
+.house{
+    width: 300px;
+}
+.houses{
+    margin-bottom: 30px;
 }
 @keyframes animate {
     0%,10%, 20%,50%,80%,100%{
