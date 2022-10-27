@@ -7,7 +7,7 @@
 }
 :root{
     --main-clr:#1f5662;
-    --main-clr2:#ecb920 ;
+    --main-clr2:#ecb920;
 }
 
 body{
@@ -71,13 +71,16 @@ section{
 .main{
     width: 100%;
     max-width: 100%;
-    min-height: 100vh;
+    min-height: 110vh;
     display: flex;
+    position: relative;
     align-items: center;
     background-size: cover;
     background: url(../img/home.png) no-repeat,var(--main-clr)  ;
     /*background-position: 300px center;*/
     background-position: 600px center;
+    border-radius: 0 0 50% 50%;
+    z-index: 0;
     /*background-attachment: fixed;*/
 }
 .main h2{
@@ -169,6 +172,15 @@ section{
 .info{
     text-align: center;
 }
+.pic-card{
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.size-img-card{
+    height: 160px;
+    width: 200px;
+}
 .info h3{
     color: var(--main-clr2);
     font-size: 1.2em;
@@ -214,6 +226,7 @@ section{
     color: #fff;
     border-color: #fff;
 }
+
 /*.log{
     height: 100vh;
     display: flex;
@@ -229,6 +242,7 @@ section{
     border-radius: 8px;
     overflow: hidden;
 }
+
 .box::before{
     content: '';
     position: absolute;
