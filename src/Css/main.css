@@ -381,7 +381,6 @@ input[type="submit"]{
     transform: translateX(-50%);
     left: 50%;
 
-    animation: 3s steps(34) 1s 1 normal both running animate-phrase;max-width: 60%;overflow: hidden;
 }
 .pa p{
     font-size: 18px;
@@ -390,7 +389,6 @@ input[type="submit"]{
 }
 
 
-@-webkit-keyframes animate-phrase{from{width:0;height: 0%}to{width:50%;height: 100%}}@keyframes animate-phrase{from{width:0;height: 0%}to{width:50%;height: fit-content}}
 .reveal{
     position: relative;
     transform: translateY(150px);

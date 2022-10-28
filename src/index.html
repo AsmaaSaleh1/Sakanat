@@ -83,10 +83,8 @@
 <section  class="about">
     <h2 id="about" class="title">ABOUT</h2>
     <div class="pre">
-    <div class="pa">
-    <p>
-        On the site, we offer you the best housing and the closest to the area you want, at the best price
-        We see the suffering of students, especially in trying to find housing close to his university at an affordable price, so we created this website to help you</p>
+    <div class="pa" id="pa">
+
 
     </div>
     </div>
@@ -354,5 +352,18 @@
 window.addEventListener('load',changeText)
 </script>
 <script src="java/tst.js"></script>
+<script type="text/javascript">
+    var i=0,text;
+    text="On the site, we offer you the best housing and the closest to the area you want, at the best price We see the suffering of students, especially in trying to find housing close to his university at an affordable price, so we created this website to help you"
+   function typing(){
+        if(i<text.length){
+            document.getElementById('pa').innerHTML+=text.charAt(i);
+            i++;
+            setTimeout(typing,50);
+        }
+   }
+
+   typing()
+</script>
 </body>
 </html>
