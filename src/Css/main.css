@@ -79,7 +79,7 @@ section{
     background: url(../img/home.png) no-repeat,var(--main-clr)  ;
     /*background-position: 300px center;*/
     background-position: 600px center;
-    border-radius: 0 0 50% 50%;
+    border-radius: 0 0 35% 35%;
     z-index: 0;
     /*background-attachment: fixed;*/
 }
