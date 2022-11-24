@@ -71,12 +71,53 @@ height: 500px;
 }
 .carousel{
     background-color: #1F5662;
-    height: 90vh;
-    border-radius: 0 0 35% 35%;
+    height: 80vh;
+    /*border-radius: 0 0 35% 35%;*/
 }
 h2{
     color: #ecb920;
 }
 p, .carousel-control-prev{
     color: white;
+}
+.container{
+    background-color: rebeccapurple;
+}
+.wrapper{
+
+    overflow: hidden;
+   max-width: 800px;
+    height: 400px;
+    align-items: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: -100px;
+
+}
+.wrapper h1{
+    position: relative;
+    display: inline-block;
+}
+.line{
+    display: block;
+    width: 40px;
+    height: 4px;
+    background-color: #ecb920;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wrapper p{
+color: black;
+    font-size: 22px;
+font-weight: 600;
+margin-top: 20px;
+}
+
+@keyframes type{
+    from {
+        width: 0;
+    }
 }

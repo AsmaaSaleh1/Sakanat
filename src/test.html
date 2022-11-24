@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,7 +33,7 @@
                     <a class="nav-link active p-lg-4" aria-current="page" href="#">Contact</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active p-lg-4" aria-current="page" href="#">About</a>
+                    <a class="nav-link active p-lg-4" aria-current="page" href="#about">About</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle p-lg-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -89,5 +89,29 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
+<svg width="100%" height="100%" id="svg" viewBox="0 0 1440 500" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><path d="M 0,500 C 0,500 0,250 0,250 C 86.97217451047749,278.1332875300584 173.94434902095497,306.2665750601168 232,284 C 290.055650979045,261.7334249398832 319.19477842665754,189.0669872895912 373,183 C 426.80522157334246,176.9330127104088 505.276537272415,237.46547578151842 589,276 C 672.723462727585,314.5345242184816 761.6990724836827,331.07110958433526 835,303 C 908.3009275163173,274.92889041566474 965.9271727928547,202.25008588114048 1027,197 C 1088.0728272071453,191.74991411885952 1152.5922363448985,253.9285468911027 1222,274 C 1291.4077636551015,294.0714531088973 1365.7038818275507,272.0357265544486 1440,250 C 1440,250 1440,500 1440,500 Z" stroke="none" stroke-width="0" fill="#1f5662" fill-opacity="1" class="transition-all duration-300 ease-in-out delay-150 path-0" transform="rotate(-180 720 250)"></path></svg>
+
+<div class="wrapper" id="about">
+    <h1>About Us</h1>
+    <span class="line"></span>
+    <p id="msg">
+</p></div>    <!--About section  -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 </body>
+<script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+        showText("#msg", " On the site, we offer you the best housing and the closest to the area you want, at the best price\n" +
+            "    We see the suffering of students, especially in trying to find housing close to his university at an affordable price, so we created this website to help you", 0, 100);
+    });
+    let showText = function (target, message, index, interval) {
+        if (index < message.length) {
+            document.querySelector(target).innerHTML =
+                document.querySelector(target).innerHTML + message[index++];
+            setTimeout(function () { showText(target, message, index, interval); }, interval);
+        }
+    }
+
+</script>
 </html>
