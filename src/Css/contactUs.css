@@ -204,7 +204,8 @@ form {
     outline: none;
     border-bottom: 2px solid #1F5662;
     padding: 0;
-    font-size: 0.95rem;
+    font-size: 22px;
+    font-weight: 600;
     color: #151111;
     transition: 0.4s;
 }

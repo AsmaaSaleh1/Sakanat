@@ -1,6 +1,12 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
 .navbar {
     background-color: #f0f0f0;
-
+padding: 0;
+    height: 72px;
 }
 body{
 
@@ -18,13 +24,14 @@ body{
     font-size: 1.1em;
     font-weight: 600;
 }
-.navbar-nav a{
+.navbar-nav .nav-item .nav-link{
     width: 116px;
-
+height: 70px;
     overflow: hidden;
     position: relative;
+    text-align: center;
 }
-.navbar-nav a::before{
+.navbar-nav .nav-item .nav-link::before{
     content: '';
     background-color: #1F5662;
     width: 100%;
@@ -34,15 +41,42 @@ body{
     top: 0;
     left: -100%;
 }
-.navbar-nav a:hover{
+.navbar-nav .nav-item .nav-link:hover{
     color:#1F5662;
     background-color: #ddd;
 
 }
-.navbar-nav a:hover::before{
+navbar-nav .nav-item .nav-link{
+    padding-top: 100px ;
+}
+.navbar-nav .nav-item .nav-link:hover::before{
     left: 0;
 
 }
 .navbar .navbar-toggler{
     font-size: 25px;
+}
+.carousel-item img{
+width: 500px;
+margin-left: 100px;
+
+    position: relative;
+height: 500px;
+
+}
+.carousel-caption{
+
+    margin-left: 500px;
+
+}
+.carousel{
+    background-color: #1F5662;
+    height: 90vh;
+    border-radius: 0 0 35% 35%;
+}
+h2{
+    color: #ecb920;
+}
+p, .carousel-control-prev{
+    color: white;
 }
