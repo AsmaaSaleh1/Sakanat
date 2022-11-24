@@ -90,7 +90,11 @@ label {
     pointer-events: none;
     transition: 0.4s;
 }
-
+.form{
+    left: 50px;
+    position: relative;
+    top: 40px;
+}
 .input-field.active {
     border-bottom-color: #151111;
 }

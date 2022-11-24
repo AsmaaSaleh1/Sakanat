@@ -1,89 +1,48 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+.navbar {
+    background-color: #f0f0f0;
+
 }
-body {
+body{
+
 }
-.wrapper {
-    position: absolute;
-    width: 90vw;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    display: flex;
-    justify-content: space-around;
-    gap: 10px;
+.navbar-brand{
+    font-family: "Lobster";
+    color:#1F5662;
+    font-weight: 700;
+    font-size: 2.2em;
+    margin-left: 80px;
 }
-.container {
-    width: 28vmin;
-    height: 28vmin;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 1em 0;
-    position: relative;
-    border-radius: 20px;
-    font-size: 16px;
-    background-color: rgb(31, 86, 98,0.2);
-   transform: rotate(45deg);
-}
-i {
-    color: #1F5662;
-    font-size: 2.5em;
-    text-align: center;
-    position: relative;
-    left: -40px;
-    top: 15px;
-}
-span.num {
-    color: black;
-    display: grid;
-    place-items: center;
+.navbar-nav{
+    margin-right: 20px;
+    font-family: "sans-serif";
+    font-size: 1.1em;
     font-weight: 600;
-    font-size: 3em;
 }
-span.text {
-    color: #e0e0e0;
-    font-size: 1em;
-    text-align: center;
-    padding: 0.7em 0;
-    font-weight: 400;
-    line-height: 0;
+.navbar-nav a{
+    width: 116px;
+
+    overflow: hidden;
+    position: relative;
 }
-i ,span.num ,span.text{
-    transform: rotate(-45deg);
+.navbar-nav a::before{
+    content: '';
+    background-color: #1F5662;
+    width: 100%;
+    height: 4px;
+    transition: 0.25s;
+    position: absolute;
+    top: 0;
+    left: -100%;
 }
-@media screen and (max-width: 1024px) {
-    .wrapper {
-        width: 85vw;
-    }
-    .container {
-        height: 26vmin;
-        width: 26vmin;
-        font-size: 12px;
-    }
+.navbar-nav a:hover{
+    color:#1F5662;
+    background-color: #ddd;
+
 }
-@media screen and (max-width: 768px) {
-    .wrapper {
-        width: 90vw;
-        flex-wrap: wrap;
-        gap: 30px;
-    }
-    .container {
-        width: calc(50% - 40px);
-        height: 30vmin;
-        font-size: 14px;
-    }
+.navbar-nav a:hover::before{
+    left: 0;
+
 }
-@media screen and (max-width: 480px) {
-    .wrapper {
-        gap: 15px;
-    }
-    .container {
-        width: 100%;
-        height: 25vmin;
-        font-size: 8px;
-    }
+.navbar .navbar-toggler{
+    font-size: 25px;
 }

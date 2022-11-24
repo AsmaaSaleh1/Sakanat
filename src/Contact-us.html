@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +34,7 @@
             </div>
             <div class="forms-wrap">
 
-                <form action="index.html" autocomplete="off" class="sign-in-form" id="login">
+                <form action="mail.php" method="post" autocomplete="off" class="sign-in-form" id="login">
 
 
 
@@ -46,6 +47,7 @@
                                     class="input-field"
                                     autocomplete="off"
                                     required
+                                    name="name"
                             />
                             <label>Name</label>
                         </div>
@@ -55,15 +57,18 @@
                                     class="input-field"
                                     autocomplete="off"
                                     required
+                                    name="email"
                             />
                             <label>Email</label>
                         </div>
                         <div class="input-wrap">
-        <textarea class="input-field"  style="height: 80px">
+        <textarea name="message" class="input-field"  style="height: 80px">
         </textarea>
                             <label>Type Your Message...</label>
                         </div>
-                        <button type="submit" value="Sign In" class="sign-btn">Send <span></span></button>
+                        <button onclick="
+
+" type="submit" name="send" value="Sign In" class="sign-btn">Send <span></span></button>
 
 
                     </div>
@@ -96,5 +101,6 @@
 <!-- Javascript file -->
 
 <script src="java/log-sign.js"></script>
+
 </body>
 </html>

@@ -13,7 +13,7 @@
   <div class="box">
     <div class="inner-box">
       <div class="forms-wrap">
-        <form action="index.html" autocomplete="off" class="sign-up-form" id="signUp">
+        <form action="index.html" class="sign-up-form" id="signUp" method="post">
           <div class="logo d-flex justify-content-between mt-5 cap v" style="position: absolute;
     " >
             <a class="sign s1" href="#" style="background-color: #1F5662; " >Sign up</a>
@@ -28,6 +28,7 @@
             <div class="input-wrap">
 
               <input
+                      name="name"
                       type="text"
                       minlength="4"
                       class="input-field"
@@ -36,9 +37,9 @@
               />
               <label>Name</label>
             </div>
-
             <div class="input-wrap">
               <input
+                      name="email"
                       type="email"
                       class="input-field"
                       autocomplete="off"
@@ -53,11 +54,13 @@
                       class="input-field"
                       autocomplete="off"
                       required
+                      name="pNum"
               />
               <label>Phone Number</label>
             </div>
             <div class="input-wrap">
               <input
+                      name="regPass"
                       type="password"
                       minlength="4"
                       class="input-field"
@@ -68,6 +71,7 @@
             </div>
             <div class="input-wrap">
               <input
+                      name="confPass"
                       type="password"
                       minlength="4"
                       class="input-field"
@@ -84,7 +88,7 @@
         </form>
 
 
-        <form action="index.html" autocomplete="off" class="sign-in-form" id="login">
+        <form action=""  class="sign-in-form" method="post" id="login">
           <div class="logo d-flex justify-content-between mt-5 cap2" >
             <a class="sign tog" href="#"id="registerLink" >Sign up</a>
             <a class="log" href="#" >Login</a>
@@ -113,9 +117,10 @@
               <i class="fas fa-user"></i>
               <input
                       type="text"
+                      name="uName"
                       minlength="4"
                       class="input-field"
-                      autocomplete="off"
+
                       required
               />
               <label>Username</label>
@@ -125,9 +130,9 @@
               <i class="fa fa-lock" aria-hidden="true"></i>
               <input
                       type="password" id="password2"
+                      name="uPass"
                       minlength="4"
                       class="input-field"
-                      autocomplete="off"
                       required
               />
               <label>Password</label>
@@ -141,7 +146,7 @@
               <a href="#">Forget Password?</a>
             </p>
           </div>
-        </form>
+        </form >
 
 
       </div>
