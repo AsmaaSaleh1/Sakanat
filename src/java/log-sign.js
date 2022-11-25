@@ -80,3 +80,5 @@ valueDisplays.forEach((valueDisplay) => {
         }
     }, duration);
 });
+
+/*For contact button*/
