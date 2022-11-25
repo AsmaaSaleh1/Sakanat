@@ -15,7 +15,8 @@
 </head>
 <body>
 <script src="js/bootstrap.bundle.min.js"></script>
-<nav class="navbar navbar-expand-lg sticky-top">
+<!-- Header section -->
+<nav id="head" class="navbar navbar-expand-lg sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Sakanat</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="true" aria-label="Toggle navigation">
@@ -63,17 +64,17 @@
             <div class="carousel-caption d-none d-md-block">
                 <h2>Welcome Dear</h2>
                 <p>Love where you line,and who you live with.</p>            </div>
-            <img src="img/Home.png" style="width: 700px;height: 400px" class="d-block w-40 "  alt="...">
+            <img src="img/Home.png" style="width: 700px;height: 400px;position: relative;top: 100px" class="d-block w-40 "  alt="...">
         </div>
         <div class="carousel-item" data-bs-interval="2000">
-            <img src="img/h.png" class="d-block w-40" alt="...">
+            <img src="img/house-.png" class="d-block w-40" alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <h2>Save Time</h2>
                 <p>Best Website To Find Home You Search For.</p>
             </div>
         </div>
         <div class="carousel-item">
-            <img src="img/x.svg" class="d-block w-40" style="" alt="...">
+            <img src="img/Student.png" class="d-block w-40" style="" alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <h2>Rent Home</h2>
                 <p>Rent Home With Best Price.</p>
@@ -107,8 +108,8 @@
 
     <div class="row">
         <div class="col">
-            <div class="card">
-                <div class="img">
+            <div class="card2">
+                <div class="img2">
 <!--                    <img src="img/Easy-chat.png" alt="">-->
                     <i class="fa-solid fa-dollar-sign"></i>
                 </div>
@@ -121,9 +122,8 @@
 
         </div>
         <div class="col">
-            <div class="card">
-                <div class="img">
-<!--                    <img src="img/Best_place.png" alt="">-->
+            <div class="card2">
+                <div class="img2">
                     <i class="fa-regular fa-face-laugh-beam"></i>
                 </div>
                 <div class="content">
@@ -132,8 +132,8 @@
                 </div>
             </div>        </div>
         <div class="col">
-            <div class="card">
-                <div class="img">
+            <div class="card2">
+                <div class="img2">
 <!--                    <img src="img/Best_place.png" alt="">-->
                     <i class="fa-regular fa-heart"></i>                </div>
                 <div class="content">
@@ -232,7 +232,136 @@
         </div>
     </div>
 </div>
+<!-- Users Feedback -->
+<h2 class="title">Customers Feedback</h2>
+<span class="line"></span>
+<div id="carouselExampleIndicators" class="carousel slide feedback" data-bs-ride="true">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
 
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="img/x.png" class="d-block " alt="...">
+            <h4>Aseel Ahmad</h4>
+            <p>Very easy and simple!</p>
+        </div>
+        <div class="carousel-item">
+            <img src="img/man.png" class="d-block " alt="...">
+            <h4>Mohammad Awad</h4>
+            <p>Helpful, nice website and home</p>
+        </div>
+        <div class="carousel-item">
+            <img src="img/x.png" class="d-block " alt="...">
+            <h4>Hiba khaled</h4>
+            <p>Fast reply and sweet home with good price.</p>
+        </div>
+        <div class="carousel-item">
+            <img src="img/girl.png" class="d-block " alt="...">
+            <h4>Alaa Ali</h4>
+            <p>Fast reply and sweet home with good price.</p>
+        </div>
+    </div>
+  </div>
+<!-- Our Team -->
+<section class="reveal t">
+    <h2 class="title ot">OUR TEAM</h2>
+    <div class="content">
+        <div class="cardt team">
+            <div class="img">-->
+                <img src="img/x.png" alt="">
+            </div>
+            <div class="content">
+                <div class="info">
+                    <h2>Ruba Qawareeq <br><span>Backend developer</span></h2>
+                    <div class="data">
+                        <h3>Computer Engineer</h3><br>
+                        <div class="social">
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="#"> <i class="fa-brands fa-instagram"></i></a>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="cardt team">
+            <div class="img">-->
+                <img src="img/x.png" alt="">
+            </div>
+            <div class="content">
+                <div class="info">
+                    <h2>Asmaa Saleh <br><span>Front developer</span></h2>
+                    <div class="data">
+                        <h3>Computer Engineer</h3><br>
+                        <div class="social">
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="#"> <i class="fa-brands fa-instagram"></i></a>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="cardt team">
+            <div class="img">-->
+                <img src="img/x.png" alt="">
+            </div>
+            <div class="content">
+                <div class="info">
+                    <h2>Ruba Qawareeq <br><span>Backend developer</span></h2>
+                    <div class="data">
+                        <h3>Computer Engineer</h3><br>
+                        <div class="social">
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="#"> <i class="fa-brands fa-instagram"></i></a>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</section>
+<!-- Footer -->
+<section class="end">
+    <h3 class="title-diff">Sakanat</h3>
+    <div class="contact">
+        <p class="par">Thank you for visit my own website</p>
+        <div class="social-links">
+            <a href="#" class="twitter">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a href="#" class="facebook">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="#" class="instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+        </div>
+        <div class="copyright">
+            © Copyright <strong><span>Sakanat</span></strong>.
+        </div>
+        <div class="up">
+            <a href="#carouselExampleDark"> <i class="fa-solid fa-arrow-up"></i></a>
+        </div>
+    </div>
+</section>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 </body>
 <script type="text/javascript">
@@ -259,7 +388,7 @@
     <script>
         //for counters
         let valueDisplays = document.querySelectorAll(".num");
-        let interval = 8000;
+        let interval = 10000;
 
         valueDisplays.forEach((valueDisplay) => {
             let startValue = 0;
@@ -277,6 +406,7 @@
         showText("#msg", " On the site, we offer you the best housing and the closest to the area you want, at the best price\n" +
             "    We see the suffering of students, especially in trying to find housing close to his university at an affordable price, so we created this website to help you.", 0, 100);
     });
+    //For display paragraph letter by letter
     let showText = function (target, message, index, interval) {
         if (index < message.length) {
             document.querySelector(target).innerHTML =
