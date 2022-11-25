@@ -388,15 +388,7 @@ transform: translateY(-10px);
     /*top: -200px;*/
 }
 
-.wrapper {
-    position: relative;
-    width: 100vw;
-    height: 400px;
 
-    display: flex;
-    justify-content: space-evenly;
-    gap: 20px;
-}
 .wrapper img{
     position: absolute;
     top: -50px;
@@ -456,4 +448,13 @@ span.text {
     font-size: 20px;
     font-weight: 800;
     color: #1F5662;
+}
+.co{
+    position: relative;
+    top: -400px;
+    width: 110%;
+}
+.counter img{
+    z-index: -2;
+    opacity: 0.2;
 }

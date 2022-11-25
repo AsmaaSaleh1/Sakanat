@@ -198,33 +198,41 @@
     </div>
 </section>
 <!-- Counters-->
-<div  class="count reveal">
-    <div class="wrapper">
-        <img src="img/agr.svg" alt="">
-        <div class="container2">
-            <i class="fa-solid fa-house z"></i>
-            <span class="num" data-val="400">000</span>
-            <span class="text">House</span>
+
+<div class="container counter text-center">
+    <img src="img/agr.svg" alt="">
+    <div class="row co">
+        <div class="col">
+            <div class="container2">
+                <i class="fa-solid fa-house z"></i>
+                <span class="num" data-val="600">000</span>
+                <span class="text">House</span>
+            </div>
         </div>
-        <div class="container2">
-            <i class="fa-solid fa-users z"></i>
-            <span class="num" data-val="340">000</span>
-            <span class="text">Users</span>
+        <div class="col">
+            <div class="container2">
+                <i class="fa-solid fa-users z"></i>
+                <span class="num" data-val="540">000</span>
+                <span class="text">Users</span>
+            </div>
         </div>
-        <div class="container2">
-            <i class="fa-regular fa-comment z"></i>
-            <span class="num" data-val="225">000</span>
-            <span class="text">Contact</span>
+        <div class="col">
+            <div class="container2">
+                <i class="fa-regular fa-comment z"></i>
+                <span class="num" data-val="425">000</span>
+                <span class="text">Contact</span>
+            </div>
         </div>
-        <div class="container2">
-            <i class="fas fa-star z"></i>
-            <span class="num" data-val="280">000</span>
-            <span class="text">Five Stars</span>
+        <div class="col">
+            <div class="container2">
+                <i class="fas fa-star z"></i>
+                <span class="num" data-val="280">000</span>
+                <span class="text">Five Stars</span>
+            </div>
         </div>
     </div>
-
 </div>
-<script src="java/log-sign.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 </body>
 <script type="text/javascript">
@@ -249,7 +257,22 @@
     }
 </script>
     <script>
+        //for counters
+        let valueDisplays = document.querySelectorAll(".num");
+        let interval = 8000;
 
+        valueDisplays.forEach((valueDisplay) => {
+            let startValue = 0;
+            let endValue = parseInt(valueDisplay.getAttribute("data-val"));
+            let duration = Math.floor(interval / endValue);
+            let counter = setInterval(function () {
+                startValue += 1;
+                valueDisplay.textContent = startValue;
+                if (startValue == endValue) {
+                    clearInterval(counter);
+                }
+            }, duration);
+        });
     document.addEventListener('DOMContentLoaded', function() {
         showText("#msg", " On the site, we offer you the best housing and the closest to the area you want, at the best price\n" +
             "    We see the suffering of students, especially in trying to find housing close to his university at an affordable price, so we created this website to help you.", 0, 100);
