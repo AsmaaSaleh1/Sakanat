@@ -2,6 +2,8 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-family: 'Times New Roman', 'Times','serif';
+
 }
 .navbar {
     background-color: #f0f0f0;
@@ -9,7 +11,7 @@ padding: 0;
     height: 72px;
 }
 body{
-
+    font-family: 'Times New Roman', 'Times','serif';
 }
 .navbar-brand{
     font-family: "Lobster";
@@ -80,14 +82,20 @@ h2{
 p, .carousel-control-prev{
     color: white;
 }
+
 .container{
-    background-color: rebeccapurple;
+height: 500px;
+    /*background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(82,138,150,1) 70%);*/
+    position: relative;
+    top: -150px;
+
+
 }
 .wrapper{
 
     overflow: hidden;
    max-width: 800px;
-    height: 400px;
+    height: 300px;
     align-items: center;
     text-align: center;
     margin-left: auto;
@@ -120,4 +128,332 @@ margin-top: 20px;
     from {
         width: 0;
     }
+}
+
+.card{
+
+    width: 280px;
+    height: 300px;
+    position: relative;
+    background-color: rgba(255,255,255,0.1);
+    overflow: hidden;
+}
+.card .img{
+    width: 100%;
+    height: 320px;
+}
+.card .img img{
+    width: 100%;
+    height: 100%;
+}
+.card .content{
+    width: 100%;
+    height: 80px;
+    position: absolute;
+    bottom: 0;
+    background-color: darkslategrey;
+    transition: 0.5s;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.card .content h1{
+    margin-top: 10px;
+    letter-spacing: 1px;
+    color: white;
+    text-align: center;
+
+
+}
+.card .content p{
+    text-align: justify;
+    /* letter-spacing: 1px; */
+    color: rgba(255, 255, 255, 0.8);
+}
+.card:hover .content{
+    height: 215px;
+}
+.card:hover i{
+    font-size: 60px;
+    top: 10px;
+}
+/* For why us Animation*/
+.ml11 {
+    font-weight: 700;
+    font-size: 3.5em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+}
+
+.ml11 .text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.1em;
+    padding-right: 0.05em;
+    padding-bottom: 0.15em;
+}
+
+.ml11 .line {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: #333;
+    transform-origin: 0 50%;
+}
+
+.ml11 .line1 {
+    top: 0;
+    left: 0;
+}
+.reveal{
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.reveal.active{
+    transform: translateY(0px);
+    opacity: 1;
+}
+.ml11 .letter {
+    display: inline-block;
+    line-height: 1em;
+}
+.img{
+background-color: #fff;
+    justify-content: center;
+}
+.img i{
+    position: relative;
+    font-size: 120px;
+    color: #1F5662;
+    top: 50px;
+}
+.house{
+    background-color: #ffffff;
+    width: 250px;
+    box-shadow: 0 5px 25px RGBA(1 1 1 /15%);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 1%;
+    transition: 0.7s ease;
+}
+h2{
+    margin-left: auto;
+    width: fit-content;
+    margin-right: auto;
+}
+.content{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.pic{
+    text-align: center;
+    /*to scale the picture*/
+}
+.info{
+    text-align: center;
+}
+.pic-card{
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.size-img-card{
+    height: 160px;
+    width: 200px;
+}
+.info h3{
+    color: var(--main-clr2);
+    font-size: 1.2em;
+    font-weight: 700;
+    margin: 10px;
+}
+section{
+    padding: 30px 120px;
+}
+.pic{
+    position: relative;
+    overflow: hidden;
+}
+.pic img{
+    width: 250px;
+    height: 220px;
+    transition: 0.3s;
+}
+.pic::before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    opacity: 0;
+    background-color: rgb(255 255 255 /20%);
+    z-index: 2;
+}
+.pic:hover::before{
+    animation: animat 0.7s;
+}
+section.houses{
+    top: -80px;
+}
+.pic:hover img{
+    transform: rotate(5deg) scale(0.95);
+}
+.info p{
+    color: black;
+}
+.pic{
+    position: relative;
+    overflow: hidden;
+}
+.pic img{
+    width: 250px;
+    height: 220px;
+    transition: 0.3s;
+}
+.pic::before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    opacity: 0;
+    background-color: rgb(255 255 255 /20%);
+    z-index: 2;
+}
+.pic:hover::before{
+    animation: animat 0.7s;
+}
+.pic:hover img{
+    transform: rotate(5deg) scale(0.95);
+}
+@keyframes animat{
+    0%,40%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        width: 200%;
+        height: 200%;
+    }
+
+}
+.info h3{
+    color: #1F5662;
+    left: 0;
+    width: 100%;
+    position: relative;
+}
+h2.title{
+    color: black;
+
+}
+h2.line{
+    margin-bottom: 20px;
+}
+h3 i{
+    position: absolute;
+    right: 40px;
+    cursor: pointer;
+    animation: arrow 0.5s linear infinite;
+    color: #fcb900;
+}
+/*
+ arrow read more*/
+@keyframes arrow{
+    100%{
+        transform: translateX(10px);
+    }
+}
+.house:hover:not(.img){
+transform: translateY(-10px);
+    box-shadow: 0 35px 80px rgba(0,0,0,0.15);
+}
+/* For counter section*/
+
+.count{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    /*top: -200px;*/
+}
+
+.wrapper {
+    position: relative;
+    width: 100vw;
+    height: 400px;
+
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+.wrapper img{
+    position: absolute;
+    top: -50px;
+    opacity: 0.2;
+}
+.container2 i ,span.num ,span.text{
+    transform: rotate(-45deg);
+    position: absolute;
+
+}
+.container2 i{
+    left: 50px;
+    left: 30px;
+    top: 30px;
+}
+.container2 {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1em 0;
+    position: relative;
+    border-radius: 20px;
+    font-size: 16px;
+    background-color: rgb(31, 86, 98,0.2);
+    transform: rotate(45deg);
+    margin-bottom: 30px;
+
+]
+}
+.z {
+    color: #1F5662;
+    font-size: 2.5em;
+    text-align: center;
+}
+span.num {
+    color: black;
+    display: grid;
+    place-items: center;
+    font-weight: 600;
+    font-size: 3em;
+    top: 50px;
+    left: 50px;
+}
+span.text {
+    color: #333;
+    font-size: 1em;
+    text-align: center;
+    padding: 0.7em 0;
+    font-weight: 500;
+    line-height: 0;
+    position: relative;
+    width: fit-content;
+    top: 100px;
+    left: 150px;
+    font-size: 20px;
+    font-weight: 800;
+    color: #1F5662;
 }

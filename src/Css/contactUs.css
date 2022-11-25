@@ -174,7 +174,7 @@ form {
 
 .actual-form{
     position: relative;
-    top: 0;
+    top: 30px;
     width: 300px;
     left: -100px;
 }
@@ -232,23 +232,27 @@ label {
 
 .sign-btn {
     display: inline-block;
-    width: 100%;
-    height: 43px;
-    background: linear-gradient(90deg,#c49f72,#c49f72,#1F5662);
-    color: #fff;
+    /*width: 100%;*/
+    /*height: 43px;*/
+    /*!*background: linear-gradient(90deg,#c49f72,#c49f72,#1F5662);*!*/
+    /*color: #fff;*/
     border: none;
-    cursor: pointer;
-    border-radius: 30px;
+    /*cursor: pointer;*/
+    /*border-radius: 30px;*/
     font-size: 25px;
-    margin-bottom: 2rem;
-    transition: 0.3s;
-    bottom: -50px;
+    /*margin-bottom: 2rem;*/
+    /*transition: 0.3s;*/
+    top: -40px;
+    width: 100px;
+    left: 120px;
+color: transparent;
+    /*bottom: -50px;*/
 }
 
-.sign-btn:hover {
-    box-shadow: 0px 8px 15px -10px rgb(61, 61, 61);
-    transform: translate(0px, -3px);
-}
+/*.sign-btn:hover {*/
+/*    box-shadow: 0px 8px 15px -10px rgb(61, 61, 61);*/
+/*    transform: translate(0px, -3px);*/
+/*}*/
 
 a{
     text-decoration: none;
@@ -361,7 +365,9 @@ span{
 .l1{
     box-shadow: #1F5662 5px 4px 5px 0;
 }
-
+.sign-btn{
+    background-color: transparent;
+}
 @media (max-width: 850px) {
     .box {
         height: auto;
