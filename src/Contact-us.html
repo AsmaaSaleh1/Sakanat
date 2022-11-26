@@ -5,18 +5,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign in & Sign up Form</title>
+    <title>Contact us</title>
     <link rel="stylesheet" href="Css/contactUs.css" />
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cairo:wght@400;500;600;700&family=Lobster&family=Open+Sans:wght@400;700&family=Work+Sans:ital,wght@0,300;0,800;1,700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <link rel="stylesheet" href="Css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="Css/bootstrap.min.css">
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
 
         svg {
             width: 100%;
             overflow: visible;
+            position: relative;
+            top: -20px;
         }
 
         .hidden {
@@ -30,16 +34,29 @@
     </style>
 </head>
 <body>
-<header>
-    <div class="container">
-        <a href="index.html" class="logo">Sakanat</a>
-        <ul class="nav">
-            <li><a href="index.html" style="font-size: 16px">Home</a></li>
-            <li><a href="#" style="font-size: 16px">Browsers</a></li>
-            <li><a href="Contact-us.html" style="font-size: 16px">Contact Us</a></li>
-        </ul>
+<nav id="head" class="navbar navbar-expand-lg sticky-top">
+    <div class="container-fluid">
+        <a style="color: #1F5662;    font-size: 30px;
+" class="navbar-brand" href="test.html">Sakanat</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100%;">
+                <li class="nav-item">
+                    <a class="nav-link active p-lg-4" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active p-lg-4" aria-current="page" href="#">Browser</a>
+                </li>
+
+                </li>
+            </ul>
+
+        </div>
     </div>
-</header>
+</nav>
+
 <main>
 
     <div class="box">
@@ -83,8 +100,7 @@
         </textarea>
                             <label>Type Your Message...</label>
                         </div>
-<!--                        <button type="submit" name="send" value="Sign In" class="sign-btn">Send <span></span></button>-->
-                        <svg type="submit"class="sign" name="send" viewBox="200 100 1000 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <button style="background-color: transparent;border: none" type="submit" name="send">     <svg type="submit"class="sign" name="send" viewBox="200 100 1000 500" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path id="paperPlaneRoute" d="M563.558,526.618 C638.854,410.19 787.84,243.065 916.53,334.949 1041.712,424.328 858.791,877.927 743.926,856.655 642.241,838.669 699.637,688.664 700,540" stroke="white"  stroke-width="3" style="stroke-dashoffset: 0.001px; stroke-dasharray: 0px, 999999px;"/>
                             <g id="rectSent" clip-path="url(#clipPath)">
                                 <g id="rectSentItems">
@@ -119,8 +135,7 @@
                                 </filter>
                             </defs>
                         </svg>
-                        <button type="submit" name="send" value="Sign In" class="sign-btn">Send <span></span></button>
-
+                        </button>
 
                     </div>
                 </form>
@@ -148,7 +163,8 @@
         </div>
     </div>
 </main>
-
+<!-- google map -->
+<div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=1199&amp;height=400&amp;hl=en&amp;q=Nablus&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://formatjson.org/">format json</a></div><style>.mapouter{position:relative;text-align:right;width:100%;height:400px;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:400px;}.gmap_iframe {height:400px!important;}</style></div>
 <!-- Javascript file -->
 <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
 <script src="https://assets.codepen.io/16327/MorphSVGPlugin3.min.js"></script>
@@ -158,6 +174,7 @@
 
 </body>
 <script type="text/javascript">
+    /* For button animation*/
     gsap.registerPlugin(MotionPathPlugin);
     MorphSVGPlugin.convertToPath("circle, rect");
     gsap.set("#paperPlaneRoute", { drawSVG: "0% 0%" });

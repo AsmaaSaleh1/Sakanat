@@ -255,3 +255,11 @@ display: none;
         top: 80px;
     }
 }
+.back{
+    position: relative;
+    left: -60px;
+}
+.back i{
+    color: #1F5662;
+    font-size: 40px;
+}

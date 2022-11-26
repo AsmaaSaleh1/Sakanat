@@ -177,6 +177,7 @@ form {
     top: 50px;
     width: 300px;
     left: -100px;
+    overflow: visible;
 }
 
 .toggle {
@@ -204,12 +205,15 @@ form {
     outline: none;
     border-bottom: 2px solid #1F5662;
     padding: 0;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 600;
     color: #151111;
     transition: 0.4s;
 }
-
+h3{
+    font-size: 22px;
+    top: -10px;
+}
 label {
     position: absolute;
     left: 0;
@@ -229,30 +233,6 @@ label {
     font-size: 0.75rem;
     top: -2px;
 }
-
-.sign-btn {
-    display: inline-block;
-    /*width: 100%;*/
-    /*height: 43px;*/
-    /*!*background: linear-gradient(90deg,#c49f72,#c49f72,#1F5662);*!*/
-    /*color: #fff;*/
-    border: none;
-    /*cursor: pointer;*/
-    /*border-radius: 30px;*/
-    font-size: 25px;
-    /*margin-bottom: 2rem;*/
-    /*transition: 0.3s;*/
-    top: -40px;
-    width: 100px;
-    left: 120px;
-color: transparent;
-    /*bottom: -50px;*/
-}
-
-/*.sign-btn:hover {*/
-/*    box-shadow: 0px 8px 15px -10px rgb(61, 61, 61);*/
-/*    transform: translate(0px, -3px);*/
-/*}*/
 
 a{
     text-decoration: none;
@@ -287,6 +267,7 @@ text-align: center;
     transition: 0.8s ease-in-out;
     justify-content: center;
     align-items: center;
+    overflow: visible;
 }
 .em{
     position: relative;
@@ -494,4 +475,55 @@ i{
 }
 textarea{
     resize: none;
+}
+h3{
+    position: relative;
+    top: -20px;
+}
+.navbar {
+    background-color: #f0f0f0;
+    padding: 0;
+    height: 72px;
+}
+.navbar-brand{
+    font-family: "Lobster";
+    color:#1F5662;
+    font-weight: 700;
+    font-size: 30px;
+    margin-left: 80px;
+}
+.navbar-nav{
+    margin-right: 20px;
+    font-family: "sans-serif";
+    font-size: 1.1em;
+    font-weight: 600;
+}
+.navbar-nav .nav-item .nav-link{
+    width: 116px;
+    height: 70px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+.navbar-nav .nav-item .nav-link::before{
+    content: '';
+    background-color: #1F5662;
+    width: 100%;
+    height: 4px;
+    transition: 0.25s;
+    position: absolute;
+    top: 0;
+    left: -100%;
+}
+.navbar-nav .nav-item .nav-link:hover{
+    color:#1F5662;
+    background-color: #ddd;
+
+}
+navbar-nav .nav-item .nav-link{
+    padding-top: 100px ;
+}
+.navbar-nav .nav-item .nav-link:hover::before{
+    left: 0;
+
 }
