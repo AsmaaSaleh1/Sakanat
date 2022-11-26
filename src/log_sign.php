@@ -18,7 +18,7 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
         <div class="box">
             <div class="inner-box">
                 <div class="forms-wrap">
-                    <form action="log_sign.php" class="sign-up-form" id="signUp" method="post">
+                    <form action="sign_validate.php" class="sign-up-form" id="signUp" method="post" autocomplete="on">
                         <div class="logo d-flex justify-content-between mt-5 cap v" style="position: absolute;
     " >
                             <a class="sign s1" href="#" style="background-color: #1F5662; " >Sign up</a>
@@ -71,6 +71,7 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
                                         class="input-field"
                                         autocomplete="off"
                                         required
+                                        id="password1"
                                 />
                                 <label>Password</label>
                             </div>
@@ -82,11 +83,12 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
                                         class="input-field"
                                         autocomplete="off"
                                         required
+                                        id="password2"
                                 />
                                 <label>Confirm Password</label>
                             </div>
 
-                            <input type="submit" value="Sign Up" class="sign-btn" />
+                            <input type="submit" onclick="return validate()" value="Sign Up" class="sign-btn" />
 
 
                         </div>
@@ -201,7 +203,17 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
     <script src="java/log-sign.js"></script>
     </body>
     </html>
-
+    <script type="text/javascript">
+        function Validate() {
+            var password = document.getElementById("password1").value;
+            var confirmPassword = document.getElementById("password2").value;
+            if (password != confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+            return true;
+        }
+    </script>
     <?php
 }else {
     header("Location: index.php");
