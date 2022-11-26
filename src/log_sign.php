@@ -18,7 +18,7 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
         <div class="box">
             <div class="inner-box">
                 <div class="forms-wrap">
-                    <form action="ls.php" class="sign-up-form" id="signUp" method="post">
+                    <form action="log_sign.php" class="sign-up-form" id="signUp" method="post">
                         <div class="logo d-flex justify-content-between mt-5 cap v" style="position: absolute;
     " >
                             <a class="sign s1" href="#" style="background-color: #1F5662; " >Sign up</a>

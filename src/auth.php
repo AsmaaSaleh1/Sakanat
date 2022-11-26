@@ -44,12 +44,12 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
                     header("Location: index.php");
 
                 }else {
-                    header("Location: ls.php?error=Incorect User name or password&email=$email");
+                    header("Location: log_sign.php?error=Incorect User name or password&email=$email");
 
                 }
             }else {
 
-                header("Location: ls.php?error=Incorect User name or password&email=$email");
+                header("Location: log_sign.php?error=Incorect User name or password&email=$email");
 
             }
         }else {

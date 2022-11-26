@@ -65,7 +65,7 @@ session_start();
                     }
 
                     else {?>
-                        <li><a href="ls.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        <li><a href="log_sign.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                     <?php } ?>
                 </ul>
 
