@@ -54,7 +54,7 @@ session_start();
                             <ul class="dropdown-menu">
                                 <h5 style="text-align: center;color: #ecb920"><?=$_SESSION['user_full_name']?></h5>
                                 <li><a class="dropdown-item" href="#">Profile</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-right-from-bracket"></i>
+                                <li><a class="dropdown-item" href="log_out.php"><i class="fa-solid fa-right-from-bracket"></i>
                                         Log out</a></li>
 
                             </ul>
