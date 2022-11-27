@@ -1,5 +1,6 @@
 <?php
-include "nav.php"
+include "nav.php";
+//session_start();
 ?>
 
 <!DOCTYPE html>

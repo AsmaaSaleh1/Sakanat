@@ -1,4 +1,5 @@
-
+<?php
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -76,10 +77,12 @@ if(mysqli_num_rows($query)>0)
                 <!-- title + information-->
                 <h3 style="font-size: 22px"><?php
                     echo $rows['Hcity'];
-                    echo '<a href="view-property.php?property_id='.$rows['hID'].'"  class="btn btn-lg " style="text-decoration: none"><i class="fa-solid fa-angles-right"></i> </a><br>'; ?>
+                    echo '<a href="viewHome.php?HomeId='.$rows['hID'].'"  class="btn btn-lg " style="text-decoration: none"><i class="fa-solid fa-angles-right"></i> </a><br>'; ?>
                 </h3>
                 <h4><?php echo $rows['street']; ?></h4>
                 <p style="font-size: 16px"><?php echo $rows['description']; ?> </p>
+                <p><?php echo '<a href="viewHome.php?property_id='.$rows['hID'].'"  class="btn btn-lg btn-primary btn-block" >View Property </a><br>'; ?></p><br>
+
 
             </div>
         </div>

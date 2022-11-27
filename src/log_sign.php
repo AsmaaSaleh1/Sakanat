@@ -136,8 +136,9 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
                                 />
                                 <label>Email</label>
                             </div>
-
                             <div class="input-wrap">
+                                <i class="fas fa-user"></i>
+
                                 <input
                                         type="password" id="password2"
                                         name="password"
