@@ -45,12 +45,13 @@ try {
 }catch(PDOException $e){
     echo "Connection failed : ". $e->getMessage();
 }
-$sql="SELECT * FROM user";
+$sql="SELECT * FROM Home";
 $query=mysqli_query($db,$sql);
 
 if(mysqli_num_rows($query)>0)
 {
     while ($rows=mysqli_fetch_assoc($query)){
+        $home=$rows['hID'];
     ?>
 
 
@@ -60,21 +61,25 @@ if(mysqli_num_rows($query)>0)
             <div class="pic">
                 <!--picture-->
                 <?php
-                $photo=$rows['photo'];
-                echo  '<img class="image" src="'.$photo.'">'; ?>
+        $sql2="SELECT * FROM Home_img where HID='$home'";
+        $query2=mysqli_query($db,$sql2);
+
+        if(mysqli_num_rows($query2)>0)
+        {
+            $row=mysqli_fetch_assoc($query2);
+            $photo=$row['imgPath'];
+//                $photo=$rows['photo'];
+            echo  '<img class="image" src="'.$photo.'">'; }?>
             </div>
-<!--            <h4><b>--><?php //echo $rows['Email']; ?><!--</b></h4>-->
-<!--            <p>--><?php //echo $rows['Name'].', '.$rows['phone'] ?><!--</p>-->
-<!--            <p>--><?php //echo '<a href="view-property.php?property_id='.$rows['Email'].'"  class="btn btn-lg btn-primary btn-block" >View Property </a><br>'; ?><!--</p><br>-->
 
             <div class="info">
                 <!-- title + information-->
                 <h3 style="font-size: 22px"><?php
-                    echo $rows['Name'];
-                    echo '<a href="view-property.php?property_id='.$rows['Email'].'"  class="btn btn-lg " style="text-decoration: none"><i class="fa-solid fa-angles-right"></i> </a><br>'; ?>
+                    echo $rows['Hcity'];
+                    echo '<a href="view-property.php?property_id='.$rows['hID'].'"  class="btn btn-lg " style="text-decoration: none"><i class="fa-solid fa-angles-right"></i> </a><br>'; ?>
                 </h3>
-                <h4><?php echo $rows['phone']; ?></h4>
-                <p style="font-size: 16px"><?php echo $rows['Email']; ?> </p>
+                <h4><?php echo $rows['street']; ?></h4>
+                <p style="font-size: 16px"><?php echo $rows['description']; ?> </p>
 
             </div>
         </div>

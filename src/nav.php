@@ -2,8 +2,6 @@
 session_start();
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,11 +16,10 @@ session_start();
     <link rel="stylesheet" href="Css/all.min.css"> </head>
 <body>
 <script src="js/bootstrap.bundle.min.js"></script>
-
 <!-- Header section -->
-<nav style="background-color: #ddd;" id="head" class="navbar navbar-expand-lg sticky-top">
+<nav id="head" class="navbar navbar-expand-lg sticky-top">
     <div class="container-fluid">
-        <a style="color: #1F5662; font-size: 25px" class="navbar-brand" href="#">Sakanat</a>
+        <a class="navbar-brand" href="index.php">Sakanat</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="true" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -32,10 +29,13 @@ session_start();
                     <a class="nav-link active p-lg-4" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active p-lg-4" aria-current="page" href="#">Browser</a>
+                    <a class="nav-link active p-lg-4" aria-current="page" href="browse.php">Browser</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active p-lg-4" aria-current="page" href="Contact-us.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active p-lg-4" aria-current="page" href="#about">About</a>
                 </li>
 
             </ul>
@@ -69,5 +69,7 @@ session_start();
         </div>
     </div>
 </nav>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
 </body>
 </html>
