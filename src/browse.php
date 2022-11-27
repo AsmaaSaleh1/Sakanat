@@ -1,0 +1,120 @@
+<?php
+include "nav.php"
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sakanat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="Css/bootstrap.min.css">
+    <link rel="stylesheet" href="Css/browse.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cairo:wght@400;500;600;700&family=Lobster&family=Open+Sans:wght@400;700&family=Work+Sans:ital,wght@0,300;0,800;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="Css/all.min.css"> </head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    aside{
+        background-color: rgb(31, 86, 98,0.5);
+        width: 200px;
+        height: 600px;
+       padding: 30px;
+        position: relative;
+    }
+
+    form input{
+        background-color: #1F5662;
+    }
+aside input{
+    margin: 20px 0;
+}
+    .ser select{
+        height: 50px;
+        width: 200px;
+       font-size: 20px;
+    }
+    button{
+        background-color: transparent;
+        border: none;
+        position: relative;
+
+    }
+    i{
+        color: #1F5662;
+        font-size: 30px;
+    }
+
+
+h2{
+    color: white;
+}
+.x{
+    width: 90%;
+    /* right: 0; */
+    position: relative;
+    top FONT-WEIGHT: 100;
+    /* top: -100px; */
+    top: -500px;
+    left: 100px;
+}
+</style>
+<body>
+<script src="js/bootstrap.bundle.min.js"></script>
+<!-- Header section -->
+
+
+<div class="con">
+    <!--            <select name="city" >-->
+    <!--                <option name="nablus">Nablus</option>-->
+    <!--                <option name="tk">Tulkarem</option>-->
+    <!--                <option name="najah">ANNajah University</option>-->
+    <!--                <option name="ram">Ramallah</option>-->
+    <!--                <option name="jar">Jerusalem</option>-->
+    <!--                <option name="qal">Qalqiliah</option>-->
+    <!---->
+    <!--            </select>-->
+
+    <!--
+              <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>-->
+    <aside>
+    <form>
+    <input type="checkbox" name="tv" id="tv">
+    <label for="tv">TV</label> <br>
+    <input type="checkbox" name="wifi" id="wifi">
+    <label for="wifi">Wi-Fi</label> <br>
+    <input type="checkbox" name="desk" id="desk">
+    <label for="desk">Desk</label> <br>
+    <input type="checkbox" name="frdg" id="frdg">
+    <label for="frdg">Fridge</label> <br>
+
+    </form>
+    </aside
+<nav class="navbar navbar-light bg search">
+    <div class="container-fluid x" style="text-align: center">
+        <form class="d-flex" style="width: 70%; margin-left: auto;margin-right: auto">
+            <input class="form-control me-4 serinp" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+    </div>
+</nav>
+
+</div>
+
+
+</body>
+</html>
+
+<?php
+
+include("Home_list.php");
+
+?>
