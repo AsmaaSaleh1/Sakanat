@@ -28,7 +28,7 @@ if (isset($_POST['email']) && isset($_POST['regPass'])
 
     $re_pass = validate($_POST['confPass']);
     $name = validate($_POST['name']);
-
+$phone=$_POST['pNum'];
     $user_data = 'uname='. $uname. '&name='. $name;
 
 
@@ -55,24 +55,47 @@ if (isset($_POST['email']) && isset($_POST['regPass'])
     }
 
     else{
+        $sName = "localhost";
+        $uName = "root";
+        $pass = "";
+        $db_name = "sakanat";
 
-        // hashing the password
-//        $pass = md5($pass);
-
-        $sql = "SELECT * FROM user WHERE Email='$uname' ";
-        $result = mysqli_query($conn, $sql);
-
-        if (mysqli_num_rows($result) > 0) {
+        try {
+            $conn = new PDO("mysql:host=$sName;dbname=$db_name",
+                $uName, $pass);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        }catch(PDOException $e){
+            echo "Connection failed : ". $e->getMessage();
+        }
+        $uName="asmaatsaleh@gmail.com";
+        $stmt = $conn->prepare("SELECT * FROM user WHERE Email=?");
+        $stmt->execute([$uname]);
+echo $stmt->rowCount();
+        if ($stmt->rowCount() >0){
             header("Location: log_sign.php?error=The username is taken try another&$user_data");
             exit();
-        }else {
-            $sql2 = "INSERT INTO user(Name, Password, Email, phone, Birthdate, photo ) VALUES('$name', '$pass', '$uName', '$pass', '$uName')";
-            $result2 = mysqli_query($conn, $sql2);
-            if ($result2) {
-                header("Location: signup.php?success=Your account has been created successfully");
-                exit();
-            }else {
-                header("Location: signup.php?error=unknown error occurred&$user_data");
+        }
+        else {
+            echo "<script> alert('Okkkkk') </script>";
+            $sName = "localhost";
+            $uName = "root";
+            $pass = "";
+            $db_name = "sakanat";
+
+            try {
+                $db = new mysqli('localhost','root','','sakanat');
+
+            }catch(PDOException $e){
+                echo "Connection failed : ". $e->getMessage();
+            }
+            $sql = "INSERT INTO `user`(`onName`, `onPass`) VALUES ('$name','$re_pass')";
+                        echo "<script> alert('Doneee') </script>";
+            if($db->query($sql)===TRUE){
+                header("location:index.php");
+            }
+
+            else {
+                header("Location: log_sign.php?error=unknown error occurred&$user_data");
                 exit();
             }
         }
