@@ -213,7 +213,7 @@ session_start();
                 </div>
                 <div class="info">
                     <!-- title + information-->
-                    <h3>Tulkarem <a href="#"><i class="fa-solid fa-angles-right"></i></a></h3>
+                    <h3 >Tulkarem <a href="#"><i class="fa-solid fa-angles-right"></i></a></h3>
                     <p>Room near Kadoorie university</p>
                 </div>
             </div>

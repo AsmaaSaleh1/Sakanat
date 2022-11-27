@@ -24,7 +24,7 @@
         }
         .z{
             position: relative;
-            top: -450px;
+            top: -550px;
             left: 120px;
         }
         }
@@ -52,12 +52,31 @@ if(mysqli_num_rows($query)>0)
 {
     while ($rows=mysqli_fetch_assoc($query)){
     ?>
+
+
 <div class="col-md-4">
     <div class="card">
         <div class="card-body">
-            <h4><b><?php echo $rows['Email']; ?></b></h4>
-            <p><?php echo $rows['Name'].', '.$rows['phone'] ?></p>
-            <p><?php echo '<a href="view-property.php?property_id='.$rows['Email'].'"  class="btn btn-lg btn-primary btn-block" >View Property </a><br>'; ?></p><br>
+            <div class="pic">
+                <!--picture-->
+                <?php
+                $photo=$rows['photo'];
+                echo  '<img class="image" src="'.$photo.'">'; ?>
+            </div>
+<!--            <h4><b>--><?php //echo $rows['Email']; ?><!--</b></h4>-->
+<!--            <p>--><?php //echo $rows['Name'].', '.$rows['phone'] ?><!--</p>-->
+<!--            <p>--><?php //echo '<a href="view-property.php?property_id='.$rows['Email'].'"  class="btn btn-lg btn-primary btn-block" >View Property </a><br>'; ?><!--</p><br>-->
+
+            <div class="info">
+                <!-- title + information-->
+                <h3 style="font-size: 22px"><?php
+                    echo $rows['Name'];
+                    echo '<a href="view-property.php?property_id='.$rows['Email'].'"  class="btn btn-lg " style="text-decoration: none"><i class="fa-solid fa-angles-right"></i> </a><br>'; ?>
+                </h3>
+                <h4><?php echo $rows['phone']; ?></h4>
+                <p style="font-size: 16px"><?php echo $rows['Email']; ?> </p>
+
+            </div>
         </div>
     </div>
 </div>

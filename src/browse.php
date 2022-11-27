@@ -25,10 +25,10 @@ include "nav.php"
     }
     aside{
         background-color: rgb(31, 86, 98,0.5);
-        width: 200px;
+        width: 250px;
         height: 600px;
        padding: 30px;
-        position: relative;
+        position: static;
     }
 
     form input{
@@ -63,8 +63,14 @@ h2{
     position: relative;
     top FONT-WEIGHT: 100;
     /* top: -100px; */
-    top: -500px;
+    top: -550px;
     left: 100px;
+}
+a{
+    text-decoration: none;
+}
+.search{
+    top: -20px;
 }
 </style>
 <body>
@@ -87,6 +93,7 @@ h2{
               <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>-->
     <aside>
     <form>
+        <h5 style="margin: 0;padding: 0"><button type="reset"><i style="font-size: 18px" class="fa-solid fa-arrows-rotate"></i></button> Search Features</h5>
     <input type="checkbox" name="tv" id="tv">
     <label for="tv">TV</label> <br>
     <input type="checkbox" name="wifi" id="wifi">
