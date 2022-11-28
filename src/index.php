@@ -22,7 +22,7 @@ session_start();
     <!-- Header section -->
     <nav id="head" class="navbar navbar-expand-lg sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Sakanat</a>
+            <a class="navbar-brand" href="index.php">Sakanat</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="true" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -32,7 +32,7 @@ session_start();
                         <a class="nav-link active p-lg-4" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active p-lg-4" aria-current="page" href="#">Browser</a>
+                        <a class="nav-link active p-lg-4" aria-current="page" href="browse.php">Browser</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active p-lg-4" aria-current="page" href="Contact-us.html">Contact</a>
@@ -213,7 +213,7 @@ session_start();
                 </div>
                 <div class="info">
                     <!-- title + information-->
-                    <h3>Tulkarem <a href="#"><i class="fa-solid fa-angles-right"></i></a></h3>
+                    <h3 >Tulkarem <a href="#"><i class="fa-solid fa-angles-right"></i></a></h3>
                     <p>Room near Kadoorie university</p>
                 </div>
             </div>

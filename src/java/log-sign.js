@@ -54,6 +54,7 @@ function showHide() {
     }
 
 }
+
 const loader=document.querySelector('.load');
 const main2=document.querySelector('.main');
 function inIt(){

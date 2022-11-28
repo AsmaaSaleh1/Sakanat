@@ -134,11 +134,11 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
                                         value="<?php if(isset($_GET['email']))echo(htmlspecialchars($_GET['email'])) ?>"
                                         required
                                 />
-                                <label>Username</label>
+                                <label>Email</label>
                             </div>
-
                             <div class="input-wrap">
-                                <i class="fa fa-lock" aria-hidden="true"></i>
+                                <i class="fas fa-user"></i>
+
                                 <input
                                         type="password" id="password2"
                                         name="password"
@@ -204,16 +204,26 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
     </body>
     </html>
     <script type="text/javascript">
-        function Validate() {
-            var password = document.getElementById("password1").value;
-            var confirmPassword = document.getElementById("password2").value;
-            if (password != confirmPassword) {
-                alert("Passwords do not match.");
-                return false;
+        bullets.forEach((bullet) => {
+            bullet.addEventListener("click", moveSlider);
+        });
+        const pass= document.getElementById('password2');
+        const toggle=document.getElementById('toggle2');
+        document.getElementById('toggle2').addEventListener('click',showHide);
+        function showHide() {
+            if(pass.type=='password'){
+                pass.setAttribute('type','text');
+                toggle.classList.add('hide');
+                toggle.innerHTML='<i class="fa fa-eye-slash"style="left: 0;bottom: 0" aria-hidden="true"></i>'
+
             }
-            return true;
-        }
-    </script>
+            else {
+                pass.setAttribute('type','password');
+                toggle.classList.remove('hide')
+                toggle.innerHTML='<i class="fa fa-eye"style="left: 0;bottom: 0" aria-hidden="true"></i>';
+            }
+
+        }    </script>
     <?php
 }else {
     header("Location: index.php");
