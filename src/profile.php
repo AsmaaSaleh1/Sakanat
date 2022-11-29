@@ -1,5 +1,5 @@
 <?php
-session_start();
+include "nav.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
