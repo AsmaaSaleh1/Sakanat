@@ -41,7 +41,6 @@ body {
     margin-top: 0;
     line-height: 30px;
 }
-
 .profile-nav ul > li:last-child {
     border-bottom: none;
 }
@@ -51,7 +50,6 @@ body {
     color: #000000;
     border-left: 5px solid #fff;
 }
-
 .profile-nav ul > li > a:hover, .profile-nav ul > li > a:focus, .profile-nav ul li.active  a {
     background: #f8f7f5 !important;
     border-left: 5px solid #1f5662;
@@ -67,9 +65,23 @@ body {
     color: #000000;
 }
 .r-activity {
-    /*TODO: number yellow remove it*/
     margin: 6px 0 0;
     font-size: 12px;
+}
+.pull-right{
+    float: right;!important;
+}
+.label-warning{
+    background-color: #1f5662;
+}
+.label{
+    display: inline;
+    line-height: 1;
+    color: #f0f0f0;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25em;
 }
 .bio-graph-heading {
     background: #1f5662;
