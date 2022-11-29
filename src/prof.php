@@ -1,4 +1,5 @@
 <?php
+$db='';
 include "connect.php";
 include "nav.php";
 ?>
