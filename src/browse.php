@@ -61,6 +61,11 @@ include "nav.php";
         .search{
             top: -20px;
         }
+        .card{
+            max-height: 430px;
+            min-height: 430px;
+
+        }
     </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,6 +80,8 @@ include "nav.php";
     <link rel="stylesheet" href="Css/all.min.css"> </head>
 
 <body>
+<script src="js/bootstrap.bundle.min.js"></script>
+
 <!-- Header section -->
 
 
@@ -116,6 +123,7 @@ include "nav.php";
 
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
 </body>
 </html>

@@ -15,7 +15,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         $sName = "localhost";
         $uName = "root";
         $pass = "";
-        $db_name = "sakanat";
+        $db_name = "sakanatpro";
 
         try {
             $conn = new PDO("mysql:host=$sName;dbname=$db_name",
@@ -31,8 +31,8 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
             $user = $stmt->fetch();
             $user_id =5;
             $user_email = $user['Email'];
-            $user_password = $user['Password'];
-            $user_full_name = $user['Name'];
+            $user_password = $user['password'];
+            $user_full_name = $user['uName'];
             $user_phone=$user['phone'];
 
             if ($email === $user_email) {
@@ -75,7 +75,7 @@ try {
     $sName = "localhost";
     $uName = "root";
     $pass = "";
-    $db_name = "sakanat";
+    $db_name = "sakanatpro";
     $conn = new PDO("mysql:host=$sName;dbname=$db_name",
         $uName, $pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

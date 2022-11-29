@@ -29,6 +29,12 @@
             left: 120px;
         }
         }
+        a{
+            text-decoration: none;
+        }
+        card{
+            max-height: 200px;
+        }
     </style>
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
@@ -41,7 +47,7 @@
     <div class="row mt-4">
 <?php
 try {
-    $db = new mysqli('localhost','root','','sakanat');
+    $db = new mysqli('localhost','root','','sakanatpro');
 
 }catch(PDOException $e){
     echo "Connection failed : ". $e->getMessage();
@@ -76,12 +82,11 @@ if(mysqli_num_rows($query)>0)
             <div class="info">
                 <!-- title + information-->
                 <h3 style="font-size: 22px"><?php
-                    echo $rows['Hcity'];
-                    echo '<a href="viewHome.php?HomeId='.$rows['hID'].'"  class="btn btn-lg " style="text-decoration: none"><i class="fa-solid fa-angles-right"></i> </a><br>'; ?>
+                    echo $rows['Hcity'];?>
                 </h3>
                 <h4><?php echo $rows['street']; ?></h4>
                 <p style="font-size: 16px"><?php echo $rows['description']; ?> </p>
-                <p><?php echo '<a href="viewHome.php?property_id='.$rows['hID'].'"  class="btn btn-lg btn-primary btn-block" >View Property </a><br>'; ?></p><br>
+                <h3 style="font-size: 20px"><?php echo '<a style="text-decoration:none" href="viewHome.php?property_id='.$rows['hID'].'"  class="" >Read more <i class="fa-solid fa-angles-right"></i> </a><br>'; ?></h3><br>
 
 
             </div>

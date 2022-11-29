@@ -4,7 +4,7 @@ session_start();
 $sName = "localhost";
 $uName = "root";
 $pass = "";
-$db_name = "sakanat";
+$db_name = "sakanatpro";
 
 try {
     $conn = new PDO("mysql:host=$sName;dbname=$db_name",
@@ -58,7 +58,7 @@ $phone=$_POST['pNum'];
         $sName = "localhost";
         $uName = "root";
         $pass = "";
-        $db_name = "sakanat";
+        $db_name = "sakanatpro";
 
         try {
             $conn = new PDO("mysql:host=$sName;dbname=$db_name",
@@ -80,10 +80,10 @@ echo $stmt->rowCount();
             $sName = "localhost";
             $uName = "root";
             $pass = "";
-            $db_name = "sakanat";
+            $db_name = "sakanatpro";
 
             try {
-                $db = new mysqli('localhost','root','','sakanat');
+                $db = new mysqli('localhost','root','','sakanatpro');
 
             }catch(PDOException $e){
                 echo "Connection failed : ". $e->getMessage();

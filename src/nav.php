@@ -8,12 +8,66 @@ session_start();
     <title>Sakanat</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="Css/bootstrap.min.css">
-    <link rel="stylesheet" href="Css/test.css">
+<!--    <link rel="stylesheet" href="Css/test.css">-->
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cairo:wght@400;500;600;700&family=Lobster&family=Open+Sans:wght@400;700&family=Work+Sans:ital,wght@0,300;0,800;1,700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="Css/all.min.css"> </head>
+<style>
+    nav{
+        background-color: #ddd;
+    }
+    .navbar-brand{
+        font-family: "Lobster";
+        color:#1F5662;
+        font-weight: 700;
+        font-size: 2.2em;
+        margin-left: 80px;
+    }
+    .navbar-nav{
+        margin-right: 20px;
+        font-family: "sans-serif";
+        font-size: 1.1em;
+        font-weight: 600;
+    }
+    .navbar-nav .nav-item .nav-link{
+        width: 116px;
+        height: 70px;
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+    }
+    .navbar-nav .nav-item .nav-link::before{
+        content: '';
+        background-color: #1F5662;
+        width: 100%;
+        height: 4px;
+        transition: 0.25s;
+        position: absolute;
+        top: 0;
+        left: -100%;
+    }
+    .navbar-nav .nav-item .nav-link:hover{
+        color:#1F5662;
+        background-color: #ddd;
+
+    }
+    navbar-nav .nav-item .nav-link{
+        padding-top: 100px ;
+    }
+    .navbar-nav .nav-item .nav-link:hover::before{
+        left: 0;
+
+    }
+    .navbar .navbar-toggler{
+        font-size: 25px;
+    }
+    .x{
+        position: relative;
+        right: -400px;
+    }
+</style>
 <body>
 <script src="js/bootstrap.bundle.min.js"></script>
 <!-- Header section -->
@@ -24,7 +78,7 @@ session_start();
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100%;">
+            <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll x" style="--bs-scroll-height: 100%;">
                 <li class="nav-item">
                     <a class="nav-link active p-lg-4" aria-current="page" href="#">Home</a>
                 </li>
