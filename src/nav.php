@@ -60,20 +60,22 @@ session_start();
         left: 0;
 
     }
-    .navbar .navbar-toggler{
+    .navbar .navbar-toggler {
         font-size: 25px;
     }
     .x{
-        position: relative;
-        right: -400px;
+    position: relative;
+        left: 300px;
     }
+
+
 </style>
 <body>
 <script src="js/bootstrap.bundle.min.js"></script>
 <!-- Header section -->
 <nav id="head" class="navbar navbar-expand-lg sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.php">Sakanat</a>
+        <a class="navbar-brand t" href="index.php" style="font-size: 30px">Sakanat</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="true" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -91,33 +93,36 @@ session_start();
                 <li class="nav-item">
                     <a class="nav-link active p-lg-4" aria-current="page" href="#about">About</a>
                 </li>
-
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <?php
-                if(isset($_SESSION["user_email"])){
-
-                    ?>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle p-lg-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Profile
-                        </a>
-                        <ul class="dropdown-menu">
-                            <h5 style="text-align: center;color: #ecb920"><?=$_SESSION['user_full_name']?></h5>
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li><a class="dropdown-item" href="log_out.php"><i class="fa-solid fa-right-from-bracket"></i>
-                                    Log out</a></li>
-
-                        </ul>
-                    </li>
-
+            <li>
+                <ul class="nav navbar-nav navbar-right">
                     <?php
+                    if(isset($_SESSION["user_email"])){
 
-                }
+                        ?>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle p-lg-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Profile
+                            </a>
+                            <ul class="dropdown-menu">
+                                <h5 style="text-align: center;color: #ecb920"><?=$_SESSION['user_full_name']?></h5>
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li><a class="dropdown-item" href="log_out.php"><i class="fa-solid fa-right-from-bracket"></i>
+                                        Log out</a></li>
 
-                else {?>
-                    <li><a href="log_sign.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                <?php } ?>
+                            </ul>
+                        </li>
+
+                        <?php
+
+                    }
+
+                    else {?>
+                        <li><a href="log_sign.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <?php } ?>
+                </ul>
+
+
+            </li>
             </ul>
 
         </div>
