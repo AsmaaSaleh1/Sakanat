@@ -5,7 +5,6 @@ include("connect.php");
 
 if(isset($_POST['book_property'])){
 
-echo 'done';
 
         global $db,$property_id;
         $u_email=$_SESSION["user_email"];
@@ -83,7 +82,6 @@ $date='2008-11-11';
 
 
                 }
-else echo 'no book';
             }
 
 
@@ -91,6 +89,4 @@ else echo 'no book';
 
         }
 }
-else
-    echo 'noooo'
 ?>

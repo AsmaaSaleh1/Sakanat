@@ -1,5 +1,4 @@
 <?php
-session_start();
 include 'tst.php'
 ?>
 
@@ -72,7 +71,6 @@ $query2=mysqli_query($db,$sql2);
 $images=$query2->fetch_array();
 $row=mysqli_fetch_array($query2);
 $photo=$images['imgPath'];
-//$photo="img/h3.jpg";
 ?>
 <body>
 <nav id="head" class="navbar navbar-expand-lg sticky-top">
