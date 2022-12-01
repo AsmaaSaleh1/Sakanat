@@ -51,11 +51,32 @@
                             <!--Description come from database-->
                             <p><span>Description </span>: <input type="text" maxlength="200"></p>
                         </div>
-                        <div class="butt bio-row">
-                            <button class="btn">Change Password</button>
+                        <div class="bio-row">
+                            <p><span>Profile Picture </span>: <input type="file" id="img" name="img" accept="image/*"> </p>
                         </div>
-                        <div class="butt bio-row">
-                            <button class="btn">Update</button>
+                        <div class="butt">
+                            <div class="body-in">
+                                <div class="popup" id="popup-1">
+                                    <div class="content">
+                                        <div class="close-btn" onclick="togglePopup()">×</div>
+                                        <h1 class="change">Change Password</h1>
+                                        <div class="input-field"><input placeholder="Old Password" class="validate"></div>
+                                        <div class="input-field"><input placeholder="New Password" class="validate"></div>
+                                        <div class="input-field"><input placeholder="Conform Password" class="validate"></div>
+                                        <button class="second-button">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button onclick="togglePopup()" class="btn bio-row">Change Password</button>
+                            <script>
+                                function togglePopup() {
+                                    document.getElementById("popup-1")
+                                        .classList.toggle("active");
+                                }
+                            </script>
+                        </div>
+                        <div class="butt">
+                            <button class="btn bio-row">Update</button>
                         </div>
                     </div>
                 </div>
