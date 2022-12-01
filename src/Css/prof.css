@@ -155,7 +155,7 @@ body{
     background-color: #eee;
 
 }
-navbar-nav .nav-item .nav-link{
+.navbar-nav .nav-item .nav-link{
     padding-top: 100px ;
 }
 .navbar-nav .nav-item .nav-link:hover::before{
