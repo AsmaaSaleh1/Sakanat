@@ -26,7 +26,7 @@
                             <p><span>Last Name </span>: <input type="text"></p><!--Name come from database-->
                         </div>
                         <div class="bio-row">
-                            <p><span>ID </span>: <input type="number"></p><!--ID come from database-->
+                            <p><span>ID </span>: <input type="number" disabled></p><!--ID come from database-->
                         </div>
                         <div class="bio-row">
                             <p><span>Birthday</span>: <input type="date"></p><!--Birthdate come from database-->
@@ -41,7 +41,7 @@
                             <p><span>Mobile </span>: <input type="tel"></p><!--mobile come from database-->
                         </div>
                         <div class="bio-row">
-                            <p><span>Email </span>: <input type="email"></p><!--email come from database-->
+                            <p><span>Email </span>: <input type="email" disabled></p><!--email come from database-->
                         </div>
                         <div class="bio-row">
                             <p><span>Phone </span>: <input type="tel"></p><!--P.N come from database-->

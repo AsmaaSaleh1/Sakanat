@@ -148,8 +148,8 @@ body{
     text-align: center;
     padding: 20px;
     border-radius: 20px;
-    border:5px #1f5662;/*TODO:*/
-    background: #fff;
+    border:7px double #1f5662;/*TODO:*/
+    background: #f0f0f0;
     z-index: 1;
 }
 .popup .close-btn {
@@ -185,7 +185,7 @@ body{
     color: #000000;
     background: #fff;
     box-shadow: inset 5px 5px 5px #1f5662,
-    inset -5px -5px 5px #1f5662;
+    inset -5px -5px 5px #ecb920;
     outline: none;
 }
 .second-button {
@@ -197,7 +197,7 @@ body{
     border-radius: 40px;
     border: none;
     background: #fff;
-    box-shadow:  8px 8px 15px #1f5662,
+    box-shadow:  8px 8px 15px #ecb920,
     -8px -8px 15px #1f5662;
     transition: box-shadow .35s ease !important;
     outline: none;
