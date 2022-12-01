@@ -1,6 +1,7 @@
 <?php
 session_start();
-
+$type=$_POST['type'];
+echo $type;
 $sName = "localhost";
 $uName = "root";
 $pass = "";
@@ -14,7 +15,7 @@ try {
     echo "Connection failed : ". $e->getMessage();
 }
 if (isset($_POST['email']) && isset($_POST['regPass'])
-    && isset($_POST['name']) && isset($_POST['pNum'])  && isset($_POST['confPass'])) {
+    && isset($_POST['name']) && isset($_POST['pNum'])  && isset($_POST['confPass'])&&isset($_POST['type'])) {
 
     function validate($data){
         $data = trim($data);
@@ -81,6 +82,7 @@ echo $stmt->rowCount();
             $uName = "root";
             $pass = "";
             $db_name = "sakanatpro";
+$type=$_SESSION['type'];
 
             try {
                 $db = new mysqli('localhost','root','','sakanatpro');
@@ -88,7 +90,7 @@ echo $stmt->rowCount();
             }catch(PDOException $e){
                 echo "Connection failed : ". $e->getMessage();
             }
-            $sql = "INSERT INTO `user`(`onName`, `onPass`) VALUES ('$name','$re_pass')";
+            $sql = "INSERT INTO `user`(`uName`, `Email`, `phone`, `password`, `type`) VALUES ('$name','$uname','$phone','$pass','$type')";
                         echo "<script> alert('Doneee') </script>";
             if($db->query($sql)===TRUE){
                 header("location:index.php");

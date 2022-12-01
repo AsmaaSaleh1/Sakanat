@@ -11,7 +11,8 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Sign in & Sign up Form</title>
         <link rel="stylesheet" href="Css/log-sign.css" />
-        <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+<!--        <script src="https://kit.fontawesome.com/a81368914c.js"></script>-->
+        <link rel="stylesheet" href="Css/all.min.css">
     </head>
     <body>
     <main>
@@ -87,6 +88,16 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
                                 />
                                 <label>Confirm Password</label>
                             </div>
+                            <div class="" >
+
+                                <input id="u" type="radio" name="type" value="u">
+                                <b> Search about Home</b>
+                            </div>
+                            <div class="" >
+
+                                <input id="o" type="radio" name="type" value="o">
+                                <b>Have A Home</b>
+                            </div>
 
                             <input type="submit" onclick="return validate()" value="Sign Up" class="sign-btn" />
 
@@ -125,8 +136,7 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
 
                         <div class="actual-form">
                             <div class="input-wrap">
-                                <i class="fas fa-user"></i>
-                                <input
+                                <i class="fa-solid fa-user"></i>                                <input
                                         type="email"
                                         name="email"
                                         minlength="4"
@@ -137,7 +147,7 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
                                 <label>Email</label>
                             </div>
                             <div class="input-wrap">
-                                <i class="fas fa-user"></i>
+                                <i class="fa-solid fa-lock"></i>
 
                                 <input
                                         type="password" id="password2"
@@ -203,27 +213,27 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
     <script src="java/log-sign.js"></script>
     </body>
     </html>
-    <script type="text/javascript">
-        bullets.forEach((bullet) => {
-            bullet.addEventListener("click", moveSlider);
-        });
-        const pass= document.getElementById('password2');
-        const toggle=document.getElementById('toggle2');
-        document.getElementById('toggle2').addEventListener('click',showHide);
-        function showHide() {
-            if(pass.type=='password'){
-                pass.setAttribute('type','text');
-                toggle.classList.add('hide');
-                toggle.innerHTML='<i class="fa fa-eye-slash"style="left: 0;bottom: 0" aria-hidden="true"></i>'
-
-            }
-            else {
-                pass.setAttribute('type','password');
-                toggle.classList.remove('hide')
-                toggle.innerHTML='<i class="fa fa-eye"style="left: 0;bottom: 0" aria-hidden="true"></i>';
-            }
-
-        }    </script>
+<!--    <script type="text/javascript">-->
+<!--        bullets.forEach((bullet) => {-->
+<!--            bullet.addEventListener("click", moveSlider);-->
+<!--        });-->
+<!--        const pass= document.getElementById('password2');-->
+<!--        const toggle=document.getElementById('toggle2');-->
+<!--        document.getElementById('toggle2').addEventListener('click',showHide);-->
+<!--        function showHide() {-->
+<!--            if(pass.type=='password'){-->
+<!--                pass.setAttribute('type','text');-->
+<!--                toggle.classList.add('hide');-->
+<!--                toggle.innerHTML='<i class="fa fa-eye-slash"style="left: 0;bottom: 0" aria-hidden="true"></i>'-->
+<!---->
+<!--            }-->
+<!--            else {-->
+<!--                pass.setAttribute('type','password');-->
+<!--                toggle.classList.remove('hide')-->
+<!--                toggle.innerHTML='<i class="fa fa-eye"style="left: 0;bottom: 0" aria-hidden="true"></i>';-->
+<!--            }-->
+<!---->
+<!--        }    </script>-->
     <?php
 }else {
     header("Location: index.php");
