@@ -1,9 +1,10 @@
 <?php
-
+session_start();
 if(isset($_POST["verify"]) and isset($_POST['var'])) {
     $code = $_POST["verify"];
-    $x = 12345;
-    if ($code == $x) {
+    echo $_SESSION['email'];
+    echo $_SESSION['random'];
+    if ($code == $_SESSION['random']) {
 header("Location:updatePass.php");
     }
     else{
@@ -34,7 +35,7 @@ header("Location:updatePass.php");
         <div class="box" id="box">
 
             <div class="form" >
-                <form action="" method="post">
+                <form action="verifyCode.php" method="post">
                     <div class="actual-form">
                         <div class="input-wrap">
 
@@ -44,7 +45,7 @@ header("Location:updatePass.php");
                                 class="input-field"
                                 autocomplete="off"
                                 name="email2"
-                                value="<?php echo $_POST['email']?>"
+                                value="<?php echo $_SESSION['email']?>"
 
                             />
                         </div>

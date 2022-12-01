@@ -1,11 +1,23 @@
 <?php
+session_start();
 if(isset($_POST['update'])and isset($_POST['pass']) and isset($_POST['conf'])){
     $p=$_POST['pass'];
     $c=$_POST['conf'];
+    $email=$_SESSION['email'];
+    echo $email;
     if($p==$c){
-        header("Location:Log-Sign.html");
-        echo "<script>alert('Password updated successfully') </script>";
+include 'connect.php';
+        $sql = "UPDATE `user` SET `password`='$p' WHERE Email='$email'";
+        echo "<script> alert('Doneee') </script>";
+        if($db->query($sql)===TRUE){
+            echo "<script>alert('Password updated successfully') </script>";
 
+//            header("location:log_sign.php");
+        }
+
+        else {
+            echo 'noo';
+        }
     }
     else{
         echo "<script>alert('Miss match Password') </script>";

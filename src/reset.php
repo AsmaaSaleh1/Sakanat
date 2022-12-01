@@ -1,11 +1,13 @@
 <?php
-
+session_start();
 if(isset($_POST["email"]) and isset($_POST['send'])) {
     $email = $_POST["email"];
+    $_SESSION['email']=$email;
     $receiver = $email;
     $digits = 5;
     $rand= rand(pow(10, $digits-1), pow(10, $digits)-1);
     $x=$rand;
+    $_SESSION['random']=$rand;
     $body = "The verification code = ".$rand;
     $subject = "Reset Password";
     $sender = "From:s12028675@stu.najah.edu";
@@ -39,10 +41,10 @@ if(isset($_POST["email"]) and isset($_POST['send'])) {
         <div class="box" id="box">
 
             <div class="form" >
-                <form action="verifyCode.php" method="post">
+                <form action="reset.php" method="post">
                 <div class="actual-form">
                     <div class="input-wrap">
-
+<input type="hidden" name="random">
                         <input
                             type="text"
                             minlength="4"
