@@ -190,7 +190,7 @@ if(mysqli_num_rows($query)>0)
                                 <div class="col-sm-6">
                                     <?php
                                                            $booked=$rows['booked'];
-
+$_SESSION['pid']=$property_id;
                                     if ($booked==0){ ?>
                                         <input type="hidden" name="property_id" value="<?php echo $rows['property_id']; ?>">
                                         <h3 style="font-size: 20px"><?php echo '<a style="text-decoration:none" href="book.php?property_id='.$rows['hID'].'"  class="" >Book Now </a><br>'; ?></h3><br>

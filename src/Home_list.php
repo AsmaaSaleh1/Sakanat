@@ -1,5 +1,4 @@
-<?php
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -86,7 +85,7 @@ if(mysqli_num_rows($query)>0)
                 </h3>
                 <h4><?php echo $rows['street']; ?></h4>
                 <p style="font-size: 16px"><?php echo $rows['description']; ?> </p>
-                <h3 style="font-size: 20px"><?php echo '<a style="text-decoration:none" href="viewHome.php?property_id='.$rows['hID'].'"  class="" >Read more <i class="fa-solid fa-angles-right"></i> </a><br>'; ?></h3><br>
+                <button type="submit" style="font-size: 20px" name="book"><?php echo '<a style="text-decoration:none" href="viewHome.php?property_id='.$rows['hID'].'"  class="" >Read more <i class="fa-solid fa-angles-right"></i> </a><br>'; ?></button><br>
 
 
             </div>
