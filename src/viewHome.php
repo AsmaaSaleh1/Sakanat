@@ -65,6 +65,14 @@ isset($_SESSION["email"]);
         .rating:hover>input:checked~label:before {
             opacity: 0.4
         }
+       .b{
+            text-decoration: none;
+            color: white;
+            background-color: #1F5662;
+            width: 100px;
+            height: 40px;
+            border-radius: 10px;
+        }
 
     </style>
 </head>
@@ -86,7 +94,7 @@ isset($_SESSION["email"]);
 <?php
 global $d;
 try {
-    $db = new mysqli('localhost','root','','sakanat');
+    $db = new mysqli('localhost','root','','sakanatpro');
 
 }catch(PDOException $e){
     echo "Connection failed : ". $e->getMessage();
@@ -162,29 +170,33 @@ if(mysqli_num_rows($query)>0)
                 <center><h2 style="color: #1F5662">Room Details</h2></center>
                 <div class="row">
                     <div class="col-sm-6">
-                        <h3>City:</h3>  <h4><?php echo $rows['Hcity']; ?></h4>
+                        <h3>City:</h3>  <h4><?php echo $rows['city']; ?></h4>
                         <br><br>
                         <h3>Street:</h3>  <h4><?php echo $rows['street']; ?></h4>
                         <br><br>
                         <h3>Rate per month: </h3> <h4><?php echo $rows['price']; ?></h4>
                         <br><br>
                         <p style="font-size: 20px;font-weight: 600"><?php echo $rows['description']; ?></p>
+                        <br>
+                        <h3>Room For: </h3> <h4><?php echo $rows['gender']; ?></h4>
+                        <br><br>
                         <?php
 
                         if(isset($_SESSION["user_email"]) && !empty($_SESSION['user_email'])){
 
                         ?>
-                        <form method="POST">
+                        <form method="POST" action="book.php">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <?php
-                                    //                        $booked=$rows['booked'];
-                                    $booked=true;
-                                    if ($booked=='No'){ ?>
+                                                           $booked=$rows['booked'];
+
+                                    if ($booked==0){ ?>
                                         <input type="hidden" name="property_id" value="<?php echo $rows['property_id']; ?>">
-                                        <input type="submit" class="" name="book_property" style="width: 150px; height:50px; border-radius: 10px; border:none; background-color: rgb(31, 86, 98,0.6)" value="Book Now">
+                                        <h3 style="font-size: 20px"><?php echo '<a style="text-decoration:none" href="book.php?property_id='.$rows['hID'].'"  class="" >Book Now </a><br>'; ?></h3><br>
+
                                     <?php } else { ?>
-                                        <input type="submit" class="btn btn-lg btn-primary" style="width: 100%" value="Property Booked" disabled>
+                                        <label style="width: max-content;font-size: 22px; font-weight: 600" value="" disabled>Property Booked</label>
                                     <?php } ?>
                                 </div>
                         </form>
@@ -213,7 +225,7 @@ if(mysqli_num_rows($query)>0)
         <br>
 
         <br>
-        <form method="post" style="position: relative;top: 20px">
+        <form method="post" style="position: relative;top: 20px;width: fit-content">
        <textarea name="rev" cols="40" placeholder="Write Your Comment"></textarea>
             <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
             </div>

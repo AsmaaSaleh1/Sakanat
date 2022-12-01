@@ -33,7 +33,7 @@
             text-decoration: none;
         }
         card{
-            max-height: 200px;
+
         }
     </style>
     <style>
@@ -52,7 +52,7 @@ try {
 }catch(PDOException $e){
     echo "Connection failed : ". $e->getMessage();
 }
-$sql="SELECT * FROM Home";
+$sql="SELECT * FROM home";
 $query=mysqli_query($db,$sql);
 
 if(mysqli_num_rows($query)>0)
@@ -68,7 +68,7 @@ if(mysqli_num_rows($query)>0)
             <div class="pic">
                 <!--picture-->
                 <?php
-        $sql2="SELECT * FROM Home_img where HID='$home'";
+        $sql2="SELECT * FROM home_img where HID='$home'";
         $query2=mysqli_query($db,$sql2);
 
         if(mysqli_num_rows($query2)>0)
@@ -82,7 +82,7 @@ if(mysqli_num_rows($query)>0)
             <div class="info">
                 <!-- title + information-->
                 <h3 style="font-size: 22px"><?php
-                    echo $rows['Hcity'];?>
+                    echo $rows['city'];?>
                 </h3>
                 <h4><?php echo $rows['street']; ?></h4>
                 <p style="font-size: 16px"><?php echo $rows['description']; ?> </p>

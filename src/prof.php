@@ -31,6 +31,13 @@ include "nav.php";
             <div class="panel">
                 <div class="user-heading round">
                     <a href="#">
+                        <?php
+                        if($rows['photo']==NULL){
+                        ?>
+                        <img src="img/userprofile.png" alt="">
+                            <?php }
+                       else
+                        ?>
                         <img src="<?php echo $rows['photo']; ?>" alt="">
                     </a>
                     <h1>Mis.<span>Asmaa</span></h1> <!--Name come from database-->

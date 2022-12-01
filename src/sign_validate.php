@@ -102,6 +102,6 @@ echo $stmt->rowCount();
     }
 
 }else{
-    header("Location: signup.php");
+    header("Location: log_sign.php");
     exit();
 }
