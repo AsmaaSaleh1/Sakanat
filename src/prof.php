@@ -69,13 +69,13 @@ include "nav.php";
                             <p><span>ID </span>: 12028417</p><!--ID come from database-->
                         </div>
                         <div class="bio-row">
-                            <p><span>Birthday</span>: 23 June 2002</p><!--Birthdate come from database-->
+                            <p><span>Birthday</span>: <?php echo $rows['bd']; ?></p><!--Birthdate come from database-->
                         </div>
                         <div class="bio-row">
-                            <p><span>City </span>: <?php echo $rows['addres']; ?></p><!--City come from database-->
+                            <p><span>City </span>: <?php echo $rows['city']; ?></p><!--City come from database-->
                         </div>
                         <div class="bio-row">
-                            <p><span>Street </span>: Amman Street</p><!--street come from database-->
+                            <p><span>Street </span>: <?php echo $rows['street']; ?></p><!--street come from database-->
                         </div>
                         <div class="bio-row">
                             <p><span>Email </span>: <?php echo $rows['Email']; ?></p><!--email come from database-->
@@ -89,7 +89,6 @@ include "nav.php";
                         <div class="bio-row">
                             <!--TODO: but limitation about number of char for example 200char-->
                             <!--Description come from database-->
-                            <p><span>Description </span>: Description Description Description Description Description</p>
                         </div>
                     </div>
                 </div>

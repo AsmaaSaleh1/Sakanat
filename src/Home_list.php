@@ -11,6 +11,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <link rel="stylesheet" href="Css/all.min.css">
+    <link rel="stylesheet" href="Css/test.css">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="Css/bootstrap.min.css">
     <style>
@@ -43,7 +45,7 @@
 <body>
 
 <div class="container z py-5">
-    <div class="row mt-4">
+    <div class="row mt-4 r">
 <?php
 try {
     $db = new mysqli('localhost','root','','sakanatpro');
@@ -85,7 +87,7 @@ if(mysqli_num_rows($query)>0)
                 </h3>
                 <h4><?php echo $rows['street']; ?></h4>
                 <p style="font-size: 16px"><?php echo $rows['description']; ?> </p>
-                <button type="submit" style="font-size: 20px" name="book"><?php echo '<a style="text-decoration:none" href="viewHome.php?property_id='.$rows['hID'].'"  class="" >Read more <i class="fa-solid fa-angles-right"></i> </a><br>'; ?></button><br>
+                <button type="submit" style="font-size: 20px;top: -18px" name="book"><h3><?php echo '<a style="text-decoration:none" href="viewHome.php?property_id='.$rows['hID'].'"  class="" >Read more <i style="position:relative; left: 30px" class="fa-solid fa-angles-right"></i> </a></h3><br>'; ?></button><br>
 
 
             </div>
