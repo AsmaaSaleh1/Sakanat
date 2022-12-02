@@ -10,6 +10,8 @@ isset($_SESSION["email"]);
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="Css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cairo:wght@400;500;600;700&family=Lobster&family=Open+Sans:wght@400;700&family=Work+Sans:ital,wght@0,300;0,800;1,700&display=swap" rel="stylesheet">
+
     <style>
         #mapid { height: 180px; }
 
@@ -21,7 +23,7 @@ isset($_SESSION["email"]);
        }
        .row{
            position: relative;
-           top: 50px;
+           top: 10px;
        }
        h3, h4{
            display: inline-block;
@@ -119,6 +121,42 @@ isset($_SESSION["email"]);
         }
         .navbar .navbar-toggler{
             font-size: 25px;
+        }
+        .bio-graph-heading {
+            background: #1f5662;
+            color: #fff;
+            text-align: center;
+            font-style: italic;
+            padding: 40px 110px;
+            border-radius: 4px 4px 0 0;
+            -webkit-border-radius: 4px 4px 0 0;
+            font-size: 20px;
+            font-weight: 300;
+        }
+        .bio-graph-info {
+            color: #000000;
+        }
+        .bio-graph-info h1 {
+            font-size: 30px;
+            font-weight: 400;
+            margin: 0 0 20px;
+        }
+        .bio-row {
+            width: 50%;
+            float: left;
+            margin-bottom: 10px;
+            padding:0 15px;
+        }
+        .bio-row p span {
+            color: #1F5662;
+            font-weight: 600;
+            width: 100px;
+            display: inline-block;
+            background-color: transparent;
+        }
+
+        body{
+            font-family: 'Times New Roman', 'Times','serif';
         }
 
     </style>
@@ -265,20 +303,47 @@ if(mysqli_num_rows($query)>0)
                 </div>
 
             </div>
-            <div class="col-sm-6">
-                <center><h2 style="color: #1F5662">Room Details</h2></center>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <h3>City:</h3>  <h4><?php echo $rows['city']; ?></h4>
-                        <br><br>
-                        <h3>Street:</h3>  <h4><?php echo $rows['street']; ?></h4>
-                        <br><br>
-                        <h3>Rate per month: </h3> <h4><?php echo $rows['price']; ?></h4>
-                        <br><br>
-                        <p style="font-size: 20px;font-weight: 600"><?php echo $rows['description']; ?></p>
-                        <br>
-                        <h3>Room For: </h3> <h4><?php echo $rows['gender']; ?></h4>
-                        <br><br>
+            <div class="col-sm-6" >
+                <div class="bio-graph-heading">
+                    <h1>Room Details</h1>
+                </div>
+                <div class="profile-info col-md-12"style="background-color: #ddd;height: max-content">
+                    <div class="panel">
+
+                        <div class="panel-body bio-graph-info" >
+
+                            <div class="row" >
+                                <div class="bio-row">
+                                    <p><span>Room Name </span>: <?php echo $rows['hName']; ?></p><!--Name come from database-->
+                                </div>
+                                <div class="bio-row">
+                                    <p><span>City </span>: <?php echo $rows['city']; ?></p><!--Name come from database-->
+                                </div>
+
+                                <div class="bio-row">
+                                    <p><span>Street</span>: <?php echo $rows['street']; ?></p><!--Birthdate come from database-->
+                                </div>
+                                <div class="bio-row">
+                                    <p><span>Description </span>: <?php echo $rows['description']; ?></p><!--City come from database-->
+                                </div>
+
+                                <div class="bio-row">
+                                    <p><span>For </span>: <?php echo $rows['gender']; ?></p><!--email come from database-->
+                                </div>
+                                <div class="bio-row">
+                                    <p><span>Contact </span>: <?php echo $rows['contact']; ?></p><!--mobile come from database-->
+                                </div>
+                                <div class="bio-row">
+                                    <p><span>Rate per Month </span>: <?php echo $rows['price']; ?></p><!--P.N come from database-->
+                                </div>
+                                <div class="bio-row">
+                                    <!--TODO: but limitation about number of char for example 200char-->
+                                    <!--Description come from database-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                         <?php
 
                         if(isset($_SESSION["user_email"]) && !empty($_SESSION['user_email'])){
@@ -308,7 +373,7 @@ $_SESSION['pid']=$property_id;
 
                     <?php }
                     else{
-                        echo "<center><h3 style='position: relative;top: 20px'>You should login to book property.</h3></center>";
+                        echo "<center><h3 style='position: relative;top: 20px;color: red'>You should login to book room.</h3></center>";
                     }
 
 
@@ -324,7 +389,7 @@ $_SESSION['pid']=$property_id;
         <br>
 
         <br>
-        <form method="post" style="position: relative;top: 20px;width: fit-content;margin-bottom: 30px">
+        <form method="post" style="position: relative;top: 20px;left:20px;width: fit-content;margin-bottom: 30px">
        <textarea name="rev" cols="40" placeholder="Write Your Comment"></textarea>
             <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
             </div>

@@ -46,7 +46,7 @@ include "nav.php";
                     <li class="active"><a href="#"> <i class="fa fa-user"></i> Profile</a></li>
                     <!--TODO: the number of Recent Activity is counter for user Sakanat-->
                     <li><a href="#"> <i class="fa fa-calendar"></i> Recent Activity <span class="label label-warning pull-right r-activity">9</span></a></li>
-                    <li><a href="#"> <i class="fa fa-edit"></i> Edit profile</a></li>
+                    <li><a href="p2.php"> <i class="fa fa-edit"></i> Edit profile</a></li>
                 </ul>
             </div>
         </div>

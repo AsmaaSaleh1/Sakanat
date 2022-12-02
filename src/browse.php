@@ -14,7 +14,7 @@ session_start();
         aside{
             background-color: rgb(31, 86, 98);
             width: 250px;
-            height: 600px;
+            height: 100vh;
             padding: 30px;
             position: static;
         }
@@ -137,7 +137,7 @@ session_start();
 <!-- Header section -->
 <nav id="head" class="navbar navbar-expand-lg sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.php">Sakanat</a>
+        <a class="navbar-brand" href="index.php" style="color: #1F5662;font-size: 25px">Sakanat</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="true" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

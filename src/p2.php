@@ -1,4 +1,10 @@
 <?php
+session_start();
+include "connect.php";
+$property_id=$_SESSION['user_email'];
+$sql="SELECT * from user where Email='$property_id'";
+$query=mysqli_query($db,$sql);
+$rows=mysqli_fetch_assoc($query);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,28 +25,28 @@
                     <h1>My Information</h1>
                     <div class="row">
                         <div class="bio-row">
-                            <p><span>First Name </span>: <input type="text"></p><!--Name come from database-->
+                            <p><span>First Name </span>: <input type="text" value="<?php echo $rows['uName']; ?>"></p><!--Name come from database-->
                         </div>
                         <div class="bio-row">
                             <p><span>Last Name </span>: <input type="text"></p><!--Name come from database-->
                         </div>
                         <div class="bio-row">
-                            <p><span>ID </span>: <input type="number" disabled></p><!--ID come from database-->
+                            <p><span>ID </span>: <input type="number" disabled value="<?php echo $rows['userId']; ?>"></p><!--ID come from database-->
                         </div>
                         <div class="bio-row">
-                            <p><span>Birthday</span>: <input type="date"></p><!--Birthdate come from database-->
+                            <p><span>Birthday</span>: <input type="date" value="<?php echo $rows['bd']; ?>"></p><!--Birthdate come from database-->
                         </div>
                         <div class="bio-row">
-                            <p><span>City </span>: <input type="text"></p><!--City come from database-->
+                            <p><span>City </span>: <input type="text" value="<?php echo $rows['city']; ?>"></p><!--City come from database-->
                         </div>
                         <div class="bio-row">
-                            <p><span>Street </span>: <input type="text"></p><!--street come from database-->
+                            <p><span>Street </span>: <input type="text" value="<?php echo $rows['street']; ?>"></p><!--street come from database-->
                         </div>
                         <div class="bio-row">
-                            <p><span>Mobile </span>: <input type="tel"></p><!--mobile come from database-->
+                            <p><span>Mobile </span>: <input type="tel" value="<?php echo $rows['phone']; ?>"></p><!--mobile come from database-->
                         </div>
                         <div class="bio-row">
-                            <p><span>Email </span>: <input type="email" disabled></p><!--email come from database-->
+                            <p><span>Email </span>: <input type="email" disabled value="<?php echo $rows['Email']; ?>"></p><!--email come from database-->
                         </div>
                         <div class="bio-row">
                             <p><span>Phone </span>: <input type="tel"></p><!--P.N come from database-->
