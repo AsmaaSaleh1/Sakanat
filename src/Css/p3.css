@@ -98,4 +98,5 @@ body {
 }
 .content button:hover{
     background: linear-gradient(147deg, #1d3838 0%, #1f5662 74%);
+    box-shadow: 2px 3px 15px rgba(31 86 98 /50%);
 }
