@@ -22,7 +22,7 @@ $rows=mysqli_fetch_assoc($query);
                     I'm here because I'm the best and I want the best.
                 </div>
                 <div class="panel-body bio-graph-info">
-                    <h1>My Information</h1>
+                    <h1>Edit My Information</h1>
                     <div class="row">
                         <div class="bio-row">
                             <p><span>First Name </span>: <input type="text" value="<?php echo $rows['uName']; ?>"></p><!--Name come from database-->
@@ -54,7 +54,7 @@ $rows=mysqli_fetch_assoc($query);
                         <div class="bio-row">
                             <!--TODO: but limitation about number of char for example 200char-->
                             <!--Description come from database-->
-                            <p><span>Description </span>: <input type="text" maxlength="200"></p>
+                            <p><span>Type </span>: <input type="radio" name="type"><label>Owner </label><input type="radio" name="type"><label>Tenant </label></p>
                         </div>
                         <div class="bio-row">
                             <p><span>Profile Picture </span>: <input type="file" id="img" name="img" accept="image/*"> </p>

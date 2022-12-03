@@ -592,3 +592,8 @@ section h2{
 section .loader:last-child .dot{
     animation-delay: calc(-0.1s * var(--i));
 }
+.type-input{
+    font-size: 10px;
+    margin-left: 20px;
+    font-family: 'Times New Roman', 'Times','serif';
+}

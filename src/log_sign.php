@@ -88,15 +88,15 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
                                 />
                                 <label>Confirm Password</label>
                             </div>
-                            <div class="" >
+                            <div class="type-input" >
 
                                 <input id="u" type="radio" name="type" value="u">
-                                <b> Search about Home</b>
+                                Tenant
                             </div>
-                            <div class="" >
+                            <div class="type-input" >
 
                                 <input id="o" type="radio" name="type" value="o">
-                                <b>Have A Home</b>
+                                Owner
                             </div>
 
                             <input type="submit" onclick="return validate()" value="Sign Up" class="sign-btn" />

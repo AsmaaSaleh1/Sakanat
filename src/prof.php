@@ -78,17 +78,16 @@ include "nav.php";
                             <p><span>Street </span>: <?php echo $rows['street']; ?></p><!--street come from database-->
                         </div>
                         <div class="bio-row">
-                            <p><span>Email </span>: <?php echo $rows['Email']; ?></p><!--email come from database-->
+                            <p><span>Mobile </span>: <?php echo $rows['phone']; ?></p><!--mobile come from database-->
                         </div>
                         <div class="bio-row">
-                            <p><span>Mobile </span>: <?php echo $rows['phone']; ?></p><!--mobile come from database-->
+                            <p><span>Email </span>: <?php echo $rows['Email']; ?></p><!--email come from database-->
                         </div>
                         <div class="bio-row">
                             <p><span>Phone </span>: 2321209</p><!--P.N come from database-->
                         </div>
                         <div class="bio-row">
-                            <!--TODO: but limitation about number of char for example 200char-->
-                            <!--Description come from database-->
+                            <p><span>Type </span>: Owner</p><!--come from database-->
                         </div>
                     </div>
                 </div>

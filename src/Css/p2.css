@@ -39,6 +39,11 @@ body {
     width: 100px;
     display: inline-block;
 }
+label{
+    padding-right: 10px;
+    padding-left: 5px;
+    font-family: 'Times New Roman', 'Times','serif';
+}
 .navbar {
     background-color: #ddd;
     padding: 0;
