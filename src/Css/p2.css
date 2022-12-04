@@ -113,6 +113,7 @@ body{
     color: #ffffff;
     transform-origin: 50% 5em;
     animation: wiggle 2s linear infinite;
+    box-shadow: 2px 3px 15px rgba(31 86 98 /50%);
 }
 @keyframes wiggle {
     0%, 7%{

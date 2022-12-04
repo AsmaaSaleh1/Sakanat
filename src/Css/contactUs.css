@@ -269,6 +269,8 @@ main.sign-up-mode .carousel {
 .em{
     position: relative;
     left: 4px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .contact-info{
     display: flex;
