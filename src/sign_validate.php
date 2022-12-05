@@ -38,7 +38,7 @@ $phone=$_POST['pNum'];
     if (empty($uname)) {
         header("Location: log_sign.php?error=User Name is required&$user_data");
         exit();
-    }else if(empty($pass)){
+    }else if(empty($password)){
         header("Location: log_sign.php?error=Password is required&$user_data");
         exit();
     }
@@ -52,7 +52,7 @@ $phone=$_POST['pNum'];
         exit();
     }
 
-    else if($pass !== $re_pass){
+    else if($password !== $re_pass){
         header("Location: log_sign.php?error=The confirmation password  does not match&$user_data");
         exit();
     }
