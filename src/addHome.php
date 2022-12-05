@@ -173,7 +173,7 @@ if(isset($_POST['add_home'])) {
     }
     .navbar-brand{
         font-family: 'Times New Roman', 'Times','serif';
-        color:#1F5662;
+        color:#1f5662;
         font-weight: 700;
         font-size: 2.2em;
         margin-left: 80px;
@@ -223,6 +223,9 @@ if(isset($_POST['add_home'])) {
         max-width: 400px;
         margin-right: 50px;
     }
+    .form-control{
+        border: 1px solid #1f5662;
+    }
 </style>
 <div>
     <div class="container con">
@@ -251,15 +254,15 @@ if(isset($_POST['add_home'])) {
                         <label for="district">For:</label>
                         <select class="form-control" name="for" required="required">
                             <option>---</option>
-                            <option value="Men">Men</option>
-                            <option value="Women">Women</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
                             <option value="Family">Family</option>
 
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="vdc/municipality">Area:</label>
+                        <label for="vdc/municipality">Area (m&sup2;):</label>
                         <input placeholder="Area" class="form-control" type="text" name="area">
 
                     </div>
@@ -286,16 +289,16 @@ if(isset($_POST['add_home'])) {
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="total_rooms">Number of Rooms:</label>
-                        <input type="number" class="form-control" id="total_rooms" placeholder="Enter Total No. of Rooms" name="total_rooms">
+                        <input type="number" min="1" class="form-control" id="total_rooms" placeholder="Enter Total No. of Rooms" name="total_rooms">
                     </div>
 
                     <div class="form-group">
                         <label for="kitchen">Number of Kitchen:</label>
-                        <input type="number" class="form-control" id="kitchen" placeholder="Enter No. of Kitchen" name="kitchen">
+                        <input type="number" min="0" class="form-control" id="kitchen" placeholder="Enter No. of Kitchen" name="kitchen">
                     </div>
                     <div class="form-group">
                         <label for="bathroom">Number of Bathroom/Washroom:</label>
-                        <input type="number" class="form-control" id="bathroom" placeholder="Enter No. of Bathroom/Washroom" name="bathroom">
+                        <input type="number" min="1" class="form-control" id="bathroom" placeholder="Enter No. of Bathroom/Washroom" name="bathroom">
                     </div>
                     <div class="form-group">
                         <label for="">Location in map:</label>
@@ -320,8 +323,8 @@ if(isset($_POST['add_home'])) {
                         <tr>
                             <div class="form-group">
                                 <label><b>Photos:</b></label>
-                                <td><input type="file" name="p_photo[]" placeholder="Photos" class="form-control name_list" required accept="image/*" /></td>
-                                <td><button style="background-color: #1F5662" type="button" id="add" name="add" class="btn btn-success col-lg-12">Add More</button></td>
+                                <td style="border: 2px solid #f0f0f0"><input type="file" name="p_photo[]" placeholder="Photos" class="form-control name_list" required accept="image/*" /></td>
+                                <td style="border: 2px solid #f0f0f0"><button style="background-color: #1F5662; border-color: #1f5662" type="button" id="add" name="add" class="btn btn-success col-lg-12">Add More</button></td>
                             </div>
                         </tr>
                     </table>
