@@ -60,13 +60,13 @@ include "nav.php";
                     <h1>My Information</h1>
                     <div class="row">
                         <div class="bio-row">
-                            <p><span>First Name </span>: <?php echo $rows['uName']; ?></p><!--Name come from database-->
+                            <p><span>First Name </span>: <?php echo $rows['fName']; ?></p><!--Name come from database-->
                         </div>
                         <div class="bio-row">
-                            <p><span>Last Name </span>: Saleh</p><!--Name come from database-->
+                            <p><span>Last Name </span>: <?php echo $rows['lName']; ?></p><!--Name come from database-->
                         </div>
                         <div class="bio-row">
-                            <p><span>ID </span>: 12028417</p><!--ID come from database-->
+                            <p><span>ID </span>: <?php echo $rows['userId']; ?></p><!--ID come from database-->
                         </div>
                         <div class="bio-row">
                             <p><span>Birthday</span>: <?php echo $rows['bd']; ?></p><!--Birthdate come from database-->
@@ -78,16 +78,16 @@ include "nav.php";
                             <p><span>Street </span>: <?php echo $rows['street']; ?></p><!--street come from database-->
                         </div>
                         <div class="bio-row">
-                            <p><span>Mobile </span>: <?php echo $rows['phone']; ?></p><!--mobile come from database-->
+                            <p><span>Mobile </span>: <?php echo $rows['mobile']; ?></p><!--mobile come from database-->
                         </div>
                         <div class="bio-row">
                             <p><span>Email </span>: <?php echo $rows['Email']; ?></p><!--email come from database-->
                         </div>
                         <div class="bio-row">
-                            <p><span>Phone </span>: 2321209</p><!--P.N come from database-->
+                            <p><span>Phone </span>: <?php echo $rows['phone']; ?></p><!--P.N come from database-->
                         </div>
                         <div class="bio-row">
-                            <p><span>Type </span>: Owner</p><!--come from database-->
+                            <p><span>Type </span>: <?php echo $rows['type']; ?></p><!--come from database-->
                         </div>
                     </div>
                 </div>

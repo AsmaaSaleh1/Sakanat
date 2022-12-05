@@ -15,7 +15,7 @@ try {
     echo "Connection failed : ". $e->getMessage();
 }
 if (isset($_POST['email']) && isset($_POST['regPass'])
-    && isset($_POST['name']) && isset($_POST['pNum'])  && isset($_POST['confPass'])&&isset($_POST['type'])) {
+    && isset($_POST['name']) && isset($_POST['pNum'])  && isset($_POST['confPass'])&&isset($_POST['type'])&&isset($_POST['lname'])) {
 
     function validate($data){
         $data = trim($data);
@@ -25,12 +25,14 @@ if (isset($_POST['email']) && isset($_POST['regPass'])
     }
 
     $uname = validate($_POST['email']);
-    $pass = validate($_POST['regPass']);
+    $password = validate($_POST['regPass']);
 
     $re_pass = validate($_POST['confPass']);
     $name = validate($_POST['name']);
+    $lname= validate($_POST['lname']);
 $phone=$_POST['pNum'];
     $user_data = 'uname='. $uname. '&name='. $name;
+    $type=$_POST['type'];
 
 
     if (empty($uname)) {
@@ -90,7 +92,7 @@ $type=$_SESSION['type'];
             }catch(PDOException $e){
                 echo "Connection failed : ". $e->getMessage();
             }
-            $sql = "INSERT INTO `user`(`uName`, `Email`, `phone`, `password`, `type`) VALUES ('$name','$uname','$phone','$pass','$type')";
+            $sql = "INSERT INTO `user`(`fName`, `lName`, `Email`, `phone`, `password`, `type`) VALUES ('$name','$lname','$uname','$phone','$password','$type')";
                         echo "<script> alert('Doneee') </script>";
             if($db->query($sql)===TRUE){
                 header("location:index.php");
