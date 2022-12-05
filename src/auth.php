@@ -32,7 +32,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
             $user_id =5;
             $user_email = $user['Email'];
             $user_password = $user['password'];
-            $user_full_name = $user['uName'];
+            $user_full_name = $user['fName'];
             $user_phone=$user['phone'];
 
             if ($email === $user_email) {

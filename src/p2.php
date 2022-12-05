@@ -1,24 +1,59 @@
 <?php
-session_start();
+include "nav.php";
+
 include "connect.php";
 $property_id=$_SESSION['user_email'];
 $sql="SELECT * from user where Email='$property_id'";
 $query=mysqli_query($db,$sql);
 $rows=mysqli_fetch_assoc($query);
+
+
+include "connect.php";
+if (isset($_POST['update'])) {
+    if(isset($_POST["savePass"])){
+        $Pass=$_POST['newPass'];
+    }
+    $email = $_SESSION['user_email'];
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $city = $_POST['city'];
+    $street = $_POST['street'];
+    $phone = $_POST['phone'];
+    $mobile = $_POST['mob'];
+    $img = "img/" . $_POST['img'];
+    $bd = $_POST['bd'];
+    $Pass=$_POST['newPass'];
+$feedback=$_POST['fb'];
+    $stmt = "UPDATE `user` SET `fName`='$fname',`phone`='$phone',`photo`='$img',`city`='$city',`street`='$street',`bd`='$bd',`lName`='$lname',`password`='$Pass',`feedback`='$feedback',`mobile`='$mobile'WHERE Email='$email'";
+    $query = mysqli_query($db, $stmt);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+    </style>
         <meta charset="utf-8">
         <title>Profile</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="Css/p2.css">
-    </head>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cairo:wght@400;500;600;700&family=Lobster&family=Open+Sans:wght@400;700&family=Work+Sans:ital,wght@0,300;0,800;1,700&display=swap" rel="stylesheet">
+
+</head>
     <body>
+<style>
+    .navbar{
+    background-color: #fff;
+    }
+    .navbar-brand{
+        font-family: "Lobster";
+    }
+    </style>
+    <form action="p2.php" method="post">
         <div class="profile-info col-md-9">
             <div class="panel">
-                <form method="post" action="updateProfile.php">
+
                 <div class="bio-graph-heading">
                     I'm here because I'm the best and I want the best.
                 </div>
@@ -53,6 +88,9 @@ $rows=mysqli_fetch_assoc($query);
                             <p><span>Phone </span>: <input name="phone" type="tel"value="<?php echo $rows['phone']; ?>"></p><!--P.N come from database-->
                         </div>
                         <div class="bio-row">
+                            <p><span>Feedback </span>: <input name="fb" type="text"value="<?php echo $rows['feedback']; ?>"></p><!--P.N come from database-->
+                        </div>
+                        <div class="bio-row">
                             <!--TODO: but limitation about number of char for example 200char-->
                             <!--Description come from database-->
 <!--                            <p><span>Type </span>: <input type="radio" name="type"><label>Owner </label><input type="radio" name="type"><label>Tenant </label></p>-->
@@ -66,28 +104,30 @@ $rows=mysqli_fetch_assoc($query);
                                     <div class="content">
                                         <div class="close-btn" onclick="togglePopup()">×</div>
                                         <h1 class="change">Change Password</h1>
-                                        <div class="input-field"><input placeholder="Old Password" class="validate"></div>
-                                        <div class="input-field"><input placeholder="New Password" class="validate"></div>
-                                        <div class="input-field"><input placeholder="Conform Password" class="validate"></div>
-                                        <button class="second-button">Save</button>
+                                        <div class="input-field"><input name="prePass" placeholder="Old Password" class="validate"></div>
+                                        <div class="input-field"><input name="newPass" placeholder="New Password" class="validate"></div>
+                                        <div class="input-field"><input name="confPass" placeholder="Conform Password" class="validate"></div>
+                                        <button name="savePass" class="second-button">Save</button>
                                     </div>
                                 </div>
                             </div>
-                            <button onclick="togglePopup()" class="btn bio-row">Change Password</button>
+                            <a style="text-align: center" onclick="togglePopup()" class="btn bio-row">Change Password</a>
                             <script>
                                 function togglePopup() {
                                     document.getElementById("popup-1")
                                         .classList.toggle("active");
                                 }
                             </script>
+                            <button class="btn bio-row" type="submit" name="update">Update</button>
+
                         </div>
                         <div class="butt">
-                            <button class="btn bio-row" type="submit" name="update">Update</button>
                         </div>
                     </div>
                 </div>
-                </form>
+
             </div>
         </div>
+    </form>
     </body>
 </html>
