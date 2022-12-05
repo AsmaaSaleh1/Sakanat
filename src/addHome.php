@@ -230,7 +230,7 @@ if(isset($_POST['add_home'])) {
         <div id="map_canvas"></div>
         <form class="tst" method="POST" action="addHome.php" enctype="multipart/form-data">
             <div class="row">
-                <center><h2 style="font-weight: 800;color: black">Add Home</h2></center>
+                <center><h2 style="font-weight: 800;padding-bottom: 20px;font-size: 35px;color: black">Add Home</h2></center>
 
                 <div class="cx col-sm-6">
                     <div class="form-group">
