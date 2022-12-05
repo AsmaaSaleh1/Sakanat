@@ -91,14 +91,9 @@ $feedback=$_POST['fb'];
                             <p><span>Feedback </span>: <input name="fb" type="text"value="<?php echo $rows['feedback']; ?>"></p><!--P.N come from database-->
                         </div>
                         <div class="bio-row">
-                            <!--TODO: but limitation about number of char for example 200char-->
-                            <!--Description come from database-->
-<!--                            <p><span>Type </span>: <input type="radio" name="type"><label>Owner </label><input type="radio" name="type"><label>Tenant </label></p>-->
-                        </div>
-                        <div class="bio-row">
                             <p><span>Profile Picture </span>: <input type="file" id="img" name="img" accept="image/*"> </p>
                         </div>
-                        <div class="butt">
+                        <div class="butt bio-row">
                             <div class="body-in">
                                 <div class="popup" id="popup-1">
                                     <div class="content">

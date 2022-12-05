@@ -104,7 +104,7 @@ if(isset($_POST['add_home'])) {
             max-width: 300px;
             margin: auto;
             text-align: center;
-            font-family: arial;
+            font-family: 'Times New Roman', 'Times','serif';
         }
 
         button {
@@ -137,7 +137,6 @@ if(isset($_POST['add_home'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cairo:wght@400;500;600;700&family=Lobster&family=Open+Sans:wght@400;700&family=Work+Sans:ital,wght@0,300;0,800;1,700&display=swap" rel="stylesheet">
-<!--<link rel="stylesheet" href="Css/p2.css">-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -154,13 +153,13 @@ if(isset($_POST['add_home'])) {
         padding: 0;
         margin: 0;
         font-family: 'Times New Roman', 'Times', 'serif';
-
-
+        font-size: 16px;
+        font-weight: bold;
     }
-.con{
-   background-color: rgb(255,255,255,0.4);
-border-radius: 15px;
-}
+    .con{
+        background-color: rgb(255,255,255,0.6);
+        border-radius: 15px;
+    }
     .navbar {
         background-color: #f0f0f0;
         padding: 0;
@@ -169,11 +168,11 @@ border-radius: 15px;
 
     body{
         font-family: 'Times New Roman', 'Times','serif';
-        background-image: url("img/add.jpg");
+        background-image: url("img/addHome.jpg");
         background-repeat: no-repeat;
     }
     .navbar-brand{
-        font-family: "Lobster";
+        font-family: 'Times New Roman', 'Times','serif';
         color:#1F5662;
         font-weight: 700;
         font-size: 2.2em;
