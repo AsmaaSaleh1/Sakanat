@@ -11,7 +11,7 @@ isset($_SESSION["email"]);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="Css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cairo:wght@400;500;600;700&family=Lobster&family=Open+Sans:wght@400;700&family=Work+Sans:ital,wght@0,300;0,800;1,700&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="Css/all.min.css">
     <style>
         #mapid { height: 180px; }
 
@@ -244,9 +244,6 @@ $query=mysqli_query($db,$sql);
 if(mysqli_num_rows($query)>0)
 {
     while($rows=mysqli_fetch_assoc($query)){
-
-
-
         $sql2="SELECT * FROM Home_img where HID='$property_id'";
         $query2=mysqli_query($db,$sql2);
 
@@ -386,9 +383,38 @@ $_SESSION['pid']=$property_id;
             </div>
 
         </div>
+        <h3>Home Features:</h3><br>
+        <?php
+        $sql="SELECT * from Home where hID='$property_id'";
+        $query=mysqli_query($db,$sql);
+        if(mysqli_num_rows($query)>0) {
+
+            while ($rows = mysqli_fetch_assoc($query)) {
+                $sql2 = "SELECT fID FROM homefeatures where hID='$property_id'";
+                $query2 = mysqli_query($db, $sql2);
+                $rowcount=mysqli_num_rows($query2);
+                if (mysqli_num_rows($query2) > 0) {
+
+                    while ($rows = mysqli_fetch_assoc($query2)) {
+                        $fid=$rows['fID'];
+                        $sql2 = "SELECT name FROM features where fID='$fid'";
+                        $query3 = mysqli_query($db, $sql2);
+                        $row = mysqli_fetch_array($query3);
+                        ?>
+                        <p style="margin-left: 20px"><i class="fa-solid fa-check"></i> <?php  echo $row['name']; ?></p>
+
+                            <?php
+                    }
+
+                }
+            }
+        }
+
+        ?>
         <br>
 
         <br>
+
         <form method="post" style="position: relative;top: 20px;left:20px;width: fit-content;margin-bottom: 30px">
        <textarea name="rev" cols="40" placeholder="Write Your Comment"></textarea>
             <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
@@ -401,6 +427,10 @@ $_SESSION['pid']=$property_id;
 
 
     <?php }}
+
+
+
+
 if(isset($_POST['review'])) {
     $rate=$_POST['rating'];
     $comment = $_POST['rev'];
@@ -424,7 +454,7 @@ if(mysqli_num_rows($query)>0)
     while($row=mysqli_fetch_assoc($query)){
         ?>
         <div class="container-fluid">
-            <ul><li><?php echo $row['comment']; ?> &nbsp;&nbsp;&nbsp;(<i class="fa-regular fa-star"></i><?php echo $row['rate']; ?></span>)</li></ul>
+            <ul><li><?php echo $row['comment']; ?> &nbsp;&nbsp;&nbsp;(<i style="color: green" class="fa-regular fa-star"></i><?php echo $row['rate']; ?></span>)</li></ul>
         </div>
 
 

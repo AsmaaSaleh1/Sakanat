@@ -16,7 +16,7 @@ session_start();
     <link rel="stylesheet" href="Css/all.min.css"> </head>
 <style>
     nav{
-        background-color: #ddd;
+        background-color:#dddddd;
     }
     .navbar-brand{
         font-family: "Lobster";

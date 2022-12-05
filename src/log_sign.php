@@ -40,8 +40,21 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
                                         class="input-field"
                                         autocomplete="off"
                                         required
+
                                 />
-                                <label>Name</label>
+                                <label>First Name</label>
+                            </div>
+                            <div class="input-wrap">
+                                <input
+
+                                        name="lname"
+                                        type="text"
+                                        minlength="4"
+                                        class="input-field"
+                                        autocomplete="off"
+                                        required
+                                />
+                                <label>Last Name</label>
                             </div>
                             <div class="input-wrap">
                                 <input
@@ -62,7 +75,7 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
                                         required
                                         name="pNum"
                                 />
-                                <label>Phone Number</label>
+                                <label>Mobile Number</label>
                             </div>
                             <div class="input-wrap">
                                 <input
@@ -88,15 +101,12 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
                                 />
                                 <label>Confirm Password</label>
                             </div>
-                            <div class="type-input" >
+                            <div class="type-input" style="position: relative; top: -10px;" >
+                                <input id="u" type="radio" name="type" value="Tenant">
+                                <h4 style="display: inline-block;padding-right: 30px;font-size: 18px">Tenant </h4>
 
-                                <input id="u" type="radio" name="type" value="u">
-                                <b style="font-size: 16px">Tenant</b>
-                            </div>
-                            <div class="type-input" >
-
-                                <input id="o" type="radio" name="type" value="o">
-                                <b style="font-size: 16px">Owner</b>
+                                <input id="o" type="radio" name="type" value="Owner">
+                               <h4 style="display: inline-block;font-size: 18px"> Owner</h4>
                             </div>
 
                             <input type="submit" onclick="return validate()" value="Sign Up" class="sign-btn" />

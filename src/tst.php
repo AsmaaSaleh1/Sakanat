@@ -29,7 +29,7 @@ $date='2008-11-11';
                 if($query2)
                 {
                     $email=$rows['Email'];
-                    $msg="Thankyou Mr/Ms ".$rows['uName']." for booking Property. Please visit the property location to view it personally.";
+                    $msg="Thankyou Mr/Ms ".$rows['fName']." for booking Property. Please visit the property location to view it personally.";
                     $recipient=$email;
                     $subject="Property Booked";
                     $mailheaders="From: RentHouse\n";
