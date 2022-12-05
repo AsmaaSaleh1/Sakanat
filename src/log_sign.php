@@ -91,12 +91,12 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
                             <div class="type-input" >
 
                                 <input id="u" type="radio" name="type" value="u">
-                                Tenant
+                                <b style="font-size: 16px">Tenant</b>
                             </div>
                             <div class="type-input" >
 
                                 <input id="o" type="radio" name="type" value="o">
-                                Owner
+                                <b style="font-size: 16px">Owner</b>
                             </div>
 
                             <input type="submit" onclick="return validate()" value="Sign Up" class="sign-btn" />
