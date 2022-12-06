@@ -126,9 +126,6 @@ include 'navbar.php';
 </html>
 
 <?php
-if($_SESSION['type']=='u')
-    include("addHome.php");
-else
 include("Home_list.php");
 
 ?>
