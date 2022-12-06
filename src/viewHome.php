@@ -158,6 +158,27 @@ isset($_SESSION["email"]);
         body{
             font-family: 'Times New Roman', 'Times','serif';
         }
+        .Book{
+            display: flex;
+            background-color: #1f5662;
+            color: #f0f0f0;
+            transform: translateX(1px) translateY(1px);
+            box-shadow: black 7px 9px 0;
+            border-radius: 10px;
+            width: 150px;
+            height: 50px;
+            padding: 10px 25px;
+        }
+        .Book:hover{
+            display: flex;
+            background-color: black;
+            color: #f0f0f0;
+            transform: translateX(5px) translateY(5px);
+            box-shadow: #1f5662 7px 9px 0;
+            width: 150px;
+            height: 50px;
+            padding: 10px 25px;
+        }
 
     </style>
 </head>
@@ -341,8 +362,7 @@ if(mysqli_num_rows($query)>0)
                                                                $booked=$rows['booked'];
                                                                 $_SESSION['pid']=$property_id;
                                         if ($booked==0){ ?>
-                                            <input type="hidden" name="property_id" value="<?php echo $rows['property_id']; ?>">
-                                            <h3 style="font-size: 20px"><?php echo '<a style="text-decoration:none" href="book.php?property_id='.$rows['hID'].'"  class="" >Book Now </a><br>'; ?></h3><br>
+                                            <h3 style="font-size: 20px"><?php echo '<a style="text-decoration:none" href="book.php?property_id='.$rows['hID'].'"  class="Book" >Book Now </a><br>'; ?></h3><br>
 
                                         <?php } else { ?>
                                             <label style="width: max-content;font-size: 22px; font-weight: 600" value="" disabled>Property Booked</label>

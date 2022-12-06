@@ -75,7 +75,7 @@ session_start();
             background-color: #ddd;
         }
         .navbar-brand{
-            font-family: "Lobster";
+            font-family: "sans-serif";
             color:#1F5662;
             font-weight: 700;
             font-size: 2.2em;
@@ -109,7 +109,7 @@ session_start();
             background-color: #eee;
 
         }
-        navbar-nav .nav-item .nav-link{
+        .navbar-nav .nav-item .nav-link{
             padding-top: 100px ;
         }
         .navbar-nav .nav-item .nav-link:hover::before{
