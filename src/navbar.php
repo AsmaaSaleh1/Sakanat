@@ -97,7 +97,7 @@ session_start();
                     <a class="nav-link active p-lg-4" aria-current="page" href="browse.php">Browser</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active p-lg-4" aria-current="page" href="Contact-us.html">Contact</a>
+                    <a class="nav-link active p-lg-4" aria-current="page" href="contact.php">Contact</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active p-lg-4" aria-current="page" href="#about">About</a>
