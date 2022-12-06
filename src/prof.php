@@ -1,8 +1,8 @@
 <?php
 $db='';
 include "connect.php";
-include "nav.php";
-?>
+include "navbar.php"; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,9 +12,7 @@ include "nav.php";
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="Css/prof.css">
 
-    <style>
 
-</style>
 </head>
 <body>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
@@ -119,8 +117,8 @@ include "nav.php";
                 <ul class="nav nav-pills nav-stacked">
                     <li class="active"><a href="#"> <i class="fa fa-user"></i> Profile</a></li>
                     <!--TODO: the number of Recent Activity is counter for user Sakanat-->
-                    <li><a href="p3.php"> <i class="fa fa-calendar"></i> Recent Activity <span class="label label-warning pull-right r-activity">9</span></a></li>
-                    <li><a href="p2.php"> <i class="fa fa-edit" data-toggle="modal" data-target="#myModal"></i> Edit profile</a></li>
+                    <li><a href="p3.php" data-toggle="pill"> <i class="fa fa-calendar"></i> Recent Activity <span class="label label-warning pull-right r-activity">9</span></a></li>
+                    <li><a href="p2.php" data-toggle="pill"> <i class="fa fa-edit" data-toggle="modal" data-target="#myModal"></i> Edit profile</a></li>
                 </ul>
             </div>
         </div>

@@ -10,7 +10,8 @@ if(isset($_POST['book_property'])){
         $u_email=$_SESSION["user_email"];
 
         $property_id=$_SESSION['pid'];
-
+$date=$_POST['date'];
+$dur=$_POST['dur'];
         $sql="SELECT * FROM user where email='$u_email'";
         $query=mysqli_query($db,$sql);
 
@@ -18,12 +19,11 @@ if(isset($_POST['book_property'])){
         {
             while ($rows=mysqli_fetch_assoc($query)) {
                 $tenant_id=$rows['userId'];
-$date='2008-11-11';
 
                 $sql1="UPDATE home SET booked=1 WHERE hID='$property_id'";
                 $query1=mysqli_query($db,$sql1);
 
-                $sql2="INSERT INTO booking(hId,userId,bookDate,duration) VALUES ('$property_id','$tenant_id','$date',2)";
+                $sql2="INSERT INTO booking(hId,userId,bookDate,duration) VALUES ('$property_id','$tenant_id','$date',$dur)";
                 $query2=mysqli_query($db,$sql2);
 
                 if($query2)
