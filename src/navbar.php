@@ -1,7 +1,10 @@
 <?php
 session_start();
 
-
+if($_SESSION['type']=='owner')
+    $src="owner.php";
+else
+    $src="browse.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -93,7 +96,7 @@ session_start();
                 <li class="nav-item">
                     <a class="nav-link active p-lg-4" aria-current="page" href="#">Home</a>
                 </li>
-                <li class="nav-item"><a class="nav-link active p-lg-4" aria-current="page" <?php if($_SESSION['type']=='owner')?>href="owner.php" href="browse.php">Browser</a>
+                <li class="nav-item"><a class="nav-link active p-lg-4" aria-current="page" href="<?php echo $src?>">Browser</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active p-lg-4" aria-current="page" href="contact.php">Contact</a>

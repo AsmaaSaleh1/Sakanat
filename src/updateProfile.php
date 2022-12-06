@@ -11,8 +11,9 @@ if(isset($_POST['update'])){
     $phone=$_POST['phone'];
     $mobile=$_POST['mob'];
     $img="img/".$_POST['img'];
+    $fb=$_POST['fb'];
 $bd=$_POST['bd'];
-    $stmt = "UPDATE `user` SET `fName`='$fname',`phone`='$phone',`photo`='$img',`city`='$city',`street`='$street',`bd`='$bd',`lName`='$lname',`feedbach`='[value-12]',`mobile`='$mobile'WHERE Email='$email'";
+    $stmt = "UPDATE `user` SET `fName`='$fname',`phone`='$phone',`photo`='$img',`city`='$city',`street`='$street',`bd`='$bd',`lName`='$lname',`feedbach`='$fb',`mobile`='$mobile'WHERE Email='$email'";
     $query=mysqli_query($db,$stmt);
     echo 'doneeee';
 

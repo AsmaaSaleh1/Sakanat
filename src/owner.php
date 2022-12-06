@@ -255,7 +255,7 @@ margin-bottom: 10px;
             <div class="container">
                 <center><h3>My Home</h3></center>
                 <div class="container-fluid">
-                    <input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="Search..." title="Type in a name">
+                    <input type="text" id="myInput2" onkeyup="myFunction1()" placeholder="Search..." title="Type in a name">
                     <table id="myTable2">
                         <tr class="header">
                             <th>Name</th>
@@ -488,63 +488,65 @@ else
         </div>
 
         <div id="menu2" class="tab-pane fade">
-            <center><h3>My Home</h3></center>
-            <div class="container-fluid">
-                <input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="Search..." title="Type in a name">
-                <table id="myTable2">
-                    <tr class="header">
-                        <th>Name</th>
-                        <th>City</th>
-                        <th>Street</th>
-                        <th>Description</th>
-                        <th>Contact Number</th>
-                        <th>For</th>
-                        <th>R/month</th>
-                        <th>Booked</th>
-                        <th>Number of room</th>
-                        <th>Number of Bathroom</th>
-                        <th>Area</th>
-                        <th></th>
+            <div class="container">
+                <center><h3>My Home</h3></center>
+                <div class="container-fluid">
+                                        <input type="text" id="myInput2" onkeyup="myFunction1()" placeholder="Search..." title="Type in a name">
+                    <table id="myTable2">
+                        <tr class="header">
+                            <th>Name</th>
+                            <th>City</th>
+                            <th>Street</th>
+                            <th>Description</th>
+                            <th>Contact Number</th>
+                            <th>For</th>
+                            <th>R/month</th>
+                            <th>Booked</th>
+                            <th>Number of room</th>
+                            <th>Number of Bathroom</th>
+                            <th>Area</th>
+                            <th></th>
 
-                    </tr>
-                    <?php
-                    include("connect.php");
-                    $email=$_SESSION["user_email"];
-$owner=$_SESSION['user_id'];
+                        </tr>
+                        <?php
+                        include("connect.php");
+                        $email=$_SESSION["user_email"];
+                        $owner=$_SESSION['user_id'];
 
-                    $sql="SELECT * from home where ownerId='$owner'";
-                    $result=mysqli_query($db,$sql);
+                        $sql="SELECT * from home where ownerId='$owner' and booked=1";
+                        $result=mysqli_query($db,$sql);
 
-                    if(mysqli_num_rows($result)>0)
-                    {
-                        while($rows=mysqli_fetch_assoc($result)){
-                            if($rows['booked']==0)
-                                $booked='No';
-                            else
-                                $booked='Yes';
-                            ?>
-                            <tr>
-                                <td><?php echo $rows['hName'] ?></td>
-                                <td><?php echo $rows['city'] ?></td>
-                                <td><?php echo $rows['street'] ?></td>
-                                <td><?php echo $rows['description'] ?></td>
-                                <td><?php echo $rows['contact'] ?></td>
-                                <td><?php echo $rows['gender'] ?></td>
-                                <td><?php echo $rows['price'] ?></td>
-                                <td><?php echo $booked ?></td>
-                                <td><?php echo $rows['numOfRoom'] ?></td>
-                                <td><?php echo $rows['numOfBath'] ?></td>
-                                <td><?php echo $rows['Area'] ?></td>
-                                <td><button name="del" style="border: none;background-color: transparent"><i style="color: red;margin-right: 10px" class="fa-regular fa-trash-can"></i></button><button name="update" style="border: none;background-color: transparent"><i class="fa-solid fa-pen-to-square"></i></button></td>
-<!--                                <td><img id="myImg" src="../--><?php //echo $rows['id_photo'] ?><!--" width="50px"></td>-->
-                                <div id="myModal" class="modal">
-                                    <span class="close">&times;</span>
-                                    <img class="modal-content" id="img01">
-                                    <div id="caption"></div>
-                                </div>
-                            </tr>
-                        <?php }} ?>
-                </table>
+                        if(mysqli_num_rows($result)>0)
+                        {
+                            while($rows=mysqli_fetch_assoc($result)){
+                                if($rows['booked']==0)
+                                    $booked='No';
+                                else
+                                    $booked='Yes';                         ?>
+                                <tr>
+                                    <td><?php echo $rows['hName'] ?></td>
+                                    <td><?php echo $rows['city'] ?></td>
+                                    <td><?php echo $rows['street'] ?></td>
+                                    <td><?php echo $rows['description'] ?></td>
+                                    <td><?php echo $rows['contact'] ?></td>
+                                    <td><?php echo $rows['gender'] ?></td>
+                                    <td><?php echo $rows['price'] ?></td>
+                                    <td><?php echo $booked ?></td>
+                                    <td><?php echo $rows['numOfRoom'] ?></td>
+                                    <td><?php echo $rows['numOfBath'] ?></td>
+                                    <td><?php echo $rows['Area'] ?></td>
+                                    <td><button name="del" style="border: none;background-color: transparent"><i style="color: red;margin-right: 10px" class="fa-regular fa-trash-can"></i></button><button name="update" style="border: none;background-color: transparent"><i class="fa-solid fa-pen-to-square"></i></button></td>
+                                    <!--                                <td><img id="myImg" src="../--><?php //echo $rows['id_photo'] ?><!--" width="50px"></td>-->
+                                    <div id="myModal" class="modal">
+                                        <span class="close">&times;</span>
+                                        <img class="modal-content" id="img01">
+                                        <div id="caption"></div>
+                                    </div>
+                                </tr>
+                            <?php }} ?>
+                    </table>
+                </div>
+
             </div>
         </div>
 
@@ -562,6 +564,27 @@ $owner=$_SESSION['user_id'];
         input = document.getElementById("myInput");
         filter = input.value.toUpperCase();
         table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        th = table.getElementsByTagName("th");
+        for (i = 1; i < tr.length; i++) {
+            tr[i].style.display = "none";
+            for(var j=0; j<th.length; j++){
+                td = tr[i].getElementsByTagName("td")[j];
+                if (td) {
+                    if (td.innerHTML.toUpperCase().indexOf(filter.toUpperCase()) > -1)
+                    {
+                        tr[i].style.display = "";
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    function myFunction1() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput2");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable2");
         tr = table.getElementsByTagName("tr");
         th = table.getElementsByTagName("th");
         for (i = 1; i < tr.length; i++) {
