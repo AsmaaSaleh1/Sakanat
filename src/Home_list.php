@@ -27,7 +27,7 @@
         .z{
             position: relative;
             top: -550px;
-            left: 120px;
+            left: 180px;
         }
         }
         a{

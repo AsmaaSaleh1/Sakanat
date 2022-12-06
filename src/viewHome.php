@@ -245,11 +245,11 @@ if(mysqli_num_rows($query)>0)
 {
     while($rows=mysqli_fetch_assoc($query)){
         $sql2="SELECT * FROM Home_img where HID='$property_id'";
-        $query2=mysqli_query($db,$sql2);
+        $query2=mysqli_query($db,$sql2)
+        ;
 
         $rowcount=mysqli_num_rows($query2);
         ?>
-
 
 
         <div class="container-fluid">
@@ -361,6 +361,11 @@ $_SESSION['pid']=$property_id;
                                     <?php } ?>
                                 </div>
                         </form>
+<!--                        <form method="POST" action="chatpage.php">-->
+<!--                            <div class="col-sm-6">-->
+<!--                                <input type="hidden" name="owner_id" value="--><?php //echo $rows['owner_id']; ?><!--">-->
+<!--                            </div>-->
+<!--                        </form>-->
                     </div>
 
                     <?php }
