@@ -99,9 +99,9 @@ $feedback=$_POST['fb'];
                                     <div class="content">
                                         <div class="close-btn" onclick="togglePopup()">×</div>
                                         <h1 class="change">Change Password</h1>
-                                        <div class="input-field"><input name="prePass" placeholder="Old Password" class="validate"></div>
-                                        <div class="input-field"><input name="newPass" placeholder="New Password" class="validate"></div>
-                                        <div class="input-field"><input name="confPass" placeholder="Conform Password" class="validate"></div>
+                                        <div class="input-field"><input type="password" name="prePass" placeholder="Old Password" class="validate"></div>
+                                        <div class="input-field"><input type="password" name="newPass" placeholder="New Password" class="validate"></div>
+                                        <div class="input-field"><input type="password" name="confPass" placeholder="Conform Password" class="validate"></div>
                                         <button name="savePass" class="second-button">Save</button>
                                     </div>
                                 </div>

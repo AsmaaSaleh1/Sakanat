@@ -361,11 +361,6 @@ $_SESSION['pid']=$property_id;
                                     <?php } ?>
                                 </div>
                         </form>
-                        <form method="POST" action="chatpage.php">
-                            <div class="col-sm-6">
-                                <input type="hidden" name="owner_id" value="<?php echo $rows['owner_id']; ?>">
-                            </div>
-                        </form>
                     </div>
 
                     <?php }
