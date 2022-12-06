@@ -1,7 +1,29 @@
 <?php
 $db='';
 include "connect.php";
-include "navbar.php"; ?>
+include "navbar.php";
+
+if (isset($_POST['update'])) {
+    if(isset($_POST["savePass"])){
+        $Pass=$_POST['newPass'];
+    }
+    $email = $_SESSION['user_email'];
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $city = $_POST['city'];
+    $street = $_POST['street'];
+    $phone = $_POST['phone'];
+    $mobile = $_POST['mob'];
+    $img = "img/" . $_POST['img'];
+    $bd = $_POST['bd'];
+    $Pass=$_POST['newPass'];
+    $feedback=$_POST['fb'];
+    $stmt = "UPDATE `user` SET `fName`='$fname',`phone`='$phone',`photo`='$img',`city`='$city',`street`='$street',`bd`='$bd',`lName`='$lname',`password`='$Pass',`feedback`='$feedback',`mobile`='$mobile'WHERE Email='$email'";
+    $query = mysqli_query($db, $stmt);
+}
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">

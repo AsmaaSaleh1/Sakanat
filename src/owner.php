@@ -63,6 +63,15 @@ if (isset($_POST['add_home'])) {
         background-color: #1F5662;
         color: white;
     }
+    ul{
+        width: fit-content;
+        display: grid;
+grid-template-columns: 1fr;
+        gap: 10px;
+        }
+    ul li{
+margin-bottom: 10px;
+    }
 </style>
 </head>
 
@@ -70,11 +79,11 @@ if (isset($_POST['add_home'])) {
 
 <div class="container-fluid">
     <ul class="nav nav-pills nav-justified">
-        <li class="active" style="width: 200px;background-color: #FFF8DC"><a data-toggle="pill" href="#home">Profile</a></li>
-        <li style="width: 200px; background-color: #FAF0E6"><a data-toggle="pill" href="#menu1">Add Property</a></li>
-        <li style="width: 200px;background-color: #FFFACD"><a data-toggle="pill" href="#menu2">View Property</a></li>
-        <li style="width: 200px;background-color: #FFFAF0"><a data-toggle="pill" href="#menu3">Update Property</a></li>
-        <li style="width: 200px;background-color: #FAFAF0"><a data-toggle="pill" href="#menu6">Booked Property</a></li>
+        <li class="active" style="width: 150px;background-color: #dddddd"><a data-toggle="pill" href="#home">Profile</a></li>
+        <li style="width: 150px; background-color: #dddddd"><a data-toggle="pill" href="#menu1">Add Home</a></li>
+        <li style="width: 150px;background-color: #dddddd"><a data-toggle="pill" href="#menu2">View Home</a></li>
+<!--        <li style="width: 200px;background-color: #FFFAF0"><a data-toggle="pill" href="#menu3">Update Property</a></li>-->
+        <li style="width: 150px;background-color: #dddddd"><a data-toggle="pill" href="#menu6">Booked Home</a></li>
     </ul>
 
     <div class="tab-content">
@@ -187,7 +196,7 @@ if (isset($_POST['add_home'])) {
                                 <li class="active"><a href="#"> <i class="fa fa-user"></i> Profile</a></li>
                                 <!--TODO: the number of Recent Activity is counter for user Sakanat-->
                                 <li><a href="p3.php" data-toggle="pill"> <i class="fa fa-calendar"></i> Recent Activity <span class="label label-warning pull-right r-activity">9</span></a></li>
-                                <li><a href="p2.php" data-toggle="pill"> <i class="fa fa-edit" data-toggle="modal" data-target="#myModal"></i> Edit profile</a></li>
+                                <li><a href="p2.php"> <i class="fa fa-edit" data-toggle="modal" data-target="#myModal"></i> Edit profile</a></li>
                             </ul>
                         </div>
                     </div>
@@ -242,9 +251,68 @@ if (isset($_POST['add_home'])) {
             </div>
         </div>
 
+        <div id="menu6" class="tab-pane fade">
+            <div class="container">
+                <center><h3>My Home</h3></center>
+                <div class="container-fluid">
+                    <input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="Search..." title="Type in a name">
+                    <table id="myTable2">
+                        <tr class="header">
+                            <th>Name</th>
+                            <th>City</th>
+                            <th>Street</th>
+                            <th>Description</th>
+                            <th>Contact Number</th>
+                            <th>For</th>
+                            <th>R/month</th>
+                            <th>Booked</th>
+                            <th>Number of room</th>
+                            <th>Number of Bathroom</th>
+                            <th>Area</th>
+                            <th></th>
 
+                        </tr>
+                        <?php
+                        include("connect.php");
+                        $email=$_SESSION["user_email"];
+                        $owner=$_SESSION['user_id'];
 
+                        $sql="SELECT * from home where ownerId='$owner' and booked=1";
+                        $result=mysqli_query($db,$sql);
 
+                        if(mysqli_num_rows($result)>0)
+                        {
+                            while($rows=mysqli_fetch_assoc($result)){
+if($rows['booked']==0)
+    $booked='No';
+else
+    $booked='Yes';                         ?>
+                                <tr>
+                                    <td><?php echo $rows['hName'] ?></td>
+                                    <td><?php echo $rows['city'] ?></td>
+                                    <td><?php echo $rows['street'] ?></td>
+                                    <td><?php echo $rows['description'] ?></td>
+                                    <td><?php echo $rows['contact'] ?></td>
+                                    <td><?php echo $rows['gender'] ?></td>
+                                    <td><?php echo $rows['price'] ?></td>
+                                    <td><?php echo $booked ?></td>
+                                    <td><?php echo $rows['numOfRoom'] ?></td>
+                                    <td><?php echo $rows['numOfBath'] ?></td>
+                                    <td><?php echo $rows['Area'] ?></td>
+                                    <td><button name="del" style="border: none;background-color: transparent"><i style="color: red;margin-right: 10px" class="fa-regular fa-trash-can"></i></button><button name="update" style="border: none;background-color: transparent"><i class="fa-solid fa-pen-to-square"></i></button></td>
+                                    <!--                                <td><img id="myImg" src="../--><?php //echo $rows['id_photo'] ?><!--" width="50px"></td>-->
+                                    <div id="myModal" class="modal">
+                                        <span class="close">&times;</span>
+                                        <img class="modal-content" id="img01">
+                                        <div id="caption"></div>
+                                    </div>
+                                </tr>
+                            <?php }} ?>
+                    </table>
+                </div>
+
+            </div>
+        </div>
 
 
         <div id="menu4" class="tab-pane fade">
@@ -450,7 +518,10 @@ $owner=$_SESSION['user_id'];
                     if(mysqli_num_rows($result)>0)
                     {
                         while($rows=mysqli_fetch_assoc($result)){
-
+                            if($rows['booked']==0)
+                                $booked='No';
+                            else
+                                $booked='Yes';
                             ?>
                             <tr>
                                 <td><?php echo $rows['hName'] ?></td>
@@ -460,7 +531,7 @@ $owner=$_SESSION['user_id'];
                                 <td><?php echo $rows['contact'] ?></td>
                                 <td><?php echo $rows['gender'] ?></td>
                                 <td><?php echo $rows['price'] ?></td>
-                                <td><?php echo $rows['booked'] ?></td>
+                                <td><?php echo $booked ?></td>
                                 <td><?php echo $rows['numOfRoom'] ?></td>
                                 <td><?php echo $rows['numOfBath'] ?></td>
                                 <td><?php echo $rows['Area'] ?></td>
