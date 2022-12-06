@@ -78,7 +78,7 @@ isset($_SESSION["email"]);
             background-color: #ddd;
         }
         .navbar-brand{
-            font-family: "Lobster";
+            font-family: "sans-serif";
             color:#1F5662;
             font-weight: 700;
             font-size: 2.2em;
@@ -112,7 +112,7 @@ isset($_SESSION["email"]);
             background-color: #eee;
 
         }
-        navbar-nav .nav-item .nav-link{
+        .navbar-nav .nav-item .nav-link{
             padding-top: 100px ;
         }
         .navbar-nav .nav-item .nav-link:hover::before{
@@ -127,11 +127,11 @@ isset($_SESSION["email"]);
             color: #fff;
             text-align: center;
             font-style: italic;
-            padding: 40px 110px;
+            padding: 20px 110px;
             border-radius: 4px 4px 0 0;
             -webkit-border-radius: 4px 4px 0 0;
-            font-size: 20px;
-            font-weight: 300;
+            font-size: 16px;
+            font-weight: 200;
         }
         .bio-graph-info {
             color: #000000;
@@ -253,137 +253,118 @@ if(mysqli_num_rows($query)>0)
 
 
         <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <?php
+                            for($i=1;$i<=$rowcount;$i++)
+                            {
+                                $row=mysqli_fetch_array($query2);
+                                $photo=$row['imgPath'];
+                                ?>
 
+                                <?php
+                                if($i==1)
+                                {
+                                    ?>
+                                    <div class="carousel-item active">
+                                        <img class="d-block w-100" alt="..."src="<?php echo $photo ?>">
+                                    </div>
+                                    <?php
+                                }
+                                else
+                                {
+                                    ?>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" alt="..."src="<?php echo $photo ?>">
+                                    </div>
 
-                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <?php
-                        for($i=1;$i<=$rowcount;$i++)
-                        {
-                            $row=mysqli_fetch_array($query2);
-                            $photo=$row['imgPath'];
+                                    <?php
+                                }
+                            }
                             ?>
 
-                            <?php
-                            if($i==1)
-                            {
-                                ?>
-                                <div class="carousel-item active">
-                                    <img class="d-block w-100" alt="..."src="<?php echo $photo ?>">
-                                </div>
-                                <?php
-                            }
-                            else
-                            {
-                                ?>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" alt="..."src="<?php echo $photo ?>">
-                                </div>
+                        </div>
 
-                                <?php
-                            }
-                        }
-                        ?>
-
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
 
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
                 </div>
-
-            </div>
-            <div class="col-sm-6" >
-                <div class="bio-graph-heading">
-                    <h1>Room Details</h1>
-                </div>
-                <div class="profile-info col-md-12"style="background-color: #ddd;height: max-content">
-                    <div class="panel">
-
-                        <div class="panel-body bio-graph-info" >
-
+                <div class="col-sm-6" >
+                    <div class="bio-graph-heading" style="border-radius: 5px ;border: 3px solid #1f5662">
+                        <h1 style="font-size: 25px">Room Details</h1>
+                    </div>
+                    <div class="profile-info col-md-12"style="background-color: #ddd;height: max-content; border-radius: 5px ;border: 3px dotted #1f5662">
+                        <div class="panel-body bio-graph-info">
                             <div class="row" >
                                 <div class="bio-row">
                                     <p><span>Room Name </span>: <?php echo $rows['hName']; ?></p><!--Name come from database-->
                                 </div>
                                 <div class="bio-row">
+                                    <p><span>For </span>: <?php echo $rows['gender']; ?></p><!--email come from database-->
+                                </div>
+                                <div class="bio-row">
                                     <p><span>City </span>: <?php echo $rows['city']; ?></p><!--Name come from database-->
                                 </div>
-
                                 <div class="bio-row">
                                     <p><span>Street</span>: <?php echo $rows['street']; ?></p><!--Birthdate come from database-->
                                 </div>
                                 <div class="bio-row">
-                                    <p><span>Description </span>: <?php echo $rows['description']; ?></p><!--City come from database-->
-                                </div>
-
-                                <div class="bio-row">
-                                    <p><span>For </span>: <?php echo $rows['gender']; ?></p><!--email come from database-->
+                                    <p><span>Rate(R &#8725; M)</span>: <?php echo $rows['price']; ?></p><!--P.N come from database-->
                                 </div>
                                 <div class="bio-row">
                                     <p><span>Contact </span>: <?php echo $rows['contact']; ?></p><!--mobile come from database-->
                                 </div>
                                 <div class="bio-row">
-                                    <p><span>Rate per Month </span>: <?php echo $rows['price']; ?></p><!--P.N come from database-->
-                                </div>
-                                <div class="bio-row">
-                                    <!--TODO: but limitation about number of char for example 200char-->
-                                    <!--Description come from database-->
+                                    <p><span>Description </span>: <?php echo $rows['description']; ?></p><!--City come from database-->
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                        <?php
+                            <?php
 
-                        if(isset($_SESSION["user_email"]) && !empty($_SESSION['user_email'])){
+                            if(isset($_SESSION["user_email"]) && !empty($_SESSION['user_email'])){
 
+                            ?>
+                            <form method="POST" action="book.php">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <?php
+                                                               $booked=$rows['booked'];
+                                                                $_SESSION['pid']=$property_id;
+                                        if ($booked==0){ ?>
+                                            <input type="hidden" name="property_id" value="<?php echo $rows['property_id']; ?>">
+                                            <h3 style="font-size: 20px"><?php echo '<a style="text-decoration:none" href="book.php?property_id='.$rows['hID'].'"  class="" >Book Now </a><br>'; ?></h3><br>
+
+                                        <?php } else { ?>
+                                            <label style="width: max-content;font-size: 22px; font-weight: 600" value="" disabled>Property Booked</label>
+                                        <?php } ?>
+                                    </div>
+                            </form>
+    <!--                        <form method="POST" action="chatpage.php">-->
+    <!--                            <div class="col-sm-6">-->
+    <!--                                <input type="hidden" name="owner_id" value="--><?php //echo $rows['owner_id']; ?><!--">-->
+    <!--                            </div>-->
+    <!--                        </form>-->
+                        </div>
+
+                        <?php }
+                        else{
+                            echo "<center><h3 style='position: relative;top: 20px;color: red'>You should login to book room.</h3></center>";
+                        }
                         ?>
-                        <form method="POST" action="book.php">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <?php
-                                                           $booked=$rows['booked'];
-$_SESSION['pid']=$property_id;
-                                    if ($booked==0){ ?>
-                                        <input type="hidden" name="property_id" value="<?php echo $rows['property_id']; ?>">
-                                        <h3 style="font-size: 20px"><?php echo '<a style="text-decoration:none" href="book.php?property_id='.$rows['hID'].'"  class="" >Book Now </a><br>'; ?></h3><br>
-
-                                    <?php } else { ?>
-                                        <label style="width: max-content;font-size: 22px; font-weight: 600" value="" disabled>Property Booked</label>
-                                    <?php } ?>
-                                </div>
-                        </form>
-<!--                        <form method="POST" action="chatpage.php">-->
-<!--                            <div class="col-sm-6">-->
-<!--                                <input type="hidden" name="owner_id" value="--><?php //echo $rows['owner_id']; ?><!--">-->
-<!--                            </div>-->
-<!--                        </form>-->
-                    </div>
-
-                    <?php }
-                    else{
-                        echo "<center><h3 style='position: relative;top: 20px;color: red'>You should login to book room.</h3></center>";
-                    }
-
-
-                    ?>
-                    </div>
-
-
                 </div>
-
             </div>
-
         </div>
-        <h3>Home Features:</h3><br>
+        <h3 style="margin-top: 20px;margin-left: 50px">Home Features:</h3><br>
         <?php
         $sql="SELECT * from Home where hID='$property_id'";
         $query=mysqli_query($db,$sql);
@@ -401,7 +382,7 @@ $_SESSION['pid']=$property_id;
                         $query3 = mysqli_query($db, $sql2);
                         $row = mysqli_fetch_array($query3);
                         ?>
-                        <p style="margin-left: 20px"><i class="fa-solid fa-check"></i> <?php  echo $row['name']; ?></p>
+                        <p style="margin-left: 50px"><i class="fa-solid fa-check"></i> <?php  echo $row['name']; ?></p>
 
                             <?php
                     }
@@ -417,7 +398,17 @@ $_SESSION['pid']=$property_id;
 
         <form method="post" style="position: relative;top: 20px;left:20px;width: fit-content;margin-bottom: 30px">
        <textarea name="rev" cols="40" placeholder="Write Your Comment"></textarea>
-            <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+            <div class="rating">
+                <input type="radio" name="rating" value="5" id="5">
+                <label for="5">☆</label>
+                <input type="radio" name="rating" value="4" id="4">
+                <label for="4">☆</label>
+                <input type="radio" name="rating" value="3" id="3">
+                <label for="3">☆</label>
+                <input type="radio" name="rating" value="2" id="2">
+                <label for="2">☆</label>
+                <input type="radio" name="rating" value="1" id="1">
+                <label for="1">☆</label>
             </div>
                 <button class="btn btn-success btn-lg" type="submit" name="review">Save</button>
         </form>
