@@ -1,5 +1,18 @@
 <?php
-?>
+session_start();
+include 'connect.php';
+$property_id=$_SESSION['user_email'];
+$sql="SELECT * from user where Email='$property_id'";
+$query=mysqli_query($db,$sql);
+$rows=mysqli_fetch_assoc($query);
+
+$user=$rows['userId'];
+
+$sql2 = "SELECT * FROM booking where userId='$user'";
+$query2 = mysqli_query($db, $sql2);
+echo mysqli_num_rows($query2);
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

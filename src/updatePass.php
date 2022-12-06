@@ -4,7 +4,6 @@ if(isset($_POST['update'])and isset($_POST['pass']) and isset($_POST['conf'])){
     $p=$_POST['pass'];
     $c=$_POST['conf'];
     $email=$_SESSION['email'];
-    echo $email;
     if($p==$c){
 include 'connect.php';
         $sql = "UPDATE `user` SET `password`='$p' WHERE Email='$email'";
@@ -12,7 +11,7 @@ include 'connect.php';
         if($db->query($sql)===TRUE){
             echo "<script>alert('Password updated successfully') </script>";
 
-//            header("location:log_sign.php");
+            header("location:log_sign.php");
         }
 
         else {

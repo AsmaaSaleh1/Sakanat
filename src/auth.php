@@ -34,13 +34,14 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
             $user_password = $user['password'];
             $user_full_name = $user['fName'];
             $user_phone=$user['phone'];
-
+            $type=$user['type'];
             if ($email === $user_email) {
                 if ($password== $user_password) {
                     $_SESSION['user_id'] = $user_id;
                     $_SESSION['user_email'] = $user_email;
                     $_SESSION['user_full_name'] = $user_full_name;
                     $_SESSION['user_phone'] = $user_phone;
+                    $_SESSION['type']=$type;
                     header("Location: index.php");
 
                 }else {
@@ -84,5 +85,6 @@ try {
 }
 $sql = "INSERT INTO `user`(`Name`, `Password`, `Email`, `phone`, `Birthdate`, `photo`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]')";
 if($conn->query($sql)===TRUE){
+    $_SESSION['user_email'] = $user_email;
     header("location:index.php");
 }
