@@ -193,18 +193,7 @@ session_start();
 </nav>
 
 <div class="con">
-    <!--            <select name="city" >-->
-    <!--                <option name="nablus">Nablus</option>-->
-    <!--                <option name="tk">Tulkarem</option>-->
-    <!--                <option name="najah">ANNajah University</option>-->
-    <!--                <option name="ram">Ramallah</option>-->
-    <!--                <option name="jar">Jerusalem</option>-->
-    <!--                <option name="qal">Qalqiliah</option>-->
-    <!---->
-    <!--            </select>-->
 
-    <!--
-              <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>-->
     <aside>
     <form>
         <h5 style="margin: 0;padding: 0;color: white"><button type="reset"><i style="font-size: 18px;color: white" class="fa-solid fa-arrows-rotate"></i></button> Search Features</h5>
@@ -236,7 +225,9 @@ session_start();
 </html>
 
 <?php
-
+if($_SESSION['type']=='u')
+    include("addHome.php");
+else
 include("Home_list.php");
 
 ?>
