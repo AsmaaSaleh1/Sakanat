@@ -365,7 +365,7 @@ if(mysqli_num_rows($query)>0)
                                             <h3 style="font-size: 20px"><?php echo '<a style="text-decoration:none" href="book.php?property_id='.$rows['hID'].'"  class="Book" >Book Now </a><br>'; ?></h3><br>
 
                                         <?php } else { ?>
-                                            <label style="width: max-content;font-size: 22px; font-weight: 600" value="" disabled>Property Booked</label>
+                                            <label style="width: max-content;font-size: 25px; color: #ecb920;font-weight: 700" value="" disabled>Property Booked</label>
                                         <?php } ?>
                                     </div>
                             </form>
