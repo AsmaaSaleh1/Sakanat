@@ -1,5 +1,5 @@
 <?php
-session_start();
+    include 'navbar.php';
 
 
 ?>
@@ -18,61 +18,8 @@ session_start();
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="stylesheet" href="Css/all.min.css"> </head>
     <body>
-    <script src="js/bootstrap.bundle.min.js"></script>
 
     <!-- Header section -->
-    <nav id="head" class="navbar navbar-expand-lg sticky-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">Sakanat</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="true" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarScroll">
-                <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100%;">
-                    <li class="nav-item">
-                        <a class="nav-link active p-lg-4" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active p-lg-4" aria-current="page" href="browse.php">Browser</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active p-lg-4" aria-current="page" href="Contact-us.html">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active p-lg-4" aria-current="page" href="#about">About</a>
-                    </li>
-
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <?php
-                    if(isset($_SESSION["user_email"])){
-
-                        ?>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle p-lg-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Profile
-                            </a>
-                            <ul class="dropdown-menu">
-                                <h5 style="text-align: center;color: #ecb920"><?=$_SESSION['user_full_name']?></h5>
-                                <li><a class="dropdown-item" href="prof.php">Profile</a></li>
-                                <li><a class="dropdown-item" href="log_out.php"><i class="fa-solid fa-right-from-bracket"></i>
-                                        Log out</a></li>
-
-                            </ul>
-                        </li>
-
-                        <?php
-
-                    }
-
-                    else {?>
-                        <li><a href="log_sign.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    <?php } ?>
-                </ul>
-
-            </div>
-        </div>
-    </nav>
 
 <!--    <h1 class="text-center display-4" style="font-size: 2rem">--><?//=$_SESSION['user_phone']?><!--</h1>-->
 

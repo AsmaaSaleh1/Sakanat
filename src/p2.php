@@ -1,5 +1,5 @@
 <?php
-include "nav.php";
+include "navbar.php";
 
 include "connect.php";
 $property_id=$_SESSION['user_email'];
@@ -9,48 +9,27 @@ $rows=mysqli_fetch_assoc($query);
 
 
 include "connect.php";
-if (isset($_POST['update'])) {
-    if(isset($_POST["savePass"])){
-        $Pass=$_POST['newPass'];
-    }
-    $email = $_SESSION['user_email'];
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $city = $_POST['city'];
-    $street = $_POST['street'];
-    $phone = $_POST['phone'];
-    $mobile = $_POST['mob'];
-    $img = "img/" . $_POST['img'];
-    $bd = $_POST['bd'];
-    $Pass=$_POST['newPass'];
-$feedback=$_POST['fb'];
-    $stmt = "UPDATE `user` SET `fName`='$fname',`phone`='$phone',`photo`='$img',`city`='$city',`street`='$street',`bd`='$bd',`lName`='$lname',`password`='$Pass',`feedback`='$feedback',`mobile`='$mobile'WHERE Email='$email'";
-    $query = mysqli_query($db, $stmt);
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-    </style>
+
         <meta charset="utf-8">
         <title>Profile</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="Css/p2.css">
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cairo:wght@400;500;600;700&family=Lobster&family=Open+Sans:wght@400;700&family=Work+Sans:ital,wght@0,300;0,800;1,700&display=swap" rel="stylesheet">
-
-</head>
-    <body>
 <style>
-    .navbar{
-    background-color: #fff;
-    }
     .navbar-brand{
         font-family: "Lobster";
+
     }
-    </style>
-    <form action="p2.php" method="post">
+</style>
+</head>
+    <body>
+
+    <form action="prof.php" method="post">
         <div class="profile-info col-md-9">
             <div class="panel">
 

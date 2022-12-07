@@ -95,6 +95,9 @@ $type=$_SESSION['type'];
             $sql = "INSERT INTO `user`(`fName`, `lName`, `Email`, `phone`, `password`, `type`) VALUES ('$name','$lname','$uname','$phone','$password','$type')";
                         echo "<script> alert('Doneee') </script>";
             if($db->query($sql)===TRUE){
+                $_SESSION['user_email'] = $uname;
+                $_SESSION['type']=$type;
+
                 header("location:index.php");
             }
 

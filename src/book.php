@@ -141,13 +141,13 @@ $photo=$images['imgPath'];
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <span class="form-label">Check In</span>
-                                    <input class="form-control" type="date" required>
+                                    <input name="date" class="form-control" type="date" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <span class="form-label">Book For (Month)</span>
-                                    <input class="form-control" type="number" min="1" max="10" step="1" required
+                                    <input name="dur" class="form-control" type="number" min="1" max="10" step="1" required
                                            onchange="document.getElementById('tst').innerHTML=this.value*document.getElementById('p').value">
                                 </div>
                             </div>

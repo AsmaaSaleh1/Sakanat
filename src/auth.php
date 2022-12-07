@@ -29,7 +29,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
         if ($stmt->rowCount() === 1) {
             $user = $stmt->fetch();
-            $user_id =5;
+            $user_id =$user['userId'];
             $user_email = $user['Email'];
             $user_password = $user['password'];
             $user_full_name = $user['fName'];
@@ -42,6 +42,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
                     $_SESSION['user_full_name'] = $user_full_name;
                     $_SESSION['user_phone'] = $user_phone;
                     $_SESSION['type']=$type;
+
                     header("Location: index.php");
 
                 }else {

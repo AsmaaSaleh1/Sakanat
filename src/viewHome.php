@@ -1,5 +1,5 @@
 <?php
-session_start();
+include 'navbar.php';
 isset($_SESSION["email"]);
 
 ?>
@@ -74,54 +74,7 @@ isset($_SESSION["email"]);
             height: 40px;
             border-radius: 10px;
         }
-        .navbar{
-            background-color: #ddd;
-        }
-        .navbar-brand{
-            font-family: "sans-serif";
-            color:#1F5662;
-            font-weight: 700;
-            font-size: 2.2em;
-            margin-left: 80px;
-        }
-        .navbar-nav{
-            margin-right: 20px;
-            font-family: "sans-serif";
-            font-size: 1.1em;
-            font-weight: 600;
-        }
-        .navbar-nav .nav-item .nav-link{
-            width: 116px;
-            height: 70px;
-            overflow: hidden;
-            position: relative;
-            text-align: center;
-        }
-        .navbar-nav .nav-item .nav-link::before{
-            content: '';
-            background-color: #1F5662;
-            width: 100%;
-            height: 4px;
-            transition: 0.25s;
-            position: absolute;
-            top: 0;
-            left: -100%;
-        }
-        .navbar-nav .nav-item .nav-link:hover{
-            color:#1F5662;
-            background-color: #eee;
 
-        }
-        .navbar-nav .nav-item .nav-link{
-            padding-top: 100px ;
-        }
-        .navbar-nav .nav-item .nav-link:hover::before{
-            left: 0;
-
-        }
-        .navbar .navbar-toggler{
-            font-size: 25px;
-        }
         .bio-graph-heading {
             background: #1f5662;
             color: #fff;
@@ -183,60 +136,7 @@ isset($_SESSION["email"]);
     </style>
 </head>
 <body>
-<script src="js/bootstrap.bundle.min.js"></script>
 
-<nav id="head" class="navbar navbar-expand-lg sticky-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="index.php">Sakanat</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="true" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100%;">
-                <li class="nav-item">
-                    <a class="nav-link active p-lg-4" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active p-lg-4" aria-current="page" href="browse.php">Browser</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active p-lg-4" aria-current="page" href="Contact-us.html">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active p-lg-4" aria-current="page" href="#about">About</a>
-                </li>
-
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <?php
-                if(isset($_SESSION["user_email"])){
-
-                    ?>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle p-lg-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Profile
-                        </a>
-                        <ul class="dropdown-menu">
-                            <h5 style="text-align: center;color: #ecb920"><?=$_SESSION['user_full_name']?></h5>
-                            <li><a class="dropdown-item" href="prof.php">Profile</a></li>
-                            <li><a class="dropdown-item" href="log_out.php"><i class="fa-solid fa-right-from-bracket"></i>
-                                    Log out</a></li>
-
-                        </ul>
-                    </li>
-
-                    <?php
-
-                }
-
-                else {?>
-                    <li><a href="log_sign.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                <?php } ?>
-            </ul>
-
-        </div>
-    </div>
-</nav>
 
 
 
@@ -330,61 +230,76 @@ if(mysqli_num_rows($query)>0)
                                     <p><span>Room Name </span>: <?php echo $rows['hName']; ?></p><!--Name come from database-->
                                 </div>
                                 <div class="bio-row">
-                                    <p><span>For </span>: <?php echo $rows['gender']; ?></p><!--email come from database-->
-                                </div>
-                                <div class="bio-row">
                                     <p><span>City </span>: <?php echo $rows['city']; ?></p><!--Name come from database-->
                                 </div>
+
                                 <div class="bio-row">
                                     <p><span>Street</span>: <?php echo $rows['street']; ?></p><!--Birthdate come from database-->
                                 </div>
                                 <div class="bio-row">
-                                    <p><span>Rate(R &#8725; M)</span>: <?php echo $rows['price']; ?></p><!--P.N come from database-->
+                                    <p><span>Description </span>: <?php echo $rows['description']; ?></p><!--City come from database-->
+                                </div>
+
+                                <div class="bio-row">
+                                    <p><span>For </span>: <?php echo $rows['gender']; ?></p><!--email come from database-->
                                 </div>
                                 <div class="bio-row">
                                     <p><span>Contact </span>: <?php echo $rows['contact']; ?></p><!--mobile come from database-->
                                 </div>
                                 <div class="bio-row">
-                                    <p><span>Description </span>: <?php echo $rows['description']; ?></p><!--City come from database-->
+                                    <p><span>Rate per Month </span>: <?php echo $rows['price']; ?></p><!--P.N come from database-->
+                                </div>
+                                <div class="bio-row">
+                                    <!--TODO: but limitation about number of char for example 200char-->
+                                    <!--Description come from database-->
                                 </div>
                             </div>
                         </div>
                     </div>
-                            <?php
-
-                            if(isset($_SESSION["user_email"]) && !empty($_SESSION['user_email'])){
-
-                            ?>
-                            <form method="POST" action="book.php">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <?php
-                                                               $booked=$rows['booked'];
-                                                                $_SESSION['pid']=$property_id;
-                                        if ($booked==0){ ?>
-                                            <h3 style="font-size: 20px"><?php echo '<a style="text-decoration:none" href="book.php?property_id='.$rows['hID'].'"  class="Book" >Book Now </a><br>'; ?></h3><br>
-
-                                        <?php } else { ?>
-                                            <label style="width: max-content;font-size: 25px; color: #ecb920;font-weight: 700" value="" disabled>Property Booked</label>
-                                        <?php } ?>
-                                    </div>
-                            </form>
-    <!--                        <form method="POST" action="chatpage.php">-->
-    <!--                            <div class="col-sm-6">-->
-    <!--                                <input type="hidden" name="owner_id" value="--><?php //echo $rows['owner_id']; ?><!--">-->
-    <!--                            </div>-->
-    <!--                        </form>-->
-                        </div>
-
-                        <?php }
-                        else{
-                            echo "<center><h3 style='position: relative;top: 20px;color: red'>You should login to book room.</h3></center>";
-                        }
-                        ?>
                 </div>
+                        <?php
+
+                        if(isset($_SESSION["user_email"]) && !empty($_SESSION['user_email'])){
+
+                        ?>
+                        <form method="POST" action="book.php">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <?php
+                                                           $booked=$rows['booked'];
+$_SESSION['pid']=$property_id;
+                                    if ($booked==0){ ?>
+                                        <input type="hidden" name="property_id" value="<?php echo $rows['property_id']; ?>">
+                                        <h3 style="font-size: 20px"><?php echo '<a style="text-decoration:none" href="book.php?property_id='.$rows['hID'].'"  class="" >Book Now </a><br>'; ?></h3><br>
+
+                                    <?php } else { ?>
+                                        <label style="width: max-content;font-size: 22px; font-weight: 600" value="" disabled>Property Booked</label>
+                                    <?php } ?>
+                                </div>
+                        </form>
+<!--                        <form method="POST" action="chatpage.php">-->
+<!--                            <div class="col-sm-6">-->
+<!--                                <input type="hidden" name="owner_id" value="--><?php //echo $rows['owner_id']; ?><!--">-->
+<!--                            </div>-->
+<!--                        </form>-->
+                    </div>
+
+                    <?php }
+                    else{
+                        echo "<center><h3 style='position: relative;top: 20px;color: red'>You should login to book room.</h3></center>";
+                    }
+
+
+                    ?>
+                    </div>
+
+
+                </div>
+
             </div>
+
         </div>
-        <h3 style="margin-top: 20px;margin-left: 50px">Home Features:</h3><br>
+        <h3>Home Features:</h3><br>
         <?php
         $sql="SELECT * from Home where hID='$property_id'";
         $query=mysqli_query($db,$sql);
@@ -402,7 +317,7 @@ if(mysqli_num_rows($query)>0)
                         $query3 = mysqli_query($db, $sql2);
                         $row = mysqli_fetch_array($query3);
                         ?>
-                        <p style="margin-left: 50px"><i class="fa-solid fa-check"></i> <?php  echo $row['name']; ?></p>
+                        <p style="margin-left: 20px"><i class="fa-solid fa-check"></i> <?php  echo $row['name']; ?></p>
 
                             <?php
                     }
@@ -418,17 +333,7 @@ if(mysqli_num_rows($query)>0)
 
         <form method="post" style="position: relative;top: 20px;left:20px;width: fit-content;margin-bottom: 30px">
        <textarea name="rev" cols="40" placeholder="Write Your Comment"></textarea>
-            <div class="rating">
-                <input type="radio" name="rating" value="5" id="5">
-                <label for="5">☆</label>
-                <input type="radio" name="rating" value="4" id="4">
-                <label for="4">☆</label>
-                <input type="radio" name="rating" value="3" id="3">
-                <label for="3">☆</label>
-                <input type="radio" name="rating" value="2" id="2">
-                <label for="2">☆</label>
-                <input type="radio" name="rating" value="1" id="1">
-                <label for="1">☆</label>
+            <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
             </div>
                 <button class="btn btn-success btn-lg" type="submit" name="review">Save</button>
         </form>
