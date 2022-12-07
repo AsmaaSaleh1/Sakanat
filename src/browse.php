@@ -124,7 +124,29 @@ include 'navbar.php';
 
 </body>
 </html>
-
+<script>
+    function myFunction2() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput2");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable2");
+        tr = table.getElementsByTagName("tr");
+        th = table.getElementsByTagName("th");
+        for (i = 1; i < tr.length; i++) {
+            tr[i].style.display = "none";
+            for(var j=0; j<th.length; j++){
+                td = tr[i].getElementsByTagName("td")[j];
+                if (td) {
+                    if (td.innerHTML.toUpperCase().indexOf(filter.toUpperCase()) > -1)
+                    {
+                        tr[i].style.display = "";
+                        break;
+                    }
+                }
+            }
+        }
+    }
+</script>
 <?php
 include("Home_list.php");
 

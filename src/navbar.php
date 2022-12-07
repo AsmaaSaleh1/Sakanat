@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+if(isset($_SESSION['type']))
 if($_SESSION['type']=='owner')
     $src="owner.php";
 else

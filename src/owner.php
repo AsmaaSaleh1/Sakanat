@@ -16,6 +16,19 @@ if (isset($_POST['add_home'])) {
     $desc = $_POST['description'];
     $booked = 'No';
     $area = $_POST['area'];
+$f1=0;
+$f2=0;
+$f3=0;
+$f4=0;
+    if(isset($_POST['tv']))
+    $f1=$_POST['tv'];
+    if(isset($_POST['frdg']))
+    $f2=$_POST['frdg'];
+    if(isset($_POST['wifi']))
+    $f3=$_POST['wifi'];
+    if(isset($_POST['desk']))
+     $f4=$_POST['desk'];
+
     $u_email = $_SESSION["user_email"];
     $sql1 = "SELECT * from user where email='$u_email'";
     $result1 = mysqli_query($db, $sql1);
@@ -28,6 +41,21 @@ if (isset($_POST['add_home'])) {
             $query = mysqli_query($db, $sql);
 
             $property_id = mysqli_insert_id($db);
+            if($f1) {
+                $sql = "INSERT INTO `homefeatures`(`hID`, `fID`) VALUES ('$property_id','$f1')";
+                $query = mysqli_query($db, $sql);
+            }
+            if($f2) {
+                $sql = "INSERT INTO `homefeatures`(`hID`, `fID`) VALUES ('$property_id','$f2')";
+                $query = mysqli_query($db, $sql);
+            } if($f3) {
+                $sql = "INSERT INTO `homefeatures`(`hID`, `fID`) VALUES ('$property_id','$f3')";
+                $query = mysqli_query($db, $sql);
+            }
+            if($f4) {
+                $sql = "INSERT INTO `homefeatures`(`hID`, `fID`) VALUES ('$property_id','$f4')";
+                $query = mysqli_query($db, $sql);
+            }
 
             $countfiles = count($_FILES['p_photo']['name']);
             for ($i = 0; $i < $countfiles; $i++) {
@@ -299,13 +327,41 @@ else
                                     <td><?php echo $rows['numOfRoom'] ?></td>
                                     <td><?php echo $rows['numOfBath'] ?></td>
                                     <td><?php echo $rows['Area'] ?></td>
-                                    <td><button name="del" style="border: none;background-color: transparent"><i style="color: red;margin-right: 10px" class="fa-regular fa-trash-can"></i></button><button name="update" style="border: none;background-color: transparent"><i class="fa-solid fa-pen-to-square"></i></button></td>
+<!--                                <td>     <td><button name="del" style="border: none;background-color: transparent"><i style="color: red;margin-right: 10px" class="fa-regular fa-trash-can"></i></button><button data-toggle="modal" data-target="#myModal" name="update" style="border: none;background-color: transparent"><i class="fa-solid fa-pen-to-square"></i></button></td>-->
+                                  <td>
+                                   <form method="POST">
+
+                                        <input type="hidden" name="property_id" value="<?php echo $rows['hID']; ?>">
+                                        <a data-toggle="pill" class="" name="edit_property" onclick="<?php $property_id = $rows['hID'] ?>" href="#menu5"><i class="fa-solid fa-pen-to-square"></i></a><input type="submit" class="btn btn-danger" name="delete_property" value="Delete">
+
+                                </form> </td>
+                                </tr>
+
                                     <!--                                <td><img id="myImg" src="../--><?php //echo $rows['id_photo'] ?><!--" width="50px"></td>-->
-                                    <div id="myModal" class="modal">
-                                        <span class="close">&times;</span>
-                                        <img class="modal-content" id="img01">
-                                        <div id="caption"></div>
+                                    <div class="modal fade" id="myModal" role="dialog">
+                                        <div class="modal-dialog">
+
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title">Update Profile</h4>
+                                                </div>
+                                                <div class="modal-body">
+
+
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
                                     </div>
+
+
+
                                 </tr>
                             <?php }} ?>
                     </table>
@@ -367,6 +423,122 @@ else
                                 //echo '<a href="send-message.php?owner_id='.$owner_id.'&tenant_id='.$tenant_id.'">'.$rows["full_name"].'</a>';
                             }
                         }}}}}?>
+            </div>
+        </div>
+        <div id="menu5" class="tab-pane fade">
+            <div>
+                <div class="container con">
+
+                    <div id="map_canvas"></div>
+                    <form class="tst" method="POST" action="owner.php" enctype="multipart/form-data">
+                        <div class="row">
+                            <center><h2 style="font-weight: 800;color: black">Add Home</h2></center>
+
+                            <div class="cx col-sm-6">
+                                <div class="form-group">
+                                    <label>Name:</label>
+                                    <input placeholder="Home Name" class="form-control" type="text" name="name">
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="city">City:</label>
+                                    <input type="text" class="form-control" id="city" placeholder="Enter City" name="city">
+                                </div>
+                                <div class="form-group">
+                                    <label for="zone">Street:</label>
+                                    <input placeholder="Street" class="form-control" value="<?php echo $property_id ?>" type="text" name="street">
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="district">For:</label>
+                                    <select class="form-control" name="for" required="required">
+                                        <option>---</option>
+                                        <option value="Men">Men</option>
+                                        <option value="Women">Women</option>
+                                        <option value="Family">Family</option>
+
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="vdc/municipality">Area:</label>
+                                    <input placeholder="Area" class="form-control" type="text" name="area">
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="contact">Contact Number:</label>
+                                    <input name="contactNum" type="text" class="form-control" id="contact" placeholder="Enter Contact Number." >
+                                </div>
+                                <div class="form-group">
+                                    <label for="property_type">Property Type:</label>
+                                    <select class="form-control" name="property_type">
+                                        <option value="">--Select Property Type--</option>
+                                        <option value="Full House Rent">Full House Rent</option>
+                                        <option value="Flat Rent">Flat Rent</option>
+                                        <option value="Room Rent">Room Rent</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="estimated_price">Estimated Price:</label>
+                                    <input type="estimated_price" class="form-control" id="estimated_price" placeholder="Enter Estimated Price" name="price">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="total_rooms">Number of Rooms:</label>
+                                    <input type="number" class="form-control" id="total_rooms" placeholder="Enter Total No. of Rooms" name="total_rooms">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="kitchen">Number of Kitchen:</label>
+                                    <input type="number" class="form-control" id="kitchen" placeholder="Enter No. of Kitchen" name="kitchen">
+                                </div>
+                                <div class="form-group">
+                                    <label for="bathroom">Number of Bathroom/Washroom:</label>
+                                    <input type="number" class="form-control" id="bathroom" placeholder="Enter No. of Bathroom/Washroom" name="bathroom">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Location in map:</label>
+                                    <input type="text" class="form-control" id="" name="location">
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">Full Description:</label>
+                                    <textarea type="comment" class="form-control" id="description" placeholder="Enter Property Description" name="description"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <h3 for="description">Features:</h3>
+                                    <input type="checkbox" name="tv" value="1" id="tv">
+                                    <label for="tv">TV</label> <br>
+                                    <input type="checkbox" value="2" name="wifi" id="wifi">
+                                    <label for="wifi">Wi-Fi</label> <br>
+                                    <input type="checkbox"value="3" name="desk" id="desk">
+                                    <label for="desk">Desk</label> <br>
+                                    <input type="checkbox" value="5" name="frdg" id="frdg">
+                                    <label for="frdg">Fridge</label> <br>
+                                </div>
+                                <table class="table" id="dynamic_field">
+                                    <tr>
+                                        <div class="form-group">
+                                            <label><b>Photos:</b></label>
+                                            <td><input type="file" name="p_photo[]" placeholder="Photos" class="form-control name_list" required accept="image/*" /></td>
+                                            <td><button style="background-color: #1F5662" type="button" id="add" name="add" class="btn btn-success col-lg-12">Add More</button></td>
+                                        </div>
+                                    </tr>
+                                </table>
+                                <input name="lat" type="text" id="lat" hidden>
+                                <input name="lng" type="text" id="lng" hidden>
+                                <hr>
+                                <div class="form-group">
+                                    <input style="background-color: #1F5662" type="submit" class="btn btn-primary btn-lg col-lg-12" value="Add Home" name="add_home">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <br><br>
+
+                </div>
             </div>
         </div>
 
@@ -454,13 +626,13 @@ else
                                 </div>
                                 <div class="form-group">
                                     <h3 for="description">Features:</h3>
-                                    <input type="checkbox" name="tv" id="tv">
+                                    <input type="checkbox" name="tv" value="1" id="tv">
                                     <label for="tv">TV</label> <br>
-                                    <input type="checkbox" name="wifi" id="wifi">
+                                    <input type="checkbox" value="2" name="wifi" id="wifi">
                                     <label for="wifi">Wi-Fi</label> <br>
-                                    <input type="checkbox" name="desk" id="desk">
+                                    <input type="checkbox"value="3" name="desk" id="desk">
                                     <label for="desk">Desk</label> <br>
-                                    <input type="checkbox" name="frdg" id="frdg">
+                                    <input type="checkbox" value="5" name="frdg" id="frdg">
                                     <label for="frdg">Fridge</label> <br>
                                 </div>
                                 <table class="table" id="dynamic_field">
@@ -513,7 +685,7 @@ else
                         $email=$_SESSION["user_email"];
                         $owner=$_SESSION['user_id'];
 
-                        $sql="SELECT * from home where ownerId='$owner' and booked=1";
+                        $sql="SELECT * from home where ownerId='$owner'";
                         $result=mysqli_query($db,$sql);
 
                         if(mysqli_num_rows($result)>0)
@@ -535,8 +707,14 @@ else
                                     <td><?php echo $rows['numOfRoom'] ?></td>
                                     <td><?php echo $rows['numOfBath'] ?></td>
                                     <td><?php echo $rows['Area'] ?></td>
-                                    <td><button name="del" style="border: none;background-color: transparent"><i style="color: red;margin-right: 10px" class="fa-regular fa-trash-can"></i></button><button name="update" style="border: none;background-color: transparent"><i class="fa-solid fa-pen-to-square"></i></button></td>
-                                    <!--                                <td><img id="myImg" src="../--><?php //echo $rows['id_photo'] ?><!--" width="50px"></td>-->
+                                   <td
+                                    <form method="POST">
+
+                                        <input type="hidden" name="property_id" value="<?php echo $rows['hID']; ?>">
+                                        <a data-toggle="pill" class="" name="edit_property" onclick="<?php $property_id = $rows['hID'] ?>" href="#menu5"><i class="fa-solid fa-pen-to-square"></i></a><input type="submit" class="btn btn-danger" name="delete_property" value="Delete">
+
+                                    </form>
+                                    </td><!--                                <td><img id="myImg" src="../--><?php //echo $rows['id_photo'] ?><!--" width="50px"></td>-->
                                     <div id="myModal" class="modal">
                                         <span class="close">&times;</span>
                                         <img class="modal-content" id="img01">
