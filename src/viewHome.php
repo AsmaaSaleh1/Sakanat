@@ -230,6 +230,9 @@ if(mysqli_num_rows($query)>0)
                                     <p><span>Room Name </span>: <?php echo $rows['hName']; ?></p><!--Name come from database-->
                                 </div>
                                 <div class="bio-row">
+                                    <p><span>For </span>: <?php echo $rows['gender']; ?></p><!--email come from database-->
+                                </div>
+                                <div class="bio-row">
                                     <p><span>City </span>: <?php echo $rows['city']; ?></p><!--Name come from database-->
                                 </div>
 
@@ -237,21 +240,13 @@ if(mysqli_num_rows($query)>0)
                                     <p><span>Street</span>: <?php echo $rows['street']; ?></p><!--Birthdate come from database-->
                                 </div>
                                 <div class="bio-row">
-                                    <p><span>Description </span>: <?php echo $rows['description']; ?></p><!--City come from database-->
-                                </div>
-
-                                <div class="bio-row">
-                                    <p><span>For </span>: <?php echo $rows['gender']; ?></p><!--email come from database-->
-                                </div>
-                                <div class="bio-row">
                                     <p><span>Contact </span>: <?php echo $rows['contact']; ?></p><!--mobile come from database-->
                                 </div>
                                 <div class="bio-row">
-                                    <p><span>Rate per Month </span>: <?php echo $rows['price']; ?></p><!--P.N come from database-->
+                                    <p><span>Rate (R &#8725; M)</span>: <?php echo $rows['price']; ?></p><!--P.N come from database-->
                                 </div>
                                 <div class="bio-row">
-                                    <!--TODO: but limitation about number of char for example 200char-->
-                                    <!--Description come from database-->
+                                    <p><span>Description </span>: <?php echo $rows['description']; ?></p><!--City come from database-->
                                 </div>
                             </div>
                         </div>
@@ -267,14 +262,13 @@ if(mysqli_num_rows($query)>0)
                                 <div class="col-sm-6">
                                     <?php
                                                            $booked=$rows['booked'];
-$_SESSION['pid']=$property_id;
+                                        $_SESSION['pid']=$property_id;
                                     if ($booked==0){ ?>
                                         <input type="hidden" name="property_id" value="<?php echo $rows['property_id']; ?>">
-                                        <h3 style="font-size: 20px"><?php echo '<a style="text-decoration:none" href="book.php?property_id='.$rows['hID'].'"  class="" >Book Now </a><br>'; ?></h3><br>
+                                        <h3 style="font-size: 20px"><?php echo '<a style="text-decoration:none" href="book.php?property_id='.$rows['hID'].'"  class="Book" >Book Now </a><br>'; ?></h3><br>
 
                                     <?php } else { ?>
-                                        <label style="width: max-content;font-size: 22px; font-weight: 600" value="" disabled>Property Booked</label>
-                                    <?php } ?>
+                                        <label style="width: max-content;font-size: 25px; color: #ecb920;font-weight: 700" value="" disabled>Property Booked</label>                                    <?php } ?>
                                 </div>
                         </form>
 <!--                        <form method="POST" action="chatpage.php">-->
@@ -317,7 +311,7 @@ $_SESSION['pid']=$property_id;
                         $query3 = mysqli_query($db, $sql2);
                         $row = mysqli_fetch_array($query3);
                         ?>
-                        <p style="margin-left: 20px"><i class="fa-solid fa-check"></i> <?php  echo $row['name']; ?></p>
+                        <p style="margin-left: 50px"><i class="fa-solid fa-check"></i> <?php  echo $row['name']; ?></p>
 
                             <?php
                     }
