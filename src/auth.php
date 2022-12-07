@@ -12,6 +12,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         header("Location: login.php?error=Password is required&email=$email");
     }else {
 
+
         $sName = "localhost";
         $uName = "root";
         $pass = "";
