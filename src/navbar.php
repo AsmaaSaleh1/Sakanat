@@ -3,8 +3,12 @@ session_start();
 if(isset($_SESSION['type']))
 if($_SESSION['type']=='owner')
     $src="owner.php";
-else
+if($_SESSION['type']=='user')
     $src="browse.php";
+if($_SESSION['type']=='admin')
+    $src="admin.php";
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
