@@ -1,6 +1,6 @@
 <?php
 include 'navbar.php';
-
+require 'dbcon.php';
 include "connect.php";
 if (isset($_POST['add_home'])) {
     $name = $_POST['name'];
@@ -100,6 +100,9 @@ grid-template-columns: 1fr;
     ul li{
 margin-bottom: 10px;
     }
+    thead{
+        background-color: #1F5662;
+    }
 </style>
 </head>
 
@@ -109,9 +112,9 @@ margin-bottom: 10px;
     <ul class="nav nav-pills nav-justified">
         <li class="active" style="width: 150px;background-color: #dddddd"><a data-toggle="pill" href="#home">Profile</a></li>
         <li style="width: 150px; background-color: #dddddd"><a data-toggle="pill" href="#menu1">Add Home</a></li>
-        <li style="width: 150px;background-color: #dddddd"><a data-toggle="pill" href="#menu2">View Home</a></li>
+        <li style="width: 150px;background-color: #dddddd"><a data-toggle="pill" href="#menu">View Home</a></li>
 <!--        <li style="width: 200px;background-color: #FFFAF0"><a data-toggle="pill" href="#menu3">Update Property</a></li>-->
-        <li style="width: 150px;background-color: #dddddd"><a data-toggle="pill" href="#menu6">Booked Home</a></li>
+        <li style="width: 150px;background-color: #dddddd"><a data-toggle="pill" href="#men">Booked Home</a></li>
     </ul>
 
     <div class="tab-content">
@@ -659,6 +662,69 @@ else
                 </div>
             </div>
         </div>
+        <div id="men" class="tab-pane fade">
+            <div class="container">
+                <center><h3>Booking</h3></center>
+                <div class="container-fluid">
+                    <input type="text" id="myInput2" onkeyup="myFunction1()" placeholder="Search..." title="Type in a name">
+                    <table id="myTable2">
+                        <tr class="header">
+                            <th>Home Name</th>
+                            <th>Tenant Name</th>
+                            <th>Tenant Email</th>
+
+                            <th>Booking Date</th>
+                            <th>Booking Duration</th>
+                            <th>Total Pay</th>
+                            <th>Canceled?</th>
+
+                        </tr>
+                        <?php
+                        include("connect.php");
+
+
+                        $sql="SELECT `hID`, `userId`, `bookDate`, `duration`, `canceled` FROM `booking`";
+                        $result=mysqli_query($db,$sql);
+
+                        if(mysqli_num_rows($result)>0)
+                        {
+                            while($rows=mysqli_fetch_assoc($result)){
+                                $uid=$rows['userId'];
+                                $sql2="SELECT fName,Email from user where userId=$uid";
+                                $res=mysqli_query($db,$sql2);
+                                $r1=mysqli_fetch_assoc($res);
+                                $hid=$rows['hID'];
+                                $sql3="SELECT hName,ownerId,price from home where hID=$hid";
+                                $res2=mysqli_query($db,$sql3);
+                                $r2=mysqli_fetch_assoc($res2);
+
+                                $tot=$rows['duration']*$r2['price'];
+                                ?>
+                                <tr>
+
+                                    <td><?php echo $r2['hName'] ?></td>
+                                    <td><?php echo $r1['fName'] ?></td>
+                                    <td><?php echo $r1['Email'] ?></td>
+
+                                    <td><?php echo $rows['bookDate'] ?></td>
+                                    <td><?php echo $rows['duration'] ?></td>
+                                    <td><?php echo $tot ?></td>
+                                    <td><?php echo $rows['canceled'] ?></td>
+
+
+                                    <!--                                <td><img id="myImg" src="../--><?php //echo $rows['id_photo'] ?><!--" width="50px"></td>-->
+                                    <div id="myModal" class="modal">
+                                        <span class="close">&times;</span>
+                                        <img class="modal-content" id="img01">
+                                        <div id="caption"></div>
+                                    </div>
+                                </tr>
+                            <?php }} ?>
+                    </table>
+                </div>
+
+            </div>
+        </div>
 
         <div id="menu2" class="tab-pane fade">
             <div class="container">
@@ -728,7 +794,96 @@ else
 
             </div>
         </div>
+        <div id="menu" class="tab-pane fade"
+        <div class="container mt-4">
 
+            <?php include('message.php'); ?>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+
+                        </div>
+                        <div class="card-body">
+
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+
+                                    <th>City</th>
+                                    <th>Street</th>
+                                    <th>Description</th>
+                                    <th>Contact Number</th>
+                                    <th>For</th>
+                                    <th>R/month</th>
+                                    <th>Booked</th>
+                                    <th>Number of room</th>
+                                    <th>Number of Bathroom</th>
+                                    <th>Area</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+
+                        include("connect.php");
+                        $email=$_SESSION["user_email"];
+                        $owner=$_SESSION['user_id'];
+
+                        $sql="SELECT * from home where ownerId='$owner'";
+                        $query_run=mysqli_query($db,$sql);
+
+                                if(mysqli_num_rows($query_run) > 0)
+                                {
+                                    foreach($query_run as $rows)
+                                    {
+                                        if($rows['booked']==0)
+                                            $booked='No';
+                                        else
+                                            $booked='Yes';
+
+                                        ?>
+                                        <tr>
+                                            <td><?= $rows['hName']; ?></td>
+
+                                            <td><?= $rows['city']; ?></td>
+                                            <td><?= $rows['street']; ?></td>
+                                            <td><?=$rows['description']; ?></td>
+                                            <td><?= $rows['contact']; ?></td>
+                                            <td><?=$rows['gender']; ?></td>
+                                            <td><?= $rows['price']; ?></td>
+                                            <td><?= $booked; ?></td>
+                                            <td><?= $rows['numOfRoom']; ?></td>
+                                            <td><?= $rows['numOfBath']; ?></td>
+                                            <td><?= $rows['Area']; ?></td>
+                                            <td>
+                                                <a href="viewHome.php?property_id=<?=  $rows['hID']; ?>" class="btn btn-info btn-sm">View</a>
+                                                <a href="sudent-edit.php?id=<?=  $rows['hID']; ?>" class="btn btn-success btn-sm">Edit</a>
+                                                <form action="code.php" method="POST" class="d-inline">
+                                                    <button type="submit" name="delete_student" value="<?= $rows['hID'];?>" class="btn btn-danger btn-sm">Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <?php
+                                    }
+                                }
+                                else
+                                {
+                                    echo "<h5> No Record Found </h5>";
+                                }
+                                ?>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     </div>
 </div>

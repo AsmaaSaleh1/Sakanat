@@ -357,7 +357,6 @@ if (isset($_POST['add_home'])) {
                         if(mysqli_num_rows($result)>0)
                         {
                             while($rows=mysqli_fetch_assoc($result)){
-                                echo 'loop';
                                 $uid=$rows['userId'];
                                 $sql2="SELECT fName,Email from user where userId=$uid";
                                 $res=mysqli_query($db,$sql2);
@@ -572,9 +571,7 @@ if (isset($_POST['add_home'])) {
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Home Details
-                                <a href="student-create.php" class="btn btn-primary float-end">Add Students</a>
-                            </h4>
+
                         </div>
                         <div class="card-body">
 
@@ -582,6 +579,8 @@ if (isset($_POST['add_home'])) {
                                 <thead>
                                 <tr>
                                     <th>Name</th>
+                                    <th>Owner Name</th>
+                                    <th>Owner Email</th>
                                     <th>City</th>
                                     <th>Street</th>
                                     <th>Description</th>
@@ -608,9 +607,18 @@ if (isset($_POST['add_home'])) {
                                             $booked='No';
                                         else
                                             $booked='Yes';
+                                        $owner=$rows['ownerId'];
+                                        $sql="SELECT fName,Email from user where userId='$owner'";
+                                        $res=mysqli_query($db,$sql);
+                                        while($row=mysqli_fetch_assoc($res)){
+                                            $em=$row['Email'];
+                                            $nam=$row['fName'];
+                                        }
                                         ?>
                                         <tr>
                                             <td><?= $rows['hName']; ?></td>
+                                            <td><?= $nam; ?></td>
+                                            <td><?= $em; ?></td>
                                             <td><?= $rows['city']; ?></td>
                                             <td><?= $rows['street']; ?></td>
                                             <td><?=$rows['description']; ?></td>
@@ -622,7 +630,7 @@ if (isset($_POST['add_home'])) {
                                             <td><?= $rows['numOfBath']; ?></td>
                                             <td><?= $rows['Area']; ?></td>
                                             <td>
-                                                <a href="student-view.php?id=<?=  $rows['hID']; ?>" class="btn btn-info btn-sm">View</a>
+                                                <a href="viewHome.php?property_id=<?=  $rows['hID']; ?>" class="btn btn-info btn-sm">View</a>
                                                 <a href="sudent-edit.php?id=<?=  $rows['hID']; ?>" class="btn btn-success btn-sm">Edit</a>
                                                 <form action="code.php" method="POST" class="d-inline">
                                                     <button type="submit" name="delete_student" value="<?= $rows['hID'];?>" class="btn btn-danger btn-sm">Delete</button>
