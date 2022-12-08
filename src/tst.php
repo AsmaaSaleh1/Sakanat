@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 include("connect.php");
 
@@ -22,8 +21,8 @@ $dur=$_POST['dur'];
 
                 $sql1="UPDATE home SET booked=1 WHERE hID='$property_id'";
                 $query1=mysqli_query($db,$sql1);
-
-                $sql2="INSERT INTO booking(hId,userId,bookDate,duration) VALUES ('$property_id','$tenant_id','$date',$dur)";
+                $can='No';
+                $sql2="INSERT INTO booking(hId,userId,bookDate,duration,canceled) VALUES ('$property_id','$tenant_id','$date','$dur','$can')";
                 $query2=mysqli_query($db,$sql2);
 
                 if($query2)

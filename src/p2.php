@@ -7,8 +7,28 @@ $sql="SELECT * from user where Email='$property_id'";
 $query=mysqli_query($db,$sql);
 $rows=mysqli_fetch_assoc($query);
 
-
 include "connect.php";
+if(isset($_POST["savePass"])) {
+    $x = $_POST['newPass'];
+
+    $_SESSION['x'] = $x;
+}
+    if (isset($_POST['update'])) {
+        $p=$_SESSION['x'];
+        $email = $_SESSION['user_email'];
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
+        $city = $_POST['city'];
+        $street = $_POST['street'];
+        $phone = $_POST['phone'];
+        $mobile = $_POST['mob'];
+        $img = "img/" . $_POST['img'];
+        $bd = $_POST['bd'];
+        $feedback = $_POST['fb'];
+        $stmt = "UPDATE `user` SET `fName`='$fname',`phone`='$phone',`photo`='$img',`city`='$city',`street`='$street',`bd`='$bd',`lName`='$lname',`password`='$p',`feedback`='$feedback',`mobile`='$mobile'WHERE Email='$email'";
+        $query = mysqli_query($db, $stmt);
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,11 +45,17 @@ include "connect.php";
         font-family: "Lobster";
 
     }
+    .navbar{
+        background-color: #fff;
+    }
+    a{
+        text-decoration: none;
+    }
 </style>
 </head>
     <body>
 
-    <form action="prof.php" method="post">
+    <form action="p2.php" method="post">
         <div class="profile-info col-md-9">
             <div class="panel">
 
@@ -70,18 +96,20 @@ include "connect.php";
                             <p><span>Feedback </span>: <input name="fb" type="text"value="<?php echo $rows['feedback']; ?>"></p><!--P.N come from database-->
                         </div>
                         <div class="bio-row">
-                            <p><span>Profile Picture </span>: <input type="file" id="img" name="img" accept="image/*"> </p>
+                            <p><span>Profile Picture </span>: <input type="file" id="img" name="img" src="<?php echo $rows['photo']?>" accept="image/*"> </p>
                         </div>
                         <div class="butt bio-row">
                             <div class="body-in">
                                 <div class="popup" id="popup-1">
                                     <div class="content">
+                                        <form action="p2.php" method="post">
                                         <div class="close-btn" onclick="togglePopup()">×</div>
                                         <h1 class="change">Change Password</h1>
                                         <div class="input-field"><input type="password" name="prePass" placeholder="Old Password" class="validate"></div>
                                         <div class="input-field"><input type="password" name="newPass" placeholder="New Password" class="validate"></div>
                                         <div class="input-field"><input type="password" name="confPass" placeholder="Conform Password" class="validate"></div>
-                                        <button name="savePass" class="second-button">Save</button>
+                                        <button type="submit" name="savePass" class="second-button">Save</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>

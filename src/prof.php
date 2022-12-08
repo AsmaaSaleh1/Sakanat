@@ -110,12 +110,14 @@ if (isset($_POST['update'])) {
                                         <div class="body-in">
                                             <div class="popup" id="popup-1">
                                                 <div class="content">
+                                                    <form method="post" action="prof.php">
                                                     <div class="close-btn" onclick="togglePopup()">×</div>
                                                     <h1 class="change">Change Password</h1>
                                                     <div class="input-field"><input placeholder="Old Password" class="validate"></div>
                                                     <div class="input-field"><input placeholder="New Password" class="validate"></div>
                                                     <div class="input-field"><input placeholder="Conform Password" class="validate"></div>
-                                                    <button class="second-button">Save</button>
+                                                    <button type="submit" name="savePass" class="second-button">Save</button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
