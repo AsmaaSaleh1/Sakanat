@@ -13,7 +13,7 @@ require 'dbcon.php';
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <title>Student Edit</title>
+    <title>Sakanat</title>
     <style>
 
     </style>

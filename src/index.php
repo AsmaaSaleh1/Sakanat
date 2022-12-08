@@ -11,7 +11,50 @@
         <title>Sakanat</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
         <link rel="stylesheet" href="Css/bootstrap.min.css">
+
         <link rel="stylesheet" href="Css/test.css">
+        <style>
+            .content{
+                display: flex;
+                justify-content: center;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            .card,{
+                background-color: #ffffff;
+                width: 220px;
+                box-shadow: 0 5px 25px RGBA(1 1 1 /15%);
+                border-radius: 10px;
+                padding: 10px;
+                margin: 1%;
+                transition: 0.7s ease;
+            }
+            .card:hover{
+                transform: scale(1.1);
+            }
+            .pic{
+                text-align: center;
+                /*to scale the picture*/
+            }
+            .info{
+                text-align: center;
+            }
+            .pic-card{
+                text-align: center;
+                position: relative;
+                overflow: hidden;
+            }
+            .con{
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 30px;
+            }
+            .con .card{
+                border-radius: 15px;
+                max-width: 300px;
+                box-shadow: 3px 3px 2 #1F5662;
+            }
+        </style>
         <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cairo:wght@400;500;600;700&family=Lobster&family=Open+Sans:wght@400;700&family=Work+Sans:ital,wght@0,300;0,800;1,700&display=swap" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,43 +119,40 @@
     <span class="letters">Why Us?</span>
   </span>
         </h1>
-
-        <div class="row">
-            <div class="col">
-                <div class="card2">
-                    <div class="img2">
-                        <!--                    <img src="img/Easy-chat.png" alt="">-->
-                        <i class="fa-solid fa-dollar-sign"></i>
-                    </div>
-                    <div class="content">
-                        <h1>Save Money</h1>
-                        <p>Rent your home with best and cheaper price, save your money. </p>
-                        <!--                    <p>We provide you with easy communication between the renter and the owner.</p>-->
-                    </div>
+        <div class="content con" >
+            <div class="card">
+                <div class="pic-card">
+                    <!--picture-->
+                    <img class="size-img-card" src="img/Easy-chat.png" alt="Easy Communicate">
                 </div>
-
+                <div class="info">
+                    <!-- title + information-->
+                    <h3>Communicate</h3>
+                    <p>We provide you with easy communication between the renter and the owner.</p>
+                </div>
             </div>
-            <div class="col">
-                <div class="card2">
-                    <div class="img2">
-                        <i class="fa-regular fa-face-laugh-beam"></i>
-                    </div>
-                    <div class="content">
-                        <h1>Simple</h1>
-                        <p>The easiest site to use, everything is clear and all the details are explained.</p>
-                    </div>
-                </div>        </div>
-            <div class="col">
-                <div class="card2">
-                    <div class="img2">
-                        <!--                    <img src="img/Best_place.png" alt="">-->
-                        <i class="fa-regular fa-heart"></i>                </div>
-                    <div class="content">
-                        <h1>Honest</h1>
-                        <p>You can communicate with honer at any time you want, and you can check the home before rent.</p>
-                    </div>
-                </div>        </div>
-
+            <div class="card">
+                <div class="pic-card">
+                    <!--picture-->
+                    <img class="size-img-card" src="img/Best_place.png" alt="Place">
+                </div>
+                <div class="info">
+                    <!-- title + information-->
+                    <h3>Place</h3>
+                    <p>We provide you with the opportunity to choose the best location to satisfy your needs at the lowest prices.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="pic-card">
+                    <!--picture-->
+                    <img class="size-img-card" src="img/lowest-cost.png" alt="Cost">
+                </div>
+                <div class="info">
+                    <!-- title + information-->
+                    <h3>Cost</h3>
+                    <p>This site lets you choose the best apartment you want easily for as little cost as possible.</p>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Home-->
