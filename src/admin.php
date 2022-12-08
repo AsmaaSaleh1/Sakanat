@@ -1,6 +1,6 @@
 <?php
 include 'navbar.php';
-
+include 'dbcon.php';
 include "connect.php";
 if (isset($_POST['add_home'])) {
     $name = $_POST['name'];
@@ -99,6 +99,9 @@ if (isset($_POST['add_home'])) {
         }
         ul li{
             margin-bottom: 10px;
+        }
+        thead{
+            background-color: #1F5662;
         }
     </style>
 </head>
