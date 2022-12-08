@@ -80,11 +80,11 @@ isset($_SESSION["email"]);
             color: #fff;
             text-align: center;
             font-style: italic;
-            padding: 40px 110px;
+            padding: 20px 110px;
             border-radius: 4px 4px 0 0;
             -webkit-border-radius: 4px 4px 0 0;
-            font-size: 20px;
-            font-weight: 300;
+            font-size: 16px;
+            font-weight: 200;
         }
         .bio-graph-info {
             color: #000000;
@@ -111,6 +111,27 @@ isset($_SESSION["email"]);
         body{
             font-family: 'Times New Roman', 'Times','serif';
         }
+        .Book{
+            display: flex;
+            background-color: #1f5662;
+            color: #f0f0f0;
+            transform: translateX(1px) translateY(1px);
+            box-shadow: black 7px 9px 0;
+            border-radius: 10px;
+            width: 150px;
+            height: 50px;
+            padding: 10px 25px;
+        }
+        .Book:hover{
+            display: flex;
+            background-color: black;
+            color: #f0f0f0;
+            transform: translateX(5px) translateY(5px);
+            box-shadow: #1f5662 7px 9px 0;
+            width: 150px;
+            height: 50px;
+            padding: 10px 25px;
+        }
 
     </style>
 </head>
@@ -120,10 +141,7 @@ isset($_SESSION["email"]);
 
 
 <?php
-//include('config/config.php');
-//include('navbar.php');
-//include('review-engine.php');
-//include('booking-engine.php');
+
 //?>
 
 
@@ -204,7 +222,7 @@ if(mysqli_num_rows($query)>0)
                 <div class="bio-graph-heading">
                     <h1>Room Details</h1>
                 </div>
-                <div class="profile-info col-md-12"style="background-color: #ddd;height: max-content">
+                <div class="profile-info col-md-12"style="background-color: #ddd;height: max-content; border-radius: 5px;border: 3px dotted #1F5662">
                     <div class="panel">
 
                         <div class="panel-body bio-graph-info" >
@@ -214,6 +232,9 @@ if(mysqli_num_rows($query)>0)
                                     <p><span>Room Name </span>: <?php echo $rows['hName']; ?></p><!--Name come from database-->
                                 </div>
                                 <div class="bio-row">
+                                    <p><span>For </span>: <?php echo $rows['gender']; ?></p><!--email come from database-->
+                                </div>
+                                <div class="bio-row">
                                     <p><span>City </span>: <?php echo $rows['city']; ?></p><!--Name come from database-->
                                 </div>
 
@@ -221,21 +242,13 @@ if(mysqli_num_rows($query)>0)
                                     <p><span>Street</span>: <?php echo $rows['street']; ?></p><!--Birthdate come from database-->
                                 </div>
                                 <div class="bio-row">
-                                    <p><span>Description </span>: <?php echo $rows['description']; ?></p><!--City come from database-->
-                                </div>
-
-                                <div class="bio-row">
-                                    <p><span>For </span>: <?php echo $rows['gender']; ?></p><!--email come from database-->
-                                </div>
-                                <div class="bio-row">
                                     <p><span>Contact </span>: <?php echo $rows['contact']; ?></p><!--mobile come from database-->
                                 </div>
                                 <div class="bio-row">
-                                    <p><span>Rate per Month </span>: <?php echo $rows['price']; ?></p><!--P.N come from database-->
+                                    <p><span>Rate(R &#8725; M) </span>: <?php echo $rows['price']; ?></p><!--P.N come from database-->
                                 </div>
                                 <div class="bio-row">
-                                    <!--TODO: but limitation about number of char for example 200char-->
-                                    <!--Description come from database-->
+                                    <p><span>Description </span>: <?php echo $rows['description']; ?></p><!--City come from database-->
                                 </div>
                             </div>
                         </div>
@@ -254,10 +267,10 @@ if(mysqli_num_rows($query)>0)
 $_SESSION['pid']=$property_id;
                                     if ($booked==0){ ?>
                                         <input type="hidden" name="property_id" value="<?php echo $rows['property_id']; ?>">
-                                        <h3 style="font-size: 20px"><?php echo '<a style="text-decoration:none" href="book.php?property_id='.$rows['hID'].'"  class="" >Book Now </a><br>'; ?></h3><br>
+                                        <h3 style="font-size: 20px"><?php echo '<a style="text-decoration:none" class="Book" href="book.php?property_id='.$rows['hID'].'"  class="" >Book Now </a><br>'; ?></h3><br>
 
                                     <?php } else { ?>
-                                        <label style="width: max-content;font-size: 22px; font-weight: 600" value="" disabled>Property Booked</label>
+                                        <label style="width: max-content;font-size: 25px ; color: #ecb920; font-weight: 700" value="" disabled>Property Booked</label>
                                     <?php } ?>
                                 </div>
                         </form>
@@ -283,7 +296,8 @@ $_SESSION['pid']=$property_id;
             </div>
 
         </div>
-        <h3>Home Features:</h3><br>
+        <div>
+        <h3 style="position: relative;left: 50px;top: 20px">Home Features:</h3><br>
         <?php
         $sql="SELECT * from Home where hID='$property_id'";
         $query=mysqli_query($db,$sql);
@@ -311,10 +325,7 @@ $_SESSION['pid']=$property_id;
         }
 
         ?>
-        <br>
-
-        <br>
-
+        </div>
         <form method="post" style="position: relative;top: 20px;left:20px;width: fit-content;margin-bottom: 30px">
        <textarea name="rev" cols="40" placeholder="Write Your Comment"></textarea>
             <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>

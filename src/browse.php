@@ -29,6 +29,9 @@ include 'navbar.php';
             height: 100vh;
             padding: 30px;
             position: static;
+            border: 5px double #f0f0f0;
+            margin: 20px;
+            border-radius: 20px;
         }
 
         form input{

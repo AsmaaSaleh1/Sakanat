@@ -2,7 +2,16 @@
 include 'navbar.php';
 include 'connect.php';
 $property_id=$_SESSION['user_email'];
-
+if(isset($_POST['can'])){
+    if(isset($_SESSION['bid'])) {
+        $bid=$_SESSION['bid'];
+$stmt="UPDATE `booking` SET `canceled`='yes'where bId='$bid'";
+        $query = mysqli_query($db, $stmt);
+        $booked=0;
+        $stmt2 = "UPDATE `home` SET `booked`='$booked' WHERE hID='$bid'";
+        $query2 = mysqli_query($db, $stmt2);
+    }
+}
  ?>
 
 <!DOCTYPE html>
@@ -70,6 +79,8 @@ $user=$row['userId'];
             if(mysqli_num_rows($query)>0) {
                 while ($rows = mysqli_fetch_assoc($query)) {
             $home=$rows['hID'];
+            $bId=$rows['bId'];
+            $can=$rows['canceled'];
             ?>
 
             <div class="blog-card">
@@ -101,6 +112,7 @@ $user=$row['userId'];
 
                         ?>
                     </label>
+                    <form action="p3.php" method="post">
                     <div class="content">
                         <div class="title">
                            <?php echo  $name; ?>
@@ -118,11 +130,20 @@ $user=$row['userId'];
                             <p>
                               Total pay  <?php echo  $var; ?>
                             </p>
-
-<!--                        <button>For More Information >>></button>-->
+                        <?php
+                        if($can=='No'){
+                        ?>
+                        <button name="can" style="position: absolute;left: 500px;top: 150px;">Cancele</button>
+                            <?php  $_SESSION['bid']=$bId;
+                            $_SESSION['hid']=$home;}
+                           else{
+                            ?>
+                            <p style="position: absolute;color:red;left: 500px;top: 150px;">Canceled</p>
+                            <?php }?>
                     </div>
                 </div>
             </div>
+                    </form>
                     <br><br><br>
                 <?php
 

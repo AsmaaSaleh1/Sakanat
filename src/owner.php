@@ -445,8 +445,9 @@ else
                                     <input type="text" class="form-control" id="city" placeholder="Enter City" name="city">
                                 </div>
                                 <div class="form-group">
+                                    <?php echo $property_id ?>
                                     <label for="zone">Street:</label>
-                                    <input placeholder="Street" class="form-control" value="<?php echo $property_id ?>" type="text" name="street">
+                                    <input placeholder="Street" class="form-control" value="" type="text" name="street">
 
                                 </div>
                                 <div class="form-group">
@@ -542,7 +543,7 @@ else
             </div>
         </div>
 
-        <div id="menu1" class="tab-pane fade">
+        <div id="menu1" class="tab-pane fade" style="background-image: url('img/xx.jpg');background-repeat: no-repeat">
             <div>
                 <div class="container con">
 
@@ -663,7 +664,7 @@ else
             <div class="container">
                 <center><h3>My Home</h3></center>
                 <div class="container-fluid">
-                                        <input type="text" id="myInput2" onkeyup="myFunction1()" placeholder="Search..." title="Type in a name">
+                    <input type="text" id="myInput2" onkeyup="myFunction1()" placeholder="Search..." title="Type in a name">
                     <table id="myTable2">
                         <tr class="header">
                             <th>Name</th>
@@ -696,17 +697,17 @@ else
                                 else
                                     $booked='Yes';                         ?>
                                 <tr>
-                                    <td><?php echo $rows['hName'] ?></td>
-                                    <td><?php echo $rows['city'] ?></td>
-                                    <td><?php echo $rows['street'] ?></td>
-                                    <td><?php echo $rows['description'] ?></td>
-                                    <td><?php echo $rows['contact'] ?></td>
-                                    <td><?php echo $rows['gender'] ?></td>
-                                    <td><?php echo $rows['price'] ?></td>
-                                    <td><?php echo $booked ?></td>
-                                    <td><?php echo $rows['numOfRoom'] ?></td>
-                                    <td><?php echo $rows['numOfBath'] ?></td>
-                                    <td><?php echo $rows['Area'] ?></td>
+                                    <td><?= $rows['hName']; ?></td>
+                                    <td><?= $rows['city']; ?></td>
+                                    <td><?= $rows['street']; ?></td>
+                                    <td><?=$rows['description']; ?></td>
+                                    <td><?= $rows['contact']; ?></td>
+                                    <td><?=$rows['gender']; ?></td>
+                                    <td><?= $rows['price']; ?></td>
+                                    <td><?= $booked; ?></td>
+                                    <td><?= $rows['numOfRoom']; ?></td>
+                                    <td><?= $rows['numOfBath']; ?></td>
+                                    <td><?= $rows['Area']; ?></td>
                                    <td
                                     <form method="POST">
 
