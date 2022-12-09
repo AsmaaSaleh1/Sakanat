@@ -73,6 +73,11 @@ $f4=0;
 
         }
     }
+    $notifications_name="New Home";
+    $message=$_SESSION['user_email']." "."Add New Home ";
+    $insert_query = "INSERT INTO inf(notifications_name,message,active)VALUES('".$notifications_name."','".$message."','1')";
+
+    $result = mysqli_query($db,$insert_query);
 }
 
 
@@ -87,35 +92,36 @@ $f4=0;
     <link rel="stylesheet" href="Css/prof.css">
 
     <style>
-    th{
-        background-color: #1F5662;
-        color: white;
-    }
-    ul{
-        width: fit-content;
-        display: grid;
-grid-template-columns: 1fr;
-        gap: 10px;
+        th{
+            background-color: #1F5662;
+            color: white;
         }
-    ul li{
-margin-bottom: 10px;
-    }
-    thead{
-        background-color: #1F5662;
-    }
-</style>
+        ul{
+            width: fit-content;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+        ul li{
+            margin-bottom: 10px;
+        }
+        thead{
+            background-color: #1F5662;
+        }
+    </style>
 </head>
+
 
 <body>
 
 <div class="container-fluid">
-    <ul class="nav nav-pills nav-justified">
-        <li class="active" style="width: 150px;background-color: #dddddd"><a data-toggle="pill" href="#home">Profile</a></li>
-        <li style="width: 150px; background-color: #dddddd"><a data-toggle="pill" href="#menu1">Add Home</a></li>
-        <li style="width: 150px;background-color: #dddddd"><a data-toggle="pill" href="#menu">View Home</a></li>
-<!--        <li style="width: 200px;background-color: #FFFAF0"><a data-toggle="pill" href="#menu3">Update Property</a></li>-->
-        <li style="width: 150px;background-color: #dddddd"><a data-toggle="pill" href="#men">Booked Home</a></li>
-    </ul>
+    <ul class="nav nav-pills nav-justified" style="margin-top: 20px">
+                <li class="active" style="width: 150px;background-color: #dddddd"><a data-toggle="pill" href="#home">Profile</a></li>
+                <li style="width: 150px; background-color: #dddddd"><a data-toggle="pill" href="#menu1">Add Home</a></li>
+                <li style="width: 150px;background-color: #dddddd"><a data-toggle="pill" href="#menu">View Home</a></li>
+        <!--        <li style="width: 200px;background-color: #FFFAF0"><a data-toggle="pill" href="#menu3">Update Property</a></li>-->
+                <li style="width: 150px;background-color: #dddddd"><a data-toggle="pill" href="#men">Booked Home</a></li>
+            </ul>
 
     <div class="tab-content">
         <div id="home" class="tab-pane fade in active">
@@ -131,7 +137,7 @@ margin-bottom: 10px;
                 if(mysqli_num_rows($result)>0)
                 {
                 while($rows=mysqli_fetch_assoc($result)){
-                    $photo=$rows['photo'];
+                $photo=$rows['photo'];
                 ?>
                 <div class="row">
                     <div class="profile-nav col-md-3">
@@ -282,91 +288,65 @@ margin-bottom: 10px;
             </div>
         </div>
 
-        <div id="menu6" class="tab-pane fade">
+        <div id="men" class="tab-pane fade">
             <div class="container">
-                <center><h3>My Home</h3></center>
+                <center><h3>Booking</h3></center>
                 <div class="container-fluid">
                     <input type="text" id="myInput2" onkeyup="myFunction1()" placeholder="Search..." title="Type in a name">
                     <table id="myTable2">
                         <tr class="header">
-                            <th>Name</th>
-                            <th>City</th>
-                            <th>Street</th>
-                            <th>Description</th>
-                            <th>Contact Number</th>
-                            <th>For</th>
-                            <th>R/month</th>
-                            <th>Booked</th>
-                            <th>Number of room</th>
-                            <th>Number of Bathroom</th>
-                            <th>Area</th>
-                            <th></th>
+                            <th>Home Name</th>
+                            <th>Tenant Name</th>
+                            <th>Tenant Email</th>
+
+                            <th>Booking Date</th>
+                            <th>Booking Duration</th>
+                            <th>Total Pay</th>
+                            <th>Canceled?</th>
 
                         </tr>
                         <?php
                         include("connect.php");
-                        $email=$_SESSION["user_email"];
-                        $owner=$_SESSION['user_id'];
 
-                        $sql="SELECT * from home where ownerId='$owner' and booked=1";
+
+                        $sql="SELECT `hID`, `userId`, `bookDate`, `duration`, `canceled` FROM `booking`";
                         $result=mysqli_query($db,$sql);
 
                         if(mysqli_num_rows($result)>0)
                         {
                             while($rows=mysqli_fetch_assoc($result)){
-if($rows['booked']==0)
-    $booked='No';
-else
-    $booked='Yes';                         ?>
-                                <tr>
-                                    <td><?php echo $rows['hName'] ?></td>
-                                    <td><?php echo $rows['city'] ?></td>
-                                    <td><?php echo $rows['street'] ?></td>
-                                    <td><?php echo $rows['description'] ?></td>
-                                    <td><?php echo $rows['contact'] ?></td>
-                                    <td><?php echo $rows['gender'] ?></td>
-                                    <td><?php echo $rows['price'] ?></td>
-                                    <td><?php echo $booked ?></td>
-                                    <td><?php echo $rows['numOfRoom'] ?></td>
-                                    <td><?php echo $rows['numOfBath'] ?></td>
-                                    <td><?php echo $rows['Area'] ?></td>
-<!--                                <td>     <td><button name="del" style="border: none;background-color: transparent"><i style="color: red;margin-right: 10px" class="fa-regular fa-trash-can"></i></button><button data-toggle="modal" data-target="#myModal" name="update" style="border: none;background-color: transparent"><i class="fa-solid fa-pen-to-square"></i></button></td>-->
-                                  <td>
-                                   <form method="POST">
+                                $uid=$rows['userId'];
+                                $sql2="SELECT fName,Email from user where userId=$uid";
+                                $res=mysqli_query($db,$sql2);
+                                $r1=mysqli_fetch_assoc($res);
+                                $hid=$rows['hID'];
+                                $own=$_SESSION['user_id'];
+                                $sql3="SELECT hName,ownerId,price from home where hID='$hid' and ownerId='$own'";
+                                $res2=mysqli_query($db,$sql3);
+                                $r2=mysqli_fetch_assoc($res2);
+                                if(mysqli_num_rows($res2)>0){
+                                    $tot=$rows['duration']*$r2['price'];
+                                    ?>
+                                    <tr>
 
-                                        <input type="hidden" name="property_id" value="<?php echo $rows['hID']; ?>">
-                                        <a data-toggle="pill" class="" name="edit_property" onclick="<?php $property_id = $rows['hID'] ?>" href="#menu5"><i class="fa-solid fa-pen-to-square"></i></a><input type="submit" class="btn btn-danger" name="delete_property" value="Delete">
+                                        <td><?php echo $r2['hName'] ?></td>
+                                        <td><?php echo $r1['fName'] ?></td>
+                                        <td><?php echo $r1['Email'] ?></td>
 
-                                </form> </td>
-                                </tr>
-
-                                    <!--                                <td><img id="myImg" src="../--><?php //echo $rows['id_photo'] ?><!--" width="50px"></td>-->
-                                    <div class="modal fade" id="myModal" role="dialog">
-                                        <div class="modal-dialog">
-
-                                            <!-- Modal content-->
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                    <h4 class="modal-title">Update Profile</h4>
-                                                </div>
-                                                <div class="modal-body">
+                                        <td><?php echo $rows['bookDate'] ?></td>
+                                        <td><?php echo $rows['duration'] ?></td>
+                                        <td><?php echo $tot ?></td>
+                                        <td><?php echo $rows['canceled'] ?></td>
 
 
-
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                                </div>
-                                            </div>
-
+                                        <!--                                <td><img id="myImg" src="../--><?php //echo $rows['id_photo'] ?><!--" width="50px"></td>-->
+                                        <div id="myModal" class="modal">
+                                            <span class="close">&times;</span>
+                                            <img class="modal-content" id="img01">
+                                            <div id="caption"></div>
                                         </div>
-                                    </div>
-
-
-
-                                </tr>
-                            <?php }} ?>
+                                    </tr>
+                                <?php }} }?>
                     </table>
                 </div>
 
@@ -374,179 +354,7 @@ else
         </div>
 
 
-        <div id="menu4" class="tab-pane fade">
-            <div class="container">
-                <center><h3>See Messages</h3></center>
-                <?php
-                $owner_id=$rows['owner_id'];
-                $sql1="SELECT * FROM chat where owner_id='$owner_id' ";
-
-                $query1 = mysqli_query($db,$sql1);
-
-                if(mysqli_num_rows($query1)>0)
-                {
-                    while($row= mysqli_fetch_assoc($query1)){
-
-                        $tenant_id=$row['tenant_id'];
-                        $sql2="SELECT * FROM tenant where tenant_id='$tenant_id' ";
-
-                        $query2 = mysqli_query($db,$sql2);
-
-                        if(mysqli_num_rows($query2)>0)
-                        {
-                            while ($rows= mysqli_fetch_assoc($query2)){
-
-                                ?>
-
-
-                                <link rel="stylesheet" type="text/css" href="message-style.css">
-
-                                <div class="tab">
-                                    <button class="tablinks" id="defaultOpen" onmouseover="openCity(event, '<?php echo $rows["full_name"]; ?>')"><?php echo $rows["full_name"]; ?></button>
-                                </div>
-
-                                <div id="<?php echo $rows["full_name"]; ?>" class="tabcontent">
-                                    <?php
-                                    $sql3="SELECT * FROM chat where tenant_id='$tenant_id' AND owner_id='$owner_id' ";
-
-                                    $query3 = mysqli_query($db,$sql3);
-
-                                    if(mysqli_num_rows($query3)>0)
-                                    {
-                                        while($ro= mysqli_fetch_assoc($query3)){
-                                            echo $ro["message"]."<br>";
-                                        }}
-                                    ?>
-                                </div>
-
-                                <div class="clearfix"></div>
-
-
-                                <?php
-                                //echo '<a href="send-message.php?owner_id='.$owner_id.'&tenant_id='.$tenant_id.'">'.$rows["full_name"].'</a>';
-                            }
-                        }}}}}?>
-            </div>
-        </div>
-        <div id="menu5" class="tab-pane fade">
-            <div>
-                <div class="container con">
-
-                    <div id="map_canvas"></div>
-                    <form class="tst" method="POST" action="owner.php" enctype="multipart/form-data">
-                        <div class="row">
-                            <center><h2 style="font-weight: 800;color: black">Add Home</h2></center>
-
-                            <div class="cx col-sm-6">
-                                <div class="form-group">
-                                    <label>Name:</label>
-                                    <input placeholder="Home Name" class="form-control" type="text" name="name">
-
-                                </div>
-                                <div class="form-group">
-                                    <label for="city">City:</label>
-                                    <input type="text" class="form-control" id="city" placeholder="Enter City" name="city">
-                                </div>
-                                <div class="form-group">
-                                    <?php echo $property_id ?>
-                                    <label for="zone">Street:</label>
-                                    <input placeholder="Street" class="form-control" value="" type="text" name="street">
-
-                                </div>
-                                <div class="form-group">
-                                    <label for="district">For:</label>
-                                    <select class="form-control" name="for" required="required">
-                                        <option>---</option>
-                                        <option value="Men">Men</option>
-                                        <option value="Women">Women</option>
-                                        <option value="Family">Family</option>
-
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="vdc/municipality">Area:</label>
-                                    <input placeholder="Area" class="form-control" type="text" name="area">
-
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="contact">Contact Number:</label>
-                                    <input name="contactNum" type="text" class="form-control" id="contact" placeholder="Enter Contact Number." >
-                                </div>
-                                <div class="form-group">
-                                    <label for="property_type">Property Type:</label>
-                                    <select class="form-control" name="property_type">
-                                        <option value="">--Select Property Type--</option>
-                                        <option value="Full House Rent">Full House Rent</option>
-                                        <option value="Flat Rent">Flat Rent</option>
-                                        <option value="Room Rent">Room Rent</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="estimated_price">Estimated Price:</label>
-                                    <input type="estimated_price" class="form-control" id="estimated_price" placeholder="Enter Estimated Price" name="price">
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="total_rooms">Number of Rooms:</label>
-                                    <input type="number" class="form-control" id="total_rooms" placeholder="Enter Total No. of Rooms" name="total_rooms">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="kitchen">Number of Kitchen:</label>
-                                    <input type="number" class="form-control" id="kitchen" placeholder="Enter No. of Kitchen" name="kitchen">
-                                </div>
-                                <div class="form-group">
-                                    <label for="bathroom">Number of Bathroom/Washroom:</label>
-                                    <input type="number" class="form-control" id="bathroom" placeholder="Enter No. of Bathroom/Washroom" name="bathroom">
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Location in map:</label>
-                                    <input type="text" class="form-control" id="" name="location">
-                                </div>
-                                <div class="form-group">
-                                    <label for="description">Full Description:</label>
-                                    <textarea type="comment" class="form-control" id="description" placeholder="Enter Property Description" name="description"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <h3 for="description">Features:</h3>
-                                    <input type="checkbox" name="tv" value="1" id="tv">
-                                    <label for="tv">TV</label> <br>
-                                    <input type="checkbox" value="2" name="wifi" id="wifi">
-                                    <label for="wifi">Wi-Fi</label> <br>
-                                    <input type="checkbox"value="3" name="desk" id="desk">
-                                    <label for="desk">Desk</label> <br>
-                                    <input type="checkbox" value="5" name="frdg" id="frdg">
-                                    <label for="frdg">Fridge</label> <br>
-                                </div>
-                                <table class="table" id="dynamic_field">
-                                    <tr>
-                                        <div class="form-group">
-                                            <label><b>Photos:</b></label>
-                                            <td><input type="file" name="p_photo[]" placeholder="Photos" class="form-control name_list" required accept="image/*" /></td>
-                                            <td><button style="background-color: #1F5662" type="button" id="add" name="add" class="btn btn-success col-lg-12">Add More</button></td>
-                                        </div>
-                                    </tr>
-                                </table>
-                                <input name="lat" type="text" id="lat" hidden>
-                                <input name="lng" type="text" id="lng" hidden>
-                                <hr>
-                                <div class="form-group">
-                                    <input style="background-color: #1F5662" type="submit" class="btn btn-primary btn-lg col-lg-12" value="Add Home" name="add_home">
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                    <br><br>
-
-                </div>
-            </div>
-        </div>
-
-        <div id="menu1" class="tab-pane fade" style="background-image: url('img/xx.jpg');background-repeat: no-repeat">
+        <div id="menu1" class="tab-pane fade" style="background-image: url('img/xx.jpg')">
             <div>
                 <div class="container con">
 
@@ -662,89 +470,19 @@ else
                 </div>
             </div>
         </div>
-        <div id="men" class="tab-pane fade">
-            <div class="container">
-                <center><h3>Booking</h3></center>
-                <div class="container-fluid">
-                    <input type="text" id="myInput2" onkeyup="myFunction1()" placeholder="Search..." title="Type in a name">
-                    <table id="myTable2">
-                        <tr class="header">
-                            <th>Home Name</th>
-                            <th>Tenant Name</th>
-                            <th>Tenant Email</th>
-
-                            <th>Booking Date</th>
-                            <th>Booking Duration</th>
-                            <th>Total Pay</th>
-                            <th>Canceled?</th>
-
-                        </tr>
-                        <?php
-                        include("connect.php");
-
-
-                        $sql="SELECT `hID`, `userId`, `bookDate`, `duration`, `canceled` FROM `booking`";
-                        $result=mysqli_query($db,$sql);
-
-                        if(mysqli_num_rows($result)>0)
-                        {
-                            while($rows=mysqli_fetch_assoc($result)){
-                                $uid=$rows['userId'];
-                                $sql2="SELECT fName,Email from user where userId=$uid";
-                                $res=mysqli_query($db,$sql2);
-                                $r1=mysqli_fetch_assoc($res);
-                                $hid=$rows['hID'];
-                                $sql3="SELECT hName,ownerId,price from home where hID=$hid";
-                                $res2=mysqli_query($db,$sql3);
-                                $r2=mysqli_fetch_assoc($res2);
-
-                                $tot=$rows['duration']*$r2['price'];
-                                ?>
-                                <tr>
-
-                                    <td><?php echo $r2['hName'] ?></td>
-                                    <td><?php echo $r1['fName'] ?></td>
-                                    <td><?php echo $r1['Email'] ?></td>
-
-                                    <td><?php echo $rows['bookDate'] ?></td>
-                                    <td><?php echo $rows['duration'] ?></td>
-                                    <td><?php echo $tot ?></td>
-                                    <td><?php echo $rows['canceled'] ?></td>
-
-
-                                    <!--                                <td><img id="myImg" src="../--><?php //echo $rows['id_photo'] ?><!--" width="50px"></td>-->
-                                    <div id="myModal" class="modal">
-                                        <span class="close">&times;</span>
-                                        <img class="modal-content" id="img01">
-                                        <div id="caption"></div>
-                                    </div>
-                                </tr>
-                            <?php }} ?>
-                    </table>
-                </div>
-
-            </div>
-        </div>
 
         <div id="menu2" class="tab-pane fade">
             <div class="container">
-                <center><h3>My Home</h3></center>
+                <center><h3>Feedbacks</h3></center>
                 <div class="container-fluid">
                     <input type="text" id="myInput2" onkeyup="myFunction1()" placeholder="Search..." title="Type in a name">
                     <table id="myTable2">
                         <tr class="header">
-                            <th>Name</th>
-                            <th>City</th>
-                            <th>Street</th>
-                            <th>Description</th>
-                            <th>Contact Number</th>
-                            <th>For</th>
-                            <th>R/month</th>
-                            <th>Booked</th>
-                            <th>Number of room</th>
-                            <th>Number of Bathroom</th>
-                            <th>Area</th>
-                            <th></th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Photo</th>
+                            <th>Feedback</th>
+
 
                         </tr>
                         <?php
@@ -752,36 +490,23 @@ else
                         $email=$_SESSION["user_email"];
                         $owner=$_SESSION['user_id'];
 
-                        $sql="SELECT * from home where ownerId='$owner'";
+                        $sql="SELECT feedback,fName,photo,lName from user WHERE Email !='sakanat@gmail.com';";
                         $result=mysqli_query($db,$sql);
 
                         if(mysqli_num_rows($result)>0)
                         {
                             while($rows=mysqli_fetch_assoc($result)){
-                                if($rows['booked']==0)
-                                    $booked='No';
-                                else
-                                    $booked='Yes';                         ?>
+
+                                ?>
                                 <tr>
-                                    <td><?= $rows['hName']; ?></td>
-                                    <td><?= $rows['city']; ?></td>
-                                    <td><?= $rows['street']; ?></td>
-                                    <td><?=$rows['description']; ?></td>
-                                    <td><?= $rows['contact']; ?></td>
-                                    <td><?=$rows['gender']; ?></td>
-                                    <td><?= $rows['price']; ?></td>
-                                    <td><?= $booked; ?></td>
-                                    <td><?= $rows['numOfRoom']; ?></td>
-                                    <td><?= $rows['numOfBath']; ?></td>
-                                    <td><?= $rows['Area']; ?></td>
-                                   <td
-                                    <form method="POST">
+                                    <td><img style="width: 80px;height: 80px" src="<?php echo $rows['photo'] ?>"> </td>
 
-                                        <input type="hidden" name="property_id" value="<?php echo $rows['hID']; ?>">
-                                        <a data-toggle="pill" class="" name="edit_property" onclick="<?php $property_id = $rows['hID'] ?>" href="#menu5"><i class="fa-solid fa-pen-to-square"></i></a><input type="submit" class="btn btn-danger" name="delete_property" value="Delete">
+                                    <td><?php echo $rows['fName'] ?></td>
+                                    <td><?php echo $rows['lName'] ?></td>
 
-                                    </form>
-                                    </td><!--                                <td><img id="myImg" src="../--><?php //echo $rows['id_photo'] ?><!--" width="50px"></td>-->
+                                    <td><?php echo $rows['feedback'] ?></td>
+
+                                    <!--                                <td><img id="myImg" src="../--><?php //echo $rows['id_photo'] ?><!--" width="50px"></td>-->
                                     <div id="myModal" class="modal">
                                         <span class="close">&times;</span>
                                         <img class="modal-content" id="img01">
@@ -828,12 +553,12 @@ else
                                 <tbody>
                                 <?php
 
-                        include("connect.php");
-                        $email=$_SESSION["user_email"];
-                        $owner=$_SESSION['user_id'];
+                                include("connect.php");
+                                $email=$_SESSION["user_email"];
+                                $owner=$_SESSION['user_id'];
 
-                        $sql="SELECT * from home where ownerId='$owner'";
-                        $query_run=mysqli_query($db,$sql);
+                                $sql="SELECT * from home where ownerId='$owner'";
+                                $query_run=mysqli_query($db,$sql);
 
                                 if(mysqli_num_rows($query_run) > 0)
                                 {
@@ -884,11 +609,13 @@ else
             </div>
         </div>
     </div>
-
     </div>
+    <?php
+    }}
+    ?>
+</div>
 </div>
 </body>
-
 
 
 
@@ -1033,8 +760,6 @@ else
         });
     });
 </script>
-
-
 
 <script>
     if (status == google.maps.GeocoderStatus.OK) {

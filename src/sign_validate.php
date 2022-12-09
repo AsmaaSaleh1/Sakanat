@@ -26,8 +26,10 @@ if (isset($_POST['email']) && isset($_POST['regPass'])
 
     $uname = validate($_POST['email']);
     $password = validate($_POST['regPass']);
-
+    $password = md5($password);
     $re_pass = validate($_POST['confPass']);
+    $re_pass = md5($re_pass);
+
     $name = validate($_POST['name']);
     $lname= validate($_POST['lname']);
 $phone=$_POST['pNum'];
@@ -84,8 +86,8 @@ echo $stmt->rowCount();
             $uName = "root";
             $pass = "";
             $db_name = "sakanatpro";
-$type=$_SESSION['type'];
-
+$type=$_POST['type'];
+$_SESSION['type']=$type;
             try {
                 $db = new mysqli('localhost','root','','sakanatpro');
 
@@ -97,6 +99,12 @@ $type=$_SESSION['type'];
             if($db->query($sql)===TRUE){
                 $_SESSION['user_email'] = $uname;
                 $_SESSION['type']=$type;
+                $_SESSION['user_full_name']=$name;
+                $notifications_name="New Regestration";
+                $message=$_SESSION['user_email']."Signed up as ".$type;
+                $insert_query = "INSERT INTO inf(notifications_name,message,active)VALUES('".$notifications_name."','".$message."','1')";
+
+                $result = mysqli_query($db,$insert_query);
 
                 header("location:index.php");
             }

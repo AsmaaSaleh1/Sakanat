@@ -32,9 +32,13 @@ $dur=$_POST['dur'];
                     $recipient=$email;
                     $subject="Property Booked";
                     $mailheaders="From: RentHouse\n";
+                    $notifications_name="New Booking";
+                    $message=$rows['fName']."Booked a house";
+                    $insert_query = "INSERT INTO inf(notifications_name,message,active)VALUES('".$notifications_name."','".$message."','1')";
 
-                    //mail send
-                    mail($recipient,$subject,$msg,$mailheaders);
+                    $result = mysqli_query($db,$insert_query);
+
+
 
                     ?>
 

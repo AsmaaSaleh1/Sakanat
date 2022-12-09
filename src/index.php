@@ -55,6 +55,7 @@
                 box-shadow: 0 5px 25px RGBA(1 1 1 /15%);
                 transition: 0.7s ease;
                 padding: 25px;
+                box-shadow: 0 5px 25px rgba(1 1 1 /15%);
             }
         </style>
         <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cairo:wght@400;500;600;700&family=Lobster&family=Open+Sans:wght@400;700&family=Work+Sans:ital,wght@0,300;0,800;1,700&display=swap" rel="stylesheet">

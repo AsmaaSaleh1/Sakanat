@@ -73,6 +73,7 @@ if (isset($_POST['add_home'])) {
 
         }
     }
+
 }
 
 
@@ -109,7 +110,7 @@ if (isset($_POST['add_home'])) {
 <body>
 
 <div class="container-fluid">
-    <ul class="nav nav-pills nav-justified">
+    <ul class="nav nav-pills nav-justified" style="margin-top: 20px">
         <li class="active" style="width: 150px;background-color: #dddddd"><a data-toggle="pill" href="#home">All Users</a></li>
         <li style="width: 150px; background-color: #dddddd"><a data-toggle="pill" href="#menu1">Add Home</a></li>
         <li style="width: 150px;background-color: #dddddd"><a data-toggle="pill" href="#menu">View Home</a></li>
