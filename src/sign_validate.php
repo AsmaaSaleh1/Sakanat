@@ -26,17 +26,16 @@ if (isset($_POST['email']) && isset($_POST['regPass'])
 
     $uname = validate($_POST['email']);
     $password = validate($_POST['regPass']);
-    $password = md5($password);
     $re_pass = validate($_POST['confPass']);
-    $re_pass = md5($re_pass);
-
+    $re_pass = sha1($re_pass);
     $name = validate($_POST['name']);
     $lname= validate($_POST['lname']);
-$phone=$_POST['pNum'];
+    $phone=$_POST['pNum'];
     $user_data = 'uname='. $uname. '&name='. $name;
     $type=$_POST['type'];
 
-
+    $password = sha1($password);
+echo $password;
     if (empty($uname)) {
         header("Location: log_sign.php?error=User Name is required&$user_data");
         exit();

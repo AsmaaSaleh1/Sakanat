@@ -55,6 +55,7 @@ $sql2="SELECT * FROM Home_img where hID='$property_id'";
 $query2=mysqli_query($db,$sql2);
 $images=$query2->fetch_array();
 $row=mysqli_fetch_array($query2);
+if($images)
 $photo=$images['imgPath'];
 ?>
 <body>

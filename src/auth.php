@@ -29,6 +29,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
         if ($stmt->rowCount() === 1) {
             $user = $stmt->fetch();
+            $password=sha1($password);
             $user_id =$user['userId'];
             $user_email = $user['Email'];
             $user_password = $user['password'];
