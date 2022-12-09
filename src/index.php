@@ -52,6 +52,9 @@
             .con .card{
                 border-radius: 15px;
                 max-width: 300px;
+                box-shadow: 0 5px 25px RGBA(1 1 1 /15%);
+                transition: 0.7s ease;
+                padding: 25px;
                 box-shadow: 0 5px 25px rgba(1 1 1 /15%);
             }
         </style>

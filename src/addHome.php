@@ -104,7 +104,7 @@ if(isset($_POST['add_home'])) {
             max-width: 300px;
             margin: auto;
             text-align: center;
-            font-family: arial;
+            font-family: 'Times New Roman', 'Times','serif';
         }
 
         button {
@@ -136,7 +136,6 @@ if(isset($_POST['add_home'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cairo:wght@400;500;600;700&family=Lobster&family=Open+Sans:wght@400;700&family=Work+Sans:ital,wght@0,300;0,800;1,700&display=swap" rel="stylesheet">
-<!--<link rel="stylesheet" href="Css/p2.css">-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -153,13 +152,13 @@ if(isset($_POST['add_home'])) {
         padding: 0;
         margin: 0;
         font-family: 'Times New Roman', 'Times', 'serif';
-
-
+        font-size: 16px;
+        font-weight: bold;
     }
-.con{
-   background-color: rgb(255,255,255,0.4);
-border-radius: 15px;
-}
+    .con{
+        background-color: rgb(255,255,255,0.6);
+        border-radius: 15px;
+    }
     .navbar {
         background-color: #f0f0f0;
         padding: 0;
@@ -168,12 +167,12 @@ border-radius: 15px;
 
     body{
         font-family: 'Times New Roman', 'Times','serif';
-        background-image: url("img/add.jpg");
+        background-image: url("img/addHome.jpg");
         background-repeat: no-repeat;
     }
     .navbar-brand{
-        font-family: "Lobster";
-        color:#1F5662;
+        font-family: 'Times New Roman', 'Times','serif';
+        color:#1f5662;
         font-weight: 700;
         font-size: 2.2em;
         margin-left: 80px;
@@ -223,6 +222,9 @@ border-radius: 15px;
         max-width: 400px;
         margin-right: 50px;
     }
+    .form-control{
+        border: 1px solid #1f5662;
+    }
 </style>
 <div>
     <div class="container con">
@@ -230,7 +232,7 @@ border-radius: 15px;
         <div id="map_canvas"></div>
         <form class="tst" method="POST" action="addHome.php" enctype="multipart/form-data">
             <div class="row">
-                <center><h2 style="font-weight: 800;color: black">Add Home</h2></center>
+                <center><h2 style="font-weight: 800;padding-bottom: 20px;font-size: 35px;color: black">Add Home</h2></center>
 
                 <div class="cx col-sm-6">
                     <div class="form-group">
@@ -251,15 +253,15 @@ border-radius: 15px;
                         <label for="district">For:</label>
                         <select class="form-control" name="for" required="required">
                             <option>---</option>
-                            <option value="Men">Men</option>
-                            <option value="Women">Women</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
                             <option value="Family">Family</option>
 
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="vdc/municipality">Area:</label>
+                        <label for="vdc/municipality">Area (m&sup2;):</label>
                         <input placeholder="Area" class="form-control" type="text" name="area">
 
                     </div>
@@ -286,16 +288,16 @@ border-radius: 15px;
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="total_rooms">Number of Rooms:</label>
-                        <input type="number" class="form-control" id="total_rooms" placeholder="Enter Total No. of Rooms" name="total_rooms">
+                        <input type="number" min="1" class="form-control" id="total_rooms" placeholder="Enter Total No. of Rooms" name="total_rooms">
                     </div>
 
                     <div class="form-group">
                         <label for="kitchen">Number of Kitchen:</label>
-                        <input type="number" class="form-control" id="kitchen" placeholder="Enter No. of Kitchen" name="kitchen">
+                        <input type="number" min="0" class="form-control" id="kitchen" placeholder="Enter No. of Kitchen" name="kitchen">
                     </div>
                     <div class="form-group">
                         <label for="bathroom">Number of Bathroom/Washroom:</label>
-                        <input type="number" class="form-control" id="bathroom" placeholder="Enter No. of Bathroom/Washroom" name="bathroom">
+                        <input type="number" min="1" class="form-control" id="bathroom" placeholder="Enter No. of Bathroom/Washroom" name="bathroom">
                     </div>
                     <div class="form-group">
                         <label for="">Location in map:</label>
@@ -320,8 +322,8 @@ border-radius: 15px;
                         <tr>
                             <div class="form-group">
                                 <label><b>Photos:</b></label>
-                                <td><input type="file" name="p_photo[]" placeholder="Photos" class="form-control name_list" required accept="image/*" /></td>
-                                <td><button style="background-color: #1F5662" type="button" id="add" name="add" class="btn btn-success col-lg-12">Add More</button></td>
+                                <td style="border: 2px solid #f0f0f0"><input type="file" name="p_photo[]" placeholder="Photos" class="form-control name_list" required accept="image/*" /></td>
+                                <td style="border: 2px solid #f0f0f0"><button style="background-color: #1F5662; border-color: #1f5662" type="button" id="add" name="add" class="btn btn-success col-lg-12">Add More</button></td>
                             </div>
                         </tr>
                     </table>
