@@ -176,7 +176,7 @@ p, .carousel-control-prev{
 /* For why us Animation*/
 .ml11 {
     font-weight: 300;
-    font-size: 3em;
+    font-size: calc(1.375rem + 1.5vw);
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 40px;
