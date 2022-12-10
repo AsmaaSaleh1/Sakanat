@@ -11,14 +11,16 @@ html,
 body {
     height: 100vh;
     width: 100vw;
+    background-color: #1F5662;
 }
 body {
     font-family: 'Montserrat', sans-serif;
-    background: #fff;
+    /*background: #fff;*/
     position: relative;
     overflow: hidden;
     font-size: 100%;
     text-align: center;
+    z-index: 100;
 }
 .criterion {
     font-size: 1.6rem;

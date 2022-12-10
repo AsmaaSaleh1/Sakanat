@@ -549,6 +549,7 @@ $accepted=0;
                                     <th>Number of room</th>
                                     <th>Number of Bathroom</th>
                                     <th>Area</th>
+                                    <th>Message</th>
                                     <th></th>
                                 </tr>
                                 </thead>
@@ -585,6 +586,7 @@ $accepted=0;
                                             <td><?= $rows['numOfRoom']; ?></td>
                                             <td><?= $rows['numOfBath']; ?></td>
                                             <td><?= $rows['Area']; ?></td>
+                                            <td><?= $rows['msg']; ?></td>
                                             <td>
                                                 <a href="viewHome.php?property_id=<?=  $rows['hID']; ?>" class="btn btn-info btn-sm">View</a>
                                                 <a href="home-edit.php?id=<?=  $rows['hID']; ?>" class="btn btn-success btn-sm">Edit</a>

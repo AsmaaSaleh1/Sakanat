@@ -144,3 +144,7 @@ $photo=$images['imgPath'];
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
 </html>
+<?php
+if(isset($_POST['book_property']))
+include 'loading.php'
+?>
