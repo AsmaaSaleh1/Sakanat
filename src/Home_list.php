@@ -53,7 +53,7 @@ try {
 }catch(PDOException $e){
     echo "Connection failed : ". $e->getMessage();
 }
-$sql="SELECT * FROM home";
+$sql="SELECT * FROM home where accepted='1'";
 $query=mysqli_query($db,$sql);
 
 if(mysqli_num_rows($query)>0)
@@ -82,6 +82,9 @@ if(mysqli_num_rows($query)>0)
 
             <div class="info">
                 <!-- title + information-->
+                <h3 style="font-size: 22px"><?php
+                    echo $rows['hName'];?>
+                </h3>
                 <h3 style="font-size: 22px"><?php
                     echo $rows['city'];?>
                 </h3>

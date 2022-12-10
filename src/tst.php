@@ -7,7 +7,7 @@ if(isset($_POST['book_property'])){
 
         global $db,$property_id;
         $u_email=$_SESSION["user_email"];
-
+$msg=$_POST['msg'];
         $property_id=$_SESSION['pid'];
 $date=$_POST['date'];
 $dur=$_POST['dur'];
@@ -22,7 +22,7 @@ $dur=$_POST['dur'];
                 $sql1="UPDATE home SET booked=1 WHERE hID='$property_id'";
                 $query1=mysqli_query($db,$sql1);
                 $can='No';
-                $sql2="INSERT INTO booking(hId,userId,bookDate,duration,canceled) VALUES ('$property_id','$tenant_id','$date','$dur','$can')";
+                $sql2="INSERT INTO booking(hId,userId,bookDate,duration,canceled,msg) VALUES ('$property_id','$tenant_id','$date','$dur','$can','$msg')";
                 $query2=mysqli_query($db,$sql2);
 
                 if($query2)

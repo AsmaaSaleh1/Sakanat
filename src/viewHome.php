@@ -297,7 +297,7 @@ $_SESSION['pid']=$property_id;
 
         </div>
         <div>
-        <h3 style="position: relative;left: 50px;top: 20px">Home Features:</h3><br>
+        <h3 style="position: relative;left: 50px;top: 20px;margin-bottom: 30px">Home Features:</h3><br>
         <?php
         $sql="SELECT * from Home where hID='$property_id'";
         $query=mysqli_query($db,$sql);
@@ -315,7 +315,7 @@ $_SESSION['pid']=$property_id;
                         $query3 = mysqli_query($db, $sql2);
                         $row = mysqli_fetch_array($query3);
                         ?>
-                        <p style="margin-left: 20px"><i class="fa-solid fa-check"></i> <?php  echo $row['name']; ?></p>
+                        <p style="margin-left: 50px;margin-bottom: 20px"><i class="fa-solid fa-check"></i> <?php  echo $row['name']; ?></p>
 
                             <?php
                     }

@@ -114,6 +114,8 @@ if (isset($_POST['add_home'])) {
         <li class="active" style="width: 150px;background-color: #dddddd"><a data-toggle="pill" href="#home">All Users</a></li>
         <li style="width: 150px; background-color: #dddddd"><a data-toggle="pill" href="#menu1">Add Home</a></li>
         <li style="width: 150px;background-color: #dddddd"><a data-toggle="pill" href="#menu">View Home</a></li>
+        <li style="width: 150px;background-color: #dddddd"><a data-toggle="pill" href="#menu4">New Home</a></li>
+
         <!--        <li style="width: 200px;background-color: #FFFAF0"><a data-toggle="pill" href="#menu3">Update Property</a></li>-->
         <li style="width: 150px;background-color: #dddddd"><a data-toggle="pill" href="#menu2">Feedbacks</a></li>
         <li style="width: 150px;background-color: #dddddd"><a data-toggle="pill" href="#menu5">Booking</a></li>
@@ -280,56 +282,95 @@ if (isset($_POST['add_home'])) {
 
         <div id="menu4" class="tab-pane fade">
             <div class="container">
-                <center><h3>See Messages</h3></center>
-                <?php
-                $owner_id=$rows['owner_id'];
-                $sql1="SELECT * FROM chat where owner_id='$owner_id' ";
 
-                $query1 = mysqli_query($db,$sql1);
+                <?php include('message.php'); ?>
 
-                if(mysqli_num_rows($query1)>0)
-                {
-                    while($row= mysqli_fetch_assoc($query1)){
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
 
-                        $tenant_id=$row['tenant_id'];
-                        $sql2="SELECT * FROM tenant where tenant_id='$tenant_id' ";
+                            </div>
+                            <div class="card-body">
 
-                        $query2 = mysqli_query($db,$sql2);
-
-                        if(mysqli_num_rows($query2)>0)
-                        {
-                            while ($rows= mysqli_fetch_assoc($query2)){
-
-                                ?>
-
-
-                                <link rel="stylesheet" type="text/css" href="message-style.css">
-
-                                <div class="tab">
-                                    <button class="tablinks" id="defaultOpen" onmouseover="openCity(event, '<?php echo $rows["full_name"]; ?>')"><?php echo $rows["full_name"]; ?></button>
-                                </div>
-
-                                <div id="<?php echo $rows["full_name"]; ?>" class="tabcontent">
+                                <table class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Owner Name</th>
+                                        <th>Owner Email</th>
+                                        <th>City</th>
+                                        <th>Street</th>
+                                        <th>Description</th>
+                                        <th>Contact Number</th>
+                                        <th>For</th>
+                                        <th>R/month</th>
+                                        <th>Booked</th>
+                                        <th>Number of room</th>
+                                        <th>Number of Bathroom</th>
+                                        <th>Area</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
                                     <?php
-                                    $sql3="SELECT * FROM chat where tenant_id='$tenant_id' AND owner_id='$owner_id' ";
+                                    $query = "SELECT * FROM home where accepted='0'";
+                                    $query_run = mysqli_query($con, $query);
 
-                                    $query3 = mysqli_query($db,$sql3);
-
-                                    if(mysqli_num_rows($query3)>0)
+                                    if(mysqli_num_rows($query_run) > 0)
                                     {
-                                        while($ro= mysqli_fetch_assoc($query3)){
-                                            echo $ro["message"]."<br>";
-                                        }}
+                                        foreach($query_run as $rows)
+                                        {
+                                            if($rows['booked']==0)
+                                                $booked='No';
+                                            else
+                                                $booked='Yes';
+                                            $owner=$rows['ownerId'];
+                                            $sql="SELECT fName,Email from user where userId='$owner'";
+                                            $res=mysqli_query($db,$sql);
+                                            while($row=mysqli_fetch_assoc($res)){
+                                                $em=$row['Email'];
+                                                $nam=$row['fName'];
+                                            }
+                                            ?>
+                                            <tr>
+                                                <td><?= $rows['hName']; ?></td>
+                                                <td><?= $nam; ?></td>
+                                                <td><?= $em; ?></td>
+                                                <td><?= $rows['city']; ?></td>
+                                                <td><?= $rows['street']; ?></td>
+                                                <td><?=$rows['description']; ?></td>
+                                                <td><?= $rows['contact']; ?></td>
+                                                <td><?=$rows['gender']; ?></td>
+                                                <td><?= $rows['price']; ?></td>
+                                                <td><?= $booked; ?></td>
+                                                <td><?= $rows['numOfRoom']; ?></td>
+                                                <td><?= $rows['numOfBath']; ?></td>
+                                                <td><?= $rows['Area']; ?></td>
+                                                <td>
+                                                    <form action="code.php" method="POST" class="d-inline">
+                                                        <button type="submit" name="accHome" value="<?= $rows['hID'];?>" class="btn btn-danger btn-sm">Accept</button>
+                                                    </form>
+                                                    <a href="viewHome.php?property_id=<?=  $rows['hID']; ?>" class="btn btn-info btn-sm">Remove</a>
+
+                                                </td>
+                                            </tr>
+                                            <?php
+                                        }
+                                    }
+                                    else
+                                    {
+                                        echo "<h5> No Record Found </h5>";
+                                    }
                                     ?>
-                                </div>
 
-                                <div class="clearfix"></div>
+                                    </tbody>
+                                </table>
 
-
-                                <?php
-                                //echo '<a href="send-message.php?owner_id='.$owner_id.'&tenant_id='.$tenant_id.'">'.$rows["full_name"].'</a>';
-                            }
-                        }}}?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div id="menu5" class="tab-pane fade">
@@ -526,15 +567,15 @@ if (isset($_POST['add_home'])) {
                             <th>Last Name</th>
                             <th>Photo</th>
                             <th>Feedback</th>
-
+                            <th></th>
 
                         </tr>
                         <?php
                         include("connect.php");
                         $email=$_SESSION["user_email"];
                         $owner=$_SESSION['user_id'];
-
-                        $sql="SELECT feedback,fName,photo,lName from user WHERE Email !='sakanat@gmail.com';";
+                        $fb='';
+                        $sql="SELECT feedback,fName,photo,lName,userId from user WHERE Email !='sakanat@gmail.com' and feedback !='$fb';";
                         $result=mysqli_query($db,$sql);
 
                         if(mysqli_num_rows($result)>0)
@@ -549,6 +590,11 @@ if (isset($_POST['add_home'])) {
                                     <td><?php echo $rows['lName'] ?></td>
 
                                     <td><?php echo $rows['feedback'] ?></td>
+                                    <td>
+                                        <form action="code.php" method="POST" class="d-inline">
+                                            <button type="submit" name="fb" value="<?= $rows['userId'];?>" class="btn btn-danger btn-sm">Remove</button>
+                                        </form>
+                                    </td>
 
                                    <!--                                <td><img id="myImg" src="../--><?php //echo $rows['id_photo'] ?><!--" width="50px"></td>-->
                                     <div id="myModal" class="modal">
@@ -563,6 +609,7 @@ if (isset($_POST['add_home'])) {
 
             </div>
         </div>
+
         <div id="menu" class="tab-pane fade"
         <div class="container mt-4">
 
@@ -656,6 +703,100 @@ if (isset($_POST['add_home'])) {
             </div>
         </div>
     </div>
+
+    <div id="new" class="tab-pane fade">
+    <div class="container mt-4">
+
+        <?php include('message.php'); ?>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+
+                    </div>
+                    <div class="card-body">
+
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Owner Name</th>
+                                <th>Owner Email</th>
+                                <th>City</th>
+                                <th>Street</th>
+                                <th>Description</th>
+                                <th>Contact Number</th>
+                                <th>For</th>
+                                <th>R/month</th>
+                                <th>Booked</th>
+                                <th>Number of room</th>
+                                <th>Number of Bathroom</th>
+                                <th>Area</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                            $query = "SELECT * FROM home where accepted='0'";
+                            $query_run = mysqli_query($con, $query);
+
+                            if(mysqli_num_rows($query_run) > 0)
+                            {
+                                foreach($query_run as $rows)
+                                {
+                                    if($rows['booked']==0)
+                                        $booked='No';
+                                    else
+                                        $booked='Yes';
+                                    $owner=$rows['ownerId'];
+                                    $sql="SELECT fName,Email from user where userId='$owner'";
+                                    $res=mysqli_query($db,$sql);
+                                    while($row=mysqli_fetch_assoc($res)){
+                                        $em=$row['Email'];
+                                        $nam=$row['fName'];
+                                    }
+                                    ?>
+                                    <tr>
+                                        <td><?= $rows['hName']; ?></td>
+                                        <td><?= $nam; ?></td>
+                                        <td><?= $em; ?></td>
+                                        <td><?= $rows['city']; ?></td>
+                                        <td><?= $rows['street']; ?></td>
+                                        <td><?=$rows['description']; ?></td>
+                                        <td><?= $rows['contact']; ?></td>
+                                        <td><?=$rows['gender']; ?></td>
+                                        <td><?= $rows['price']; ?></td>
+                                        <td><?= $booked; ?></td>
+                                        <td><?= $rows['numOfRoom']; ?></td>
+                                        <td><?= $rows['numOfBath']; ?></td>
+                                        <td><?= $rows['Area']; ?></td>
+                                        <td>
+                                            <form action="code.php" method="POST" class="d-inline">
+                                                <button type="submit" name="accHome" value="<?= $rows['hID'];?>" class="btn btn-danger btn-sm">Accept</button>
+                                            </form>
+                                            <a href="viewHome.php?property_id=<?=  $rows['hID']; ?>" class="btn btn-info btn-sm">Remove</a>
+
+                                        </td>
+                                    </tr>
+                                    <?php
+                                }
+                            }
+                            else
+                            {
+                                echo "<h5> No Record Found </h5>";
+                            }
+                            ?>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
     </div>
 </div>

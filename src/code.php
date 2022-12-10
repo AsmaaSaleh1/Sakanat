@@ -2,30 +2,24 @@
 session_start();
 require 'dbcon.php';
 
-if(isset($_POST['delete_student']))
+if(isset($_POST['accHome']))
 {
-    $student_id = mysqli_real_escape_string($con, $_POST['delete_student']);
+    $home_id = mysqli_real_escape_string($con, $_POST['accHome']);
 
-    $query = "DELETE FROM home WHERE hID='$student_id' ";
+    $query = "UPDATE home set accepted='1' where hID='$home_id'";
     $query_run = mysqli_query($con, $query);
 
     if($query_run)
     {
-        $_SESSION['message'] = "Home Deleted Successfully";
-        header("Location: inde.php");
+        $_SESSION['message'] = "Home Accepted Successfully";
+        header("Location: admin.php");
         exit(0);
     }
-    else
-    {
-        $_SESSION['message'] = "Home Not Deleted";
-        header("Location: inde.php");
-        exit(0);
-    }
+
 }
 
 if(isset($_POST['update_student']))
 {
-    echo 'okkk';
 
     $student_id = mysqli_real_escape_string($con, $_POST['student_id']);
     $name =mysqli_real_escape_string($con, $_POST['hname']);
@@ -51,12 +45,26 @@ if(isset($_POST['update_student']))
     else
     {
         $_SESSION['message'] = "Student Not Updated";
-        header("Location: inde.php");
+        header("Location: admin.php");
         exit(0);
     }
 
 }
+if(isset($_POST['fb'])){
+    $fb='';
+    $user = mysqli_real_escape_string($con, $_POST['fb']);
+echo $user;
+    $query = "UPDATE `user` SET `feedback`='$fb' where userId='$user'";
+    $query_run = mysqli_query($con, $query);
 
+    if($query_run)
+    {
+//        $_SESSION['message'] = "Home Updated Successfully";
+        header("Location: admin.php");
+        exit(0);
+    }
+
+}
 
 if(isset($_POST['save_student']))
 {

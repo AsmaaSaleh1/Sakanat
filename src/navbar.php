@@ -181,7 +181,7 @@ else
                         ?>
                         <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100%;">
                 <li class="nav-item">
-                    <a style="font-size: 18px;text-decoration: none" class="nav-link active p-lg-4" aria-current="page" href="#">Home</a>
+                    <a style="font-size: 18px;text-decoration: none" class="nav-link active p-lg-4" aria-current="page" href="index.php">Home</a>
                 </li>
                 <li  class="nav-item"><a style="font-size: 18px;text-decoration: none" class="nav-link active p-lg-4" aria-current="page" href="<?php echo $src?>">Browser</a>
                 </li>

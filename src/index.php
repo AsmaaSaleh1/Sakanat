@@ -158,56 +158,96 @@
             </div>
         </div>
     </div>
+
     <!-- Home-->
 
     <section class="houses reveal">
         <h2 class="title">Latest House</h2>
         <span class="line"></span>
         <div class="content">
-            <div class="house">
-                <div class="pic">
+            <?php
+            $sql="SELECT * FROM home where accepted='1'";
+            $query=mysqli_query($db,$sql);
+             $i=0;
+            if(mysqli_num_rows($query)>0)
+            {
+                while ($rows=mysqli_fetch_assoc($query) and $i<4){
+                    $home=$rows['hID'];
+                    ?>
+
+                    <div class="col-md-4">
+                        <div class="house">
+                            <div class="pic">
+                                    <!--picture-->
+                                    <?php
+                                    $sql2="SELECT * FROM home_img where HID='$home'";
+                                    $query2=mysqli_query($db,$sql2);
+
+                                    if(mysqli_num_rows($query2)>0)
+                                    {
+                                        $row=mysqli_fetch_assoc($query2);
+                                        $photo=$row['imgPath'];
+//                $photo=$rows['photo'];
+                                        echo  '<img class="image" src="'.$photo.'">'; }?>
+                                </div>
+
+                            <div class="info">
+                                <!-- title + information-->
+                                <h3><?php echo $rows['hName']?>  <a href="viewHome.php?property_id=<?=  $rows['hID']; ?> "> <i class="fa-solid fa-angles-right"></i></a></h3>
+                                <p><?php echo $rows['description']?> </p>
+                            </div>
+                            </div>
+
+                    </div>
+                    <?php
+                    $i++;
+                }
+            }
+            ?>
+<!--            <div class="house">-->
+<!--                <div class="pic">-->
                     <!--picture-->
-                    <img src="img/hom21.jpg" alt="">
-                </div>
-                <div class="info">
+<!--                    <img src="img/hom21.jpg" alt="">-->
+<!--                </div>-->
+<!--                <div class="info">-->
                     <!-- title + information-->
-                    <h3>Nablus <a href="#"><i class="fa-solid fa-angles-right"></i></a></h3>
-                    <p>Room near An Najah University with wifi </p>
-                </div>
-            </div>
-            <div class="house">
-                <div class="pic">
+<!--                    <h3>Nablus <a href="#"><i class="fa-solid fa-angles-right"></i></a></h3>-->
+<!--                    <p>Room near An Najah University with wifi </p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="house">-->
+<!--                <div class="pic">-->
                     <!--picture-->
-                    <img src="img/home2.jpg" alt="">
-                </div>
-                <div class="info">
+<!--                    <img src="img/home2.jpg" alt="">-->
+<!--                </div>-->
+<!--                <div class="info">-->
                     <!-- title + information-->
-                    <h3>Ramallah <a href="#"><i class="fa-solid fa-angles-right"></i></a></h3>
-                    <p>Two Room near Bergzeit University</p>
-                </div>
-            </div>
-            <div class="house">
-                <div class="pic">
+<!--                    <h3>Ramallah <a href="#"><i class="fa-solid fa-angles-right"></i></a></h3>-->
+<!--                    <p>Two Room near Bergzeit University</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="house">-->
+<!--                <div class="pic">-->
                     <!--picture-->
-                    <img src="img/h3.jpg" alt="">
-                </div>
-                <div class="info">
+<!--                    <img src="img/h3.jpg" alt="">-->
+<!--                </div>-->
+<!--                <div class="info">-->
                     <!-- title + information-->
-                    <h3>Nablus <a href="#"><i class="fa-solid fa-angles-right"></i></a></h3>
-                    <p>Apartment in Rafidia street</p>
-                </div>
-            </div>
-            <div class="house">
-                <div class="pic">
+<!--                    <h3>Nablus <a href="#"><i class="fa-solid fa-angles-right"></i></a></h3>-->
+<!--                    <p>Apartment in Rafidia street</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="house">-->
+<!--                <div class="pic">-->
                     <!--picture-->
-                    <img src="img/Home3.jpg" alt="">
-                </div>
-                <div class="info">
+<!--                    <img src="img/Home3.jpg" alt="">-->
+<!--                </div>-->
+<!--                <div class="info">-->
                     <!-- title + information-->
-                    <h3 >Tulkarem <a href="#"><i class="fa-solid fa-angles-right"></i></a></h3>
-                    <p>Room near Kadoorie university</p>
-                </div>
-            </div>
+<!--                    <h3 >Tulkarem <a href="#"><i class="fa-solid fa-angles-right"></i></a></h3>-->
+<!--                    <p>Room near Kadoorie university</p>-->
+<!--                </div>-->
+<!--            </div>-->
 
         </div>
     </section>
@@ -257,16 +297,34 @@
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
 
         </div>
+        <?php
+
+        $fb='';
+        $sql="SELECT feedback,fName,photo,lName,photo from user WHERE Email !='sakanat@gmail.com' and feedback !='$fb';";
+        $query=mysqli_query($db,$sql);
+        if(mysqli_num_rows($query)>0)
+        {
+        while($rows=mysqli_fetch_assoc($query)){
+            $name=$rows['fName']." ".$rows['lName'];
+            $photo=$rows['photo'];
+            $fb=$rows['feedback'];
+        }
+        ?>
+
+
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="img/x.png" class="d-block " alt="...">
-                <h4>Aseel Ahmad</h4>
-                <p>Very easy and simple!</p>
+                <img src="<?php echo $photo ?>" class="d-block " alt="...">
+                <h4><?php echo $name ?></h4>
+                <p><?php echo $fb ?></p>
             </div>
+            <?
+            }
+            ?>
             <div class="carousel-item">
                 <img src="img/man.png" class="d-block " alt="...">
                 <h4>Mohammad Awad</h4>
-                <p>Helpful, nice website and home</p>
+                <p>So easy to use and I find the home that I was searched</p>
             </div>
             <div class="carousel-item">
                 <img src="img/x.png" class="d-block " alt="...">
@@ -280,6 +338,7 @@
             </div>
         </div>
     </div>
+    <?php } ?>
     <!-- Our Team -->
     <section class="reveal t">
         <h2 class="title ot">OUR TEAM</h2>

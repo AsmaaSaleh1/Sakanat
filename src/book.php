@@ -128,7 +128,7 @@ $photo=$images['imgPath'];
                             </div>
                             <div class="form-group">
                                 <span class="form-label">Message</span>
-                                <input class="form-control" style="color: #1F5662" type="text" placeholder="Enter your description">
+                                <input name="msg" class="form-control" style="color: #1F5662" type="text" placeholder="Enter your description">
                             </div>
                             <div class="form-btn">
                                 <input type="submit" class="btn btn-lg btn-primary" name="book_property" style="width: 100% ;background-color: #1f5662" value="Book Now">

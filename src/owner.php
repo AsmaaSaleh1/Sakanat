@@ -36,8 +36,8 @@ $f4=0;
     if (mysqli_num_rows($result1) > 0) {
         while ($rowss = mysqli_fetch_assoc($result1)) {
             $owner_id = $rowss['userId'];
-
-            $sql = "INSERT INTO `home`(`hName`, `city`, `street`, `description`, `booked`, `ownerId`, `gender`, `contact`, `price`, `numOfRoom`, `Area`, `numOfKitchen`, `numOfBath`, `Location`) VALUES ('$name','$city','$street','$desc','$booked','$owner_id','$type','$cont','$price','$rooms','$area','$kit','$bath','$location')";
+$accepted=0;
+            $sql = "INSERT INTO `home`(`hName`, `city`, `street`, `description`, `booked`, `ownerId`, `gender`, `contact`, `price`, `numOfRoom`, `Area`, `numOfKitchen`, `numOfBath`, `Location`,`accepted`) VALUES ('$name','$city','$street','$desc','$booked','$owner_id','$type','$cont','$price','$rooms','$area','$kit','$bath','$location','$accepted')";
             $query = mysqli_query($db, $sql);
 
             $property_id = mysqli_insert_id($db);
@@ -302,6 +302,7 @@ $f4=0;
                             <th>Booking Date</th>
                             <th>Booking Duration</th>
                             <th>Total Pay</th>
+                            <th>Message</th>
                             <th>Canceled?</th>
 
                         </tr>
@@ -309,7 +310,7 @@ $f4=0;
                         include("connect.php");
 
 
-                        $sql="SELECT `hID`, `userId`, `bookDate`, `duration`, `canceled` FROM `booking`";
+                        $sql="SELECT `hID`, `userId`, `bookDate`, `duration`, `canceled`,`msg` FROM `booking`";
                         $result=mysqli_query($db,$sql);
 
                         if(mysqli_num_rows($result)>0)
@@ -321,6 +322,7 @@ $f4=0;
                                 $r1=mysqli_fetch_assoc($res);
                                 $hid=$rows['hID'];
                                 $own=$_SESSION['user_id'];
+                                $msg=$rows['msg'];
                                 $sql3="SELECT hName,ownerId,price from home where hID='$hid' and ownerId='$own'";
                                 $res2=mysqli_query($db,$sql3);
                                 $r2=mysqli_fetch_assoc($res2);
@@ -336,6 +338,7 @@ $f4=0;
                                         <td><?php echo $rows['bookDate'] ?></td>
                                         <td><?php echo $rows['duration'] ?></td>
                                         <td><?php echo $tot ?></td>
+                                        <td><?php echo $msg ?></td>
                                         <td><?php echo $rows['canceled'] ?></td>
 
 
@@ -355,7 +358,6 @@ $f4=0;
 
 
         <div id="menu1" class="tab-pane fade" style="background-image: url('img/xx.jpg')">
-            <div>
                 <div class="container con">
 
                     <div id="map_canvas"></div>
