@@ -143,7 +143,7 @@ if (isset($_POST['add_home'])) {
                                     <th>Type</th>
                                     <th>Photo</th>
                                     <th>Birthdate</th>
-
+                                    <th>Send Message</th>
                                 </tr>
                                 <?php
                                 include("connect.php");
@@ -168,6 +168,7 @@ if (isset($_POST['add_home'])) {
                                             <td><?php echo  $rows['type'] ?></td>
                                             <td><img style="width: 80px;height: 80px" src="<?php echo $rows['photo'] ?>"> </td>
                                             <td><?php echo $rows['bd'] ?></td>
+                                            <td><a href="mailto:<?php echo $rows['Email'] ?>"><i style="color: #1F5662;font-size: 22px" class="fa-solid fa-envelope"></i></a></td>
                                             <!--                                <td>     <td><button name="del" style="border: none;background-color: transparent"><i style="color: red;margin-right: 10px" class="fa-regular fa-trash-can"></i></button><button data-toggle="modal" data-target="#myModal" name="update" style="border: none;background-color: transparent"><i class="fa-solid fa-pen-to-square"></i></button></td>-->
 
                                         </tr>
@@ -457,6 +458,26 @@ if (isset($_POST['add_home'])) {
 
                                 </div>
                                 <div class="form-group">
+                                    <label for="zone">Owner:</label>
+                                    <select style="width: 100%;height: 35px;border-radius: 10px;border: none"  class="form-group">
+                                    <?php
+                                    $sql="SELECT * from `user`";
+                                    $query_run=mysqli_query($db,$sql);
+
+                                    if(mysqli_num_rows($query_run) > 0)
+                                    {
+                                    foreach($query_run as $row) {
+
+                                    ?>
+                                        <option><?php echo $row['Email']?></option>
+
+                                    <?php
+                                    }
+                                    }
+                                    ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <label for="city">City:</label>
                                     <input type="text" class="form-control" id="city" placeholder="Enter City" name="city">
                                 </div>
@@ -465,6 +486,7 @@ if (isset($_POST['add_home'])) {
                                     <input placeholder="Street" class="form-control" type="text" name="street">
 
                                 </div>
+
                                 <div class="form-group">
                                     <label for="district">For:</label>
                                     <select class="form-control" name="for" required="required">

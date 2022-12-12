@@ -110,22 +110,25 @@ $accepted=0;
         }
     </style>
 <style>
-    /*.card {*/
+    .card {
 
-    /*    height: 250px;*/
-    /*    !*background-color: #292929;*!*/
-    /*    margin: 10px;*/
-    /*    border-radius: 10px;*/
-    /*    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.24);*/
-    /*    border: 2px solid rgba(7, 7, 7, 0.12);*/
-    /*    font-size: 16px;*/
-    /*    transition: all 0.3s ease;*/
-    /*    position: relative;*/
+        height: 250px;
+        /*background-color: #292929;*/
+        margin: 10px;
+        border-radius: 10px;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.24);
+        border: 2px solid rgba(7, 7, 7, 0.12);
+        font-size: 16px;
+        transition: all 0.3s ease;
+        position: relative;
 
-    /*    cursor: pointer;*/
-    /*    transition: all 0.3s ease;*/
-    /*}*/
-
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+/*.card{*/
+/*    background-color: #ddd;*/
+/*    width: 70%;*/
+/*}*/
     .icon {
         margin: 0 auto;
         width: 100%;
@@ -240,6 +243,8 @@ $accepted=0;
                         <div class="card">
 
                             <div class="icon"><img style="width: 80px;height: 80px" src="<?php echo $rows['photo'];?>"></div>
+                            <p style="color: black" class="text"><?php echo $rows['fName']." ".$rows['lName']?></p>
+
                             <p style="color: black" class="title"><?php echo $rows['rate']?><i style="color: gold" class="fa-solid fa-star"></i></p>
                             <p style="color: black" class="text"><?php echo $rows['comment']?></p>
 
@@ -265,7 +270,7 @@ $accepted=0;
 
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="card">
+                        <div class="cardd">
                             <div class="card-header">
 
                             </div>
@@ -344,10 +349,10 @@ $accepted=0;
                                                 <td>
                                                     <a href="viewHome.php?property_id=<?=  $rows['hID']; ?>" class="btn btn-info btn-sm">View</a>
                                                     <a href="home-edit.php?id=<?=  $rows['hID']; ?>" class="btn btn-success btn-sm">Edit</a>
-                                                    <button type="button" class="btn btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa-solid fa-star"></i></button>
+                                                    <button type="button" class="btn" data-toggle="modal" data-target="#myModal"><i class="fa-solid fa-star"></i></button>
 
                                                     <form action="code.php" method="POST" class="d-inline">
-                                                        <button type="submit" name="delete_home" value="<?= $rows['hID'];?>" class="btn btn-danger btn-sm">Delete</button>
+                                                        <button type="submit" name="delete_home" value="<?= $rows['hID'];?>" class="btn btn-sm"><i style="font-size: 20px;color: red" class="fa-solid fa-trash-can"></i></button>
                                                     </form>
                                                 </td>
                                             </tr>
