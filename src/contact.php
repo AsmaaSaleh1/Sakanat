@@ -8,13 +8,14 @@ include 'navbar.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact us</title>
-    <link rel="stylesheet" href="Css/contactUs.css" />
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cairo:wght@400;500;600;700&family=Lobster&family=Open+Sans:wght@400;700&family=Work+Sans:ital,wght@0,300;0,800;1,700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
 <!--    <link rel="stylesheet" href="Css/all.min.css">-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="Css/bootstrap.min.css">
+    <link rel="stylesheet" href="Css/contactUs.css" />
+
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
 
@@ -38,6 +39,7 @@ include 'navbar.php';
 }
     </style>
 </head>
+
 <body>
 
 <main>

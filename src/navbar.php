@@ -161,8 +161,8 @@ else
                             <li class="nav-item dropdown">
                                 <a style="font-size: 18px;text-decoration: none" class="nav-link dropdown-toggle p-lg-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
-                                    <i class="fa-sharp fa-solid fa-bell"></i>
-                                    <span style="display: inline-block" class="count"><?php echo mysqli_num_rows($res); ?></span>
+                                    <i style="color: #1F5662;position: static" class="fa-sharp fa-solid fa-bell"></i>
+                                    <span style="position:static;background-color:transparent;display: inline-block;color: #1F5662" class="count"><?php echo mysqli_num_rows($res); ?></span>
 
 
                                 </a>

@@ -6,15 +6,23 @@ $property_id=$_SESSION['user_email'];
 $sql="SELECT * from user where Email='$property_id'";
 $query=mysqli_query($db,$sql);
 $rows=mysqli_fetch_assoc($query);
+$x=$rows['password'];
+$_SESSION['x'] = $x;
 
+$img=$rows['photo'];
 include "connect.php";
 if(isset($_POST["savePass"])) {
-    $x = $_POST['newPass'];
+    $np = $_POST['newPass'];
+    $_SESSION['np'] = $np;
 
-    $_SESSION['x'] = $x;
 }
+
+
     if (isset($_POST['update'])) {
-        $p=$_SESSION['x'];
+        if($_SESSION['np']!='') {
+            $p = $_SESSION['np'];
+        }
+        echo $p;
         $email = $_SESSION['user_email'];
         $fname = $_POST['fname'];
         $lname = $_POST['lname'];
@@ -22,9 +30,11 @@ if(isset($_POST["savePass"])) {
         $street = $_POST['street'];
         $phone = $_POST['phone'];
         $mobile = $_POST['mob'];
-        $img = "img/" . $_POST['img'];
+
         $bd = $_POST['bd'];
         $feedback = $_POST['fb'];
+        if($_POST['img'] !='')
+            $img = "img/" . $_POST['img'];
         $stmt = "UPDATE `user` SET `fName`='$fname',`phone`='$phone',`photo`='$img',`city`='$city',`street`='$street',`bd`='$bd',`lName`='$lname',`password`='$p',`feedback`='$feedback',`mobile`='$mobile'WHERE Email='$email'";
         $query = mysqli_query($db, $stmt);
 
@@ -42,7 +52,11 @@ if(isset($_POST["savePass"])) {
             <link rel="stylesheet" href="Css/p2.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cairo:wght@400;500;600;700&family=Lobster&family=Open+Sans:wght@400;700&family=Work+Sans:ital,wght@0,300;0,800;1,700&display=swap" rel="stylesheet">
-<style>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
     .navbar-brand{
         font-family: "Lobster";
 
@@ -201,20 +215,22 @@ display: flex;
                         </div>
                         <div class="butt bio-row">
                             <div class="body-in">
-                                <div class="popup" id="popup-1">
-                                    <div class="content">
-                                        <form action="p2.php" method="post">
+<!--                                <div class="popup" id="menu4">-->
+                                <div id="menu6" class="tab-pane fade">
+
+                                <div class="content">
                                         <div class="close-btn" onclick="togglePopup()">×</div>
                                         <h1 class="change">Change Password</h1>
                                         <div class="input-field"><input type="password" name="prePass" placeholder="Old Password" class="validate"></div>
                                         <div class="input-field"><input type="password" name="newPass" placeholder="New Password" class="validate"></div>
                                         <div class="input-field"><input type="password" name="confPass" placeholder="Conform Password" class="validate"></div>
-                                        <button type="submit" name="savePass" class="second-button">Save</button>
-                                        </form>
+                                        <button  name="savePass" class="second-button">Save</button>
+
                                     </div>
                                 </div>
                             </div>
-                            <a style="text-align: center" onclick="togglePopup()" class="btn bio-row">Change Password</a>
+<!--                            <a style="text-align: center" onclick="togglePopup()" class="btn bio-row">Change Password</a>-->
+                            <a data-toggle="pill" href="#menu6">New Home</a></li>
                             <script>
                                 function togglePopup() {
                                     document.getElementById("popup-1")

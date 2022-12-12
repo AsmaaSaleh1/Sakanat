@@ -152,7 +152,7 @@ $accepted=0;
                                         <th>Number of room</th>
                                         <th>Number of Bathroom</th>
                                         <th>Area</th>
-
+                                        <th>Home Features</th>
                                         <th></th>
                                     </tr>
                                     </thead>
@@ -170,6 +170,7 @@ $accepted=0;
                                     {
                                         foreach($query_run as $rows)
                                         {
+                                            $hid=$rows['hID'];
                                             if($rows['booked']==0)
                                                 $booked='No';
                                             else
@@ -189,12 +190,28 @@ $accepted=0;
                                                 <td><?= $rows['numOfRoom']; ?></td>
                                                 <td><?= $rows['numOfBath']; ?></td>
                                                 <td><?= $rows['Area']; ?></td>
+                                                <td>
+                                                    <?php
+                                                    $sql="SELECT name from `homefeatures` join features on features.fID=homefeatures.fID WHERE hID='$hid'";
+                                                    $query_run=mysqli_query($db,$sql);
 
+                                                    if(mysqli_num_rows($query_run) > 0)
+                                                    {
+                                                    foreach($query_run as $row) {
+
+                                                    ?>
+                                                <p><?= $row['name']; ?></p>
+
+                                                        <?php
+                                                    }
+                                                    }
+                                                    ?>
+                                                </td>
                                                 <td>
                                                     <a href="viewHome.php?property_id=<?=  $rows['hID']; ?>" class="btn btn-info btn-sm">View</a>
                                                     <a href="home-edit.php?id=<?=  $rows['hID']; ?>" class="btn btn-success btn-sm">Edit</a>
                                                     <form action="code.php" method="POST" class="d-inline">
-                                                        <button type="submit" name="delete_student" value="<?= $rows['hID'];?>" class="btn btn-danger btn-sm">Delete</button>
+                                                        <button type="submit" name="delete_home" value="<?= $rows['hID'];?>" class="btn btn-danger btn-sm">Delete</button>
                                                     </form>
                                                 </td>
                                             </tr>

@@ -17,6 +17,21 @@ if(isset($_POST['accHome']))
     }
 
 }
+if(isset($_POST['delete_home'])){
+
+
+    $home_id = mysqli_real_escape_string($con, $_POST['delete_home']);
+
+    $query = "delete from home where hID='$home_id'";
+    $query_run = mysqli_query($con, $query);
+
+    if($query_run)
+    {
+        $_SESSION['message'] = "Home Accepted Successfully";
+        header("Location: owner.php");
+        exit(0);
+    }
+}
 
 if(isset($_POST['update_student']))
 {
@@ -39,7 +54,7 @@ if(isset($_POST['update_student']))
     if($query_run)
     {
         $_SESSION['message'] = "Home Updated Successfully";
-        header("Location: inde.php");
+        header("Location: owner.php");
         exit(0);
     }
     else

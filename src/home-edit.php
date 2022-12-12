@@ -29,7 +29,7 @@ require 'dbcon.php';
             <div class="card">
                 <div class="card-header">
                     <h4>Home Edit
-                        <a href="admin.php" class="btn btn-danger float-end">BACK</a>
+                        <a href="owner.php" class="btn btn-danger float-end">BACK</a>
                     </h4>
                 </div>
                 <div class="card-body">
