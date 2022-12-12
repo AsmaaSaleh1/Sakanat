@@ -704,8 +704,8 @@ if (isset($_POST['add_home'])) {
                                             <td>
                                                 <a href="viewHome.php?property_id=<?=  $rows['hID']; ?>" class="btn btn-info btn-sm">View</a>
 <!--                                                <a href="home-edit.php?id=--><?//=  $rows['hID']; ?><!--" class="btn btn-success btn-sm">Edit</a>-->
-                                                <form action="code.php" method="POST" class="d-inline">
-                                                    <button type="submit" name="delete_student" value="<?= $rows['hID'];?>" class="btn btn-danger btn-sm">Delete</button>
+                                                <form style="display: inline-block" action="code.php" method="POST" class="d-inline">
+                                                    <button type="submit" name="delete_student" value="<?= $rows['hID'];?>" class="btn btn-sm"><i style="color: #1F5662;font-size: 20px" class="fa-solid fa-trash"></i></button>
                                                 </form>
                                             </td>
                                         </tr>

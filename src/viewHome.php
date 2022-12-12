@@ -1,7 +1,18 @@
 <?php
 include 'navbar.php';
+include 'connect.php';
 isset($_SESSION["email"]);
+if(isset($_POST['review'])) {
+    $rate=$_POST['rating'];
+    $comment = $_POST['rev'];
+    $pid=$_SESSION['pid'];
+    $user= $_SESSION['user_id'];
+    $sql2 = "INSERT INTO `review`(`comment`, `rate`, `HID`, `userId`) VALUES ('$comment','$rate','$pid','$user')";
+    $query2 = mysqli_query($db, $sql2);
+    if($db->query($sql2)===TRUE) {
 
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -155,7 +166,7 @@ try {
     echo "Connection failed : ". $e->getMessage();
 }
 
-$property_id=$_GET['property_id'];
+$property_id=$_SESSION['pid'];
 $sql="SELECT * from Home where hID='$property_id'";
 $query=mysqli_query($db,$sql);
 
@@ -300,6 +311,7 @@ $_SESSION['pid']=$property_id;
         <h3 style="position: relative;left: 50px;top: 20px;margin-bottom: 30px">Home Features:</h3><br>
         <?php
         $sql="SELECT * from Home where hID='$property_id'";
+        $_SESSION['pid']=$property_id;
         $query=mysqli_query($db,$sql);
         if(mysqli_num_rows($query)>0) {
 
@@ -326,13 +338,13 @@ $_SESSION['pid']=$property_id;
 
         ?>
         </div>
-        <form method="post" style="position: relative;top: 20px;left:20px;width: fit-content;margin-bottom: 30px">
-       <textarea name="rev" cols="40" placeholder="Write Your Comment"></textarea>
+        <form  method="post" style="position: relative;top: 20px;left:20px;width: fit-content;margin-bottom: 30px">
+            <textarea name="rev" cols="40" placeholder="Write Your Comment"></textarea>
             <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
             </div>
-                <button class="btn btn-success btn-lg" type="submit" name="review">Save</button>
-        </form>
-        <div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=1199&amp;height=400&amp;hl=en&amp;q=Nablus&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://formatjson.org/">format json</a></div><style>.mapouter{position:relative;text-align:right;width:100%;height:400px;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:400px;}.gmap_iframe {height:400px!important;}</style></div>
+            <button class="btn btn-success btn-lg" type="submit" name="review">Save</button>
+            </form>
+            <div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=1199&amp;height=400&amp;hl=en&amp;q=Nablus&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://formatjson.org/">format json</a></div><style>.mapouter{position:relative;text-align:right;width:100%;height:400px;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:400px;}.gmap_iframe {height:400px!important;}</style></div>
 
         <br>
 
@@ -342,12 +354,7 @@ $_SESSION['pid']=$property_id;
 
 
 
-if(isset($_POST['review'])) {
-    $rate=$_POST['rating'];
-    $comment = $_POST['rev'];
-    $sql2 = "INSERT INTO `review`(`revID`, `comment`, `rate`, `HID`) VALUES (NULL,'$comment','$rate','$property_id')";
-    $query2 = mysqli_query($db, $sql2);
-}
+
 ?>
 </div>
 

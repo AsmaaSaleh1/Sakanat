@@ -8,7 +8,7 @@ $query=mysqli_query($db,$sql);
 $rows=mysqli_fetch_assoc($query);
 $x=$rows['password'];
 $_SESSION['x'] = $x;
-
+$_SESSION['user']=$rows['userId'];
 $img=$rows['photo'];
 include "connect.php";
 if(isset($_POST["savePass"])) {
