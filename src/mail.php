@@ -8,7 +8,7 @@ if(isset($_POST["message"]) and isset($_POST["name"]) and isset($_POST["email"])
     $sender = "From:" . $email;
     if (mail($receiver, $subject, $body, $sender)) {
 
-              header("location:Contact-us.html");
+              header("location:contact.php");
         echo "<script> alert('Message sent successfully')</script>";
     } else {
         echo "<script> alert('Message not send')</script>";

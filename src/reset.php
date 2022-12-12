@@ -67,7 +67,7 @@ if(isset($_POST["email"]) and isset($_POST['send'])) {
                     </div>
                     <button class="btn" name="send">Send</button>
                     <button name="var" class="btn" id="ver">Verify</button>
-                    <a href="Log-Sign.html" class="back"><i class="fa-solid fa-left-long"></i></a>
+                    <a href="log_sign.php" class="back"><i class="fa-solid fa-left-long"></i></a>
                 </div>
             </div>
             <div class="image">

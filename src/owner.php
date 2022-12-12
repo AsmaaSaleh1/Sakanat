@@ -124,6 +124,98 @@ $accepted=0;
             </ul>
 
     <div class="tab-content">
+        <div id="menu" class="tab-pane fade">
+            <div class="container mt-4">
+
+                <?php include('message.php'); ?>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+
+                            </div>
+                            <div class="card-body">
+
+                                <table class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Name</th>
+
+                                        <th>City</th>
+                                        <th>Street</th>
+                                        <th>Description</th>
+                                        <th>Contact Number</th>
+                                        <th>For</th>
+                                        <th>R/month</th>
+                                        <th>Booked</th>
+                                        <th>Number of room</th>
+                                        <th>Number of Bathroom</th>
+                                        <th>Area</th>
+
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+
+                                    include("connect.php");
+                                    $email=$_SESSION["user_email"];
+                                    $owner=$_SESSION['user_id'];
+
+                                    $sql="SELECT * from home where ownerId='$owner'";
+                                    $query_run=mysqli_query($db,$sql);
+
+                                    if(mysqli_num_rows($query_run) > 0)
+                                    {
+                                        foreach($query_run as $rows)
+                                        {
+                                            if($rows['booked']==0)
+                                                $booked='No';
+                                            else
+                                                $booked='Yes';
+
+                                            ?>
+                                            <tr>
+                                                <td><?= $rows['hName']; ?></td>
+
+                                                <td><?= $rows['city']; ?></td>
+                                                <td><?= $rows['street']; ?></td>
+                                                <td><?=$rows['description']; ?></td>
+                                                <td><?= $rows['contact']; ?></td>
+                                                <td><?=$rows['gender']; ?></td>
+                                                <td><?= $rows['price']; ?></td>
+                                                <td><?= $booked; ?></td>
+                                                <td><?= $rows['numOfRoom']; ?></td>
+                                                <td><?= $rows['numOfBath']; ?></td>
+                                                <td><?= $rows['Area']; ?></td>
+
+                                                <td>
+                                                    <a href="viewHome.php?property_id=<?=  $rows['hID']; ?>" class="btn btn-info btn-sm">View</a>
+                                                    <a href="home-edit.php?id=<?=  $rows['hID']; ?>" class="btn btn-success btn-sm">Edit</a>
+                                                    <form action="code.php" method="POST" class="d-inline">
+                                                        <button type="submit" name="delete_student" value="<?= $rows['hID'];?>" class="btn btn-danger btn-sm">Delete</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                            <?php
+                                        }
+                                    }
+                                    else
+                                    {
+                                        echo "<h5> No Record Found </h5>";
+                                    }
+                                    ?>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div id="home" class="tab-pane fade in active">
             <center><h3>Owner Profile</h3></center>
             <div class="container">
@@ -473,146 +565,8 @@ $accepted=0;
             </div>
         </div>
 
-        <div id="menu2" class="tab-pane fade">
-            <div class="container">
-                <center><h3>Feedbacks</h3></center>
-                <div class="container-fluid">
-                    <input type="text" id="myInput2" onkeyup="myFunction1()" placeholder="Search..." title="Type in a name">
-                    <table id="myTable2">
-                        <tr class="header">
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Photo</th>
-                            <th>Feedback</th>
 
 
-                        </tr>
-                        <?php
-                        include("connect.php");
-                        $email=$_SESSION["user_email"];
-                        $owner=$_SESSION['user_id'];
-
-                        $sql="SELECT feedback,fName,photo,lName from user WHERE Email !='sakanat@gmail.com';";
-                        $result=mysqli_query($db,$sql);
-
-                        if(mysqli_num_rows($result)>0)
-                        {
-                            while($rows=mysqli_fetch_assoc($result)){
-
-                                ?>
-                                <tr>
-                                    <td><img style="width: 80px;height: 80px" src="<?php echo $rows['photo'] ?>"> </td>
-
-                                    <td><?php echo $rows['fName'] ?></td>
-                                    <td><?php echo $rows['lName'] ?></td>
-
-                                    <td><?php echo $rows['feedback'] ?></td>
-
-                                    <!--                                <td><img id="myImg" src="../--><?php //echo $rows['id_photo'] ?><!--" width="50px"></td>-->
-                                    <div id="myModal" class="modal">
-                                        <span class="close">&times;</span>
-                                        <img class="modal-content" id="img01">
-                                        <div id="caption"></div>
-                                    </div>
-                                </tr>
-                            <?php }} ?>
-                    </table>
-                </div>
-
-            </div>
-        </div>
-        <div id="menu" class="tab-pane fade"
-        <div class="container mt-4">
-
-            <?php include('message.php'); ?>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-
-                        </div>
-                        <div class="card-body">
-
-                            <table class="table table-bordered table-striped">
-                                <thead>
-                                <tr>
-                                    <th>Name</th>
-
-                                    <th>City</th>
-                                    <th>Street</th>
-                                    <th>Description</th>
-                                    <th>Contact Number</th>
-                                    <th>For</th>
-                                    <th>R/month</th>
-                                    <th>Booked</th>
-                                    <th>Number of room</th>
-                                    <th>Number of Bathroom</th>
-                                    <th>Area</th>
-                                    <th>Message</th>
-                                    <th></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <?php
-
-                                include("connect.php");
-                                $email=$_SESSION["user_email"];
-                                $owner=$_SESSION['user_id'];
-
-                                $sql="SELECT * from home where ownerId='$owner'";
-                                $query_run=mysqli_query($db,$sql);
-
-                                if(mysqli_num_rows($query_run) > 0)
-                                {
-                                    foreach($query_run as $rows)
-                                    {
-                                        if($rows['booked']==0)
-                                            $booked='No';
-                                        else
-                                            $booked='Yes';
-
-                                        ?>
-                                        <tr>
-                                            <td><?= $rows['hName']; ?></td>
-
-                                            <td><?= $rows['city']; ?></td>
-                                            <td><?= $rows['street']; ?></td>
-                                            <td><?=$rows['description']; ?></td>
-                                            <td><?= $rows['contact']; ?></td>
-                                            <td><?=$rows['gender']; ?></td>
-                                            <td><?= $rows['price']; ?></td>
-                                            <td><?= $booked; ?></td>
-                                            <td><?= $rows['numOfRoom']; ?></td>
-                                            <td><?= $rows['numOfBath']; ?></td>
-                                            <td><?= $rows['Area']; ?></td>
-                                            <td><?= $rows['msg']; ?></td>
-                                            <td>
-                                                <a href="viewHome.php?property_id=<?=  $rows['hID']; ?>" class="btn btn-info btn-sm">View</a>
-                                                <a href="home-edit.php?id=<?=  $rows['hID']; ?>" class="btn btn-success btn-sm">Edit</a>
-                                                <form action="code.php" method="POST" class="d-inline">
-                                                    <button type="submit" name="delete_student" value="<?= $rows['hID'];?>" class="btn btn-danger btn-sm">Delete</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                    }
-                                }
-                                else
-                                {
-                                    echo "<h5> No Record Found </h5>";
-                                }
-                                ?>
-
-                                </tbody>
-                            </table>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     </div>
     <?php
     }}
@@ -790,8 +744,6 @@ $accepted=0;
 
     }
 </script>
-
-
 <script>
     //For Latitude and Longitude
     function getLocation() {

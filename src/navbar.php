@@ -89,6 +89,9 @@ else
         left: 0;
 
     }
+    .nav-link{
+        color: #1F5662;
+    }
     .navbar .navbar-toggler{
         font-size: 25px;
     }
@@ -136,6 +139,9 @@ else
         padding-bottom: 0;
         border-bottom: 0;
     }
+    a{
+        color: #1F5662;
+    }
 </style>
 <body>
 <script src="js/bootstrap.bundle.min.js"></script>
@@ -169,7 +175,7 @@ else
                                         if (mysqli_num_rows($res) > 0) {
                                         foreach ($res as $item) {
                                         ?>
-                                    <li style="margin: 10px;padding:10px;background-color: RGBA(255,113,93)
+                                    <li style="margin: 10px;padding:10px;background-color: rgba(82,138,150);
 ;color: white"><p><?php echo $item["message"]; ?></p></li>
                                     <?php }
                                     } ?>
