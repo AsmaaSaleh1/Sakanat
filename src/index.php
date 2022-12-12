@@ -319,7 +319,7 @@
                 <p><?php echo $fb ?></p>
             </div>
             <?
-            }
+
             ?>
             <div class="carousel-item">
                 <img src="img/man.png" class="d-block " alt="...">

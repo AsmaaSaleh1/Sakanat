@@ -109,6 +109,97 @@ $accepted=0;
             background-color: #1F5662;
         }
     </style>
+<style>
+    /*.card {*/
+
+    /*    height: 250px;*/
+    /*    !*background-color: #292929;*!*/
+    /*    margin: 10px;*/
+    /*    border-radius: 10px;*/
+    /*    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.24);*/
+    /*    border: 2px solid rgba(7, 7, 7, 0.12);*/
+    /*    font-size: 16px;*/
+    /*    transition: all 0.3s ease;*/
+    /*    position: relative;*/
+
+    /*    cursor: pointer;*/
+    /*    transition: all 0.3s ease;*/
+    /*}*/
+
+    .icon {
+        margin: 0 auto;
+        width: 100%;
+        height: 80px;
+        max-width:80px;
+        background: linear-gradient(90deg, #FF7E7E 0%, #FF4848 40%, rgba(0, 0, 0, 0.28) 60%);
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        transition: all 0.8s ease;
+        background-position: 0px;
+        background-size: 200px;
+    }
+
+    .material-icons.md-18 { font-size: 18px; }
+    .material-icons.md-24 { font-size: 24px; }
+    .material-icons.md-36 { font-size: 36px; }
+    .material-icons.md-48 { font-size: 48px; }
+
+
+    .card .title {
+        width: 100%;
+        margin: 0;
+        text-align: center;
+        margin-top: 30px;
+        color: white;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+    }
+
+    .card .text {
+        width: 80%;
+        margin: 0 auto;
+        font-size: 13px;
+        text-align: center;
+        margin-top: 20px;
+        color: white;
+        font-weight: 200;
+        letter-spacing: 2px;
+        opacity: 0;
+        max-height:0;
+        transition: all 0.3s ease;
+    }
+
+    .card:hover {
+        height: 270px;
+    }
+
+    .card:hover .info {
+        height: 90%;
+    }
+
+    .card:hover .text {
+        transition: all 0.3s ease;
+        opacity: 1;
+        max-height:40px;
+    }
+
+    .card:hover .icon {
+        background-position: -120px;
+        transition: all 0.3s ease;
+    }
+
+    .card:hover .icon i {
+        background: linear-gradient(90deg, #FF7E7E, #FF4848);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        opacity: 1;
+        transition: all 0.3s ease;
+    }
+</style>
 </head>
 
 
@@ -123,7 +214,50 @@ $accepted=0;
                 <li style="width: 150px;background-color: #dddddd"><a data-toggle="pill" href="#men">Booked Home</a></li>
             </ul>
 
+
     <div class="tab-content">
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Reviews</h4>
+                    </div>
+                    <div class="modal-body">
+                        <?php
+                        $sql="SELECT fName,lName,photo,comment,rate from user JOIN review on user.userId=review.userId WHERE review.HID='16'";
+                        $query=mysqli_query($db,$sql);
+
+                        if(mysqli_num_rows($query)>0) {
+                            while ($rows = mysqli_fetch_assoc($query)) {
+
+                        ?>
+
+
+                        <!-- card -->
+                        <div class="card">
+
+                            <div class="icon"><img style="width: 80px;height: 80px" src="<?php echo $rows['photo'];?>"></div>
+                            <p style="color: black" class="title"><?php echo $rows['rate']?><i style="color: gold" class="fa-solid fa-star"></i></p>
+                            <p style="color: black" class="text"><?php echo $rows['comment']?></p>
+
+                        </div>
+                        <!-- end card -->
+                        <?php
+                            }
+                        }
+                        ?>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
         <div id="menu" class="tab-pane fade">
             <div class="container mt-4">
 
@@ -210,6 +344,8 @@ $accepted=0;
                                                 <td>
                                                     <a href="viewHome.php?property_id=<?=  $rows['hID']; ?>" class="btn btn-info btn-sm">View</a>
                                                     <a href="home-edit.php?id=<?=  $rows['hID']; ?>" class="btn btn-success btn-sm">Edit</a>
+                                                    <button type="button" class="btn btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa-solid fa-star"></i></button>
+
                                                     <form action="code.php" method="POST" class="d-inline">
                                                         <button type="submit" name="delete_home" value="<?= $rows['hID'];?>" class="btn btn-danger btn-sm">Delete</button>
                                                     </form>
@@ -233,6 +369,7 @@ $accepted=0;
                 </div>
             </div>
         </div>
+
         <div id="home" class="tab-pane fade in active">
             <center><h3>Owner Profile</h3></center>
             <div class="container">

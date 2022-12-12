@@ -81,20 +81,26 @@ echo $user;
 
 }
 
-if(isset($_POST['save_student']))
+if(isset($_POST['addUser']))
 {
-    $name = mysqli_real_escape_string($con, $_POST['name']);
-    $email = mysqli_real_escape_string($con, $_POST['email']);
-    $phone = mysqli_real_escape_string($con, $_POST['phone']);
-    $course = mysqli_real_escape_string($con, $_POST['course']);
+    $email = $_POST['email'];
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $city = $_POST['city'];
+    $street = $_POST['street'];
+    $phone = $_POST['phone'];
+    $mobile = $_POST['mob'];
+    $passw=$_POST['pass'];
+    $bd = $_POST['bd'];
+    $img='img/'.$_POST['img'];
+    $type=$_POST['type'];
+    $sql = "INSERT INTO `user`(`fName`, `lName`, `Email`, `phone`, `password`, `type`,city,street,mobile,bd,photo) VALUES ('$fname','$lname','$email','$phone','$passw','$type','$city','$street','$mobile','$bd','$img')";
 
-    $query = "INSERT INTO students (name,email,phone,course) VALUES ('$name','$email','$phone','$course')";
-
-    $query_run = mysqli_query($con, $query);
+    $query_run = mysqli_query($con, $sql);
     if($query_run)
     {
-        $_SESSION['message'] = "Student Created Successfully";
-        header("Location: student-create.php");
+        $_SESSION['message'] = "User Created Successfully";
+        header("Location: admin.php");
         exit(0);
     }
     else

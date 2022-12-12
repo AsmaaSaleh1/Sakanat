@@ -10,6 +10,12 @@ $stmt="UPDATE `booking` SET `canceled`='yes'where bId='$bid'";
         $booked=0;
         $stmt2 = "UPDATE `home` SET `booked`='$booked' WHERE hID='$bid'";
         $query2 = mysqli_query($db, $stmt2);
+        $notifications_name='Cancelled';
+        $message=$property_id." Cancel his booking";
+        $insert_query = "INSERT INTO inf(notifications_name,message,active)VALUES('".$notifications_name."','".$message."','1')";
+
+        $result = mysqli_query($db,$insert_query);
+
     }
 }
  ?>

@@ -126,6 +126,8 @@ if (isset($_POST['add_home'])) {
         <div id="home" class="tab-pane fade in active">
             <div class="container">
                     <div class="container">
+                        <a style="background-color: #1F5662;border: none" href="addUser.php?" class="btn btn-success btn-sm"><i class="fa-solid fa-plus"></i>Add User</a>
+
                         <center><h3>Users</h3></center>
                         <div class="container-fluid">
                             <input type="text" id="myInput2" onkeyup="myFunction1()" placeholder="Search..." title="Type in a name">

@@ -62,31 +62,4 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         }
     }
 }
-/* For sign up*/
-if(isset($_POST['email']) && isset($_POST['regPass']) && isset($_POST['pNum']) && isset($_POST['confPass']) &&isset($_POST['name']) )
-$full_name=$_POST['name'];
-$email=$_POST['email'];
-$password=$_POST['regPass'];
-$phone_no=$_POST['pNum'];
-//$address=validate($_POST['address']);
-//$id_type=validate($_POST['id_type']);
-//$id_photo=$_POST['id_photo'];
-//$password = md5($password); // Encrypt password
-$bd=Null;
-$img=Null;
-try {
-    $sName = "localhost";
-    $uName = "root";
-    $pass = "";
-    $db_name = "sakanatpro";
-    $conn = new PDO("mysql:host=$sName;dbname=$db_name",
-        $uName, $pass);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}catch(PDOException $e){
-    echo "Connection failed : ". $e->getMessage();
-}
-$sql = "INSERT INTO `user`(`Name`, `Password`, `Email`, `phone`, `Birthdate`, `photo`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]')";
-if($conn->query($sql)===TRUE){
-    $_SESSION['user_email'] = $user_email;
-    header("location:index.php");
-}
+?>
