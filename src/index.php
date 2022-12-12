@@ -189,6 +189,10 @@
                                         $photo=$row['imgPath'];
 //                $photo=$rows['photo'];
                                         echo  '<img class="image" src="'.$photo.'">'; }?>
+                              <style>i{
+                                      color: #ebb00e;
+                                  }</style>
+                                <div><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                                 </div>
 
                             <div class="info">
@@ -339,6 +343,12 @@
         </div>
     </div>
     <?php } ?>
+    <section>
+        <h2 style="color: #1F5662">Do you enjoy this site? Leave feedback</h2>
+
+    </section>
+
+
     <!-- Our Team -->
     <section class="reveal t">
         <h2 class="title ot">OUR TEAM</h2>
@@ -411,7 +421,8 @@
         </div>
 
     </section>
-    <!-- Footer -->
+
+    Footer -->
     <section class="end">
         <h3 class="title-diff">Sakanat</h3>
         <div class="contact">
