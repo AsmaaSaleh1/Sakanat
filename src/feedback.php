@@ -76,7 +76,6 @@
         .rating.active small {
             color: #1F5662;
         }
-
         .btn {
             background-color: #1F5662;
             color: #ffffff;
@@ -87,7 +86,6 @@
             padding: 12px 30px;
             cursor: pointer;
         }
-
         .btn:focus {
             outline: 0;
         }
@@ -111,7 +109,13 @@
         .credit {
             text-align: center;
         }
-
+        textarea{
+            width: 300px;
+            height: 50px;
+            max-width: 300px;
+            max-height: 100px;
+            margin: 20px;
+        }
 
     </style>
 </head>
@@ -133,6 +137,11 @@
             <img src="https://image.flaticon.com/icons/svg/187/187133.svg" alt=""/>
             <small>Satisfied</small>
         </div>
+    </div>
+    <div>
+        <textarea>
+
+        </textarea>
     </div>
     <button class="btn" id="send">Send Review</button>
 </div>
