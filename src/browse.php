@@ -87,6 +87,83 @@ include 'navbar.php';
             color: #1F5662;
             font-size: 22px;
         }
+input{
+    width: 30px;
+}
+
+    </style>
+    <!-- For number of room -->
+    <style>
+        .containerx{
+            position: relative;
+            width: 80px;
+            height: 50px;
+            border-radius: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: 0.5s;
+        }
+        .containerx:hover{
+            width: 120px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0px 0px 14px #00deff;
+        }
+        .containerx .next{
+            position: absolute;
+            top: 50%;
+            right: 30px;
+            display: block;
+            width: 12px;
+            height: 12px;
+            border-top: 2px solid #fff;
+            border-left: 2px solid #fff;
+            z-index: 1;
+            transform: translateY(-50%) rotate(135deg);
+            cursor: pointer;
+            opacity: 0;
+            transition: 0.5s;
+        }
+        .containerx:hover .next{
+            opacity: 1;
+            right: 20px;
+        }
+        .containerx .prev{
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            display: block;
+            width: 12px;
+            height: 12px;
+            border-top: 2px solid #fff;
+            border-left: 2px solid #fff;
+            z-index: 1;
+            transform: translateY(-50%) rotate(315deg);
+            cursor: pointer;
+            opacity: 0;
+            transition: 0.5s;
+        }
+        .containerx:hover .prev{
+            opacity: 1;
+            right: -20px;
+        }
+        #box span{
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            line-height: 46px;
+            display: none;
+            color: #f0f0f0;
+            font-size: 24px;
+            font-weight: 700;
+            user-select: none;
+        }
+
+        /* js code */
+
+        #box span:nth-child(1){
+            display: inline;
+        }
 
 
     </style>
@@ -109,7 +186,42 @@ include 'navbar.php';
     <label for="desk">Desk</label> <br>
     <input type="checkbox" name="frdg" id="frdg">
     <label for="frdg">Fridge</label> <br>
+<br>
+        <label>Number of Room</label>
+        <br>
+        <div class="containerx">
+            <span class="next" onclick="nextNum()"></span>
+            <span class="prev" onclick="prevNum()"></span>
+            <div id="box"></div>
+        </div>
+        <br>
+        <script>
+            var numbers = document.getElementById('box');
+            for(i=0; i<100; i++){
+                var span = document.createElement('span')
+                span.textContent = i;
+                numbers.appendChild(span);
+            }
+            var num = numbers.getElementsByTagName('span');
+            var index = 0;
 
+            function nextNum(){
+                num[index].style.display = "none";
+                index = (index + 1) % num.length;
+                num[index].style.display = "initial";
+            }
+            function prevNum(){
+                num[index].style.display = "none";
+                index = (index - 1 + num.length) % num.length;
+                num[index].style.display = "initial";
+            }
+        </script>
+        <label>Home for: </label>
+        <br>
+        <input type="radio" name="gender" value="male"><span style="font-size: 20px;font-weight: 600">Male</span>
+        <input type="radio" name="gender"value="female"><span style="font-size: 20px;font-weight: 600">Female</span>
+
+<button type="submit"style="left: 80px">Search</button>
     </form>
     </aside
 <nav class="navbar navbar-light bg search">

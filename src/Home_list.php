@@ -42,9 +42,6 @@
         }
     </style>
     <style>
-
-
-
         @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
 
     </style>
