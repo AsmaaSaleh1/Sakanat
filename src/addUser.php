@@ -41,10 +41,6 @@
                         <div class="bio-row">
                             <p><span>Last Name </span>: <input name="lname" type="text"></p><!--Name come from database-->
                         </div>
-
-                        <div class="bio-row">
-                            <p><span>Birthday</span>: <input name="bd" type="date" ></p><!--Birthdate come from database-->
-                        </div>
                         <div class="bio-row">
                             <p><span>City </span>: <input name="city" type="text" "></p><!--City come from database-->
                         </div>
@@ -60,12 +56,14 @@
                         <div class="bio-row">
                             <p><span>Phone </span>: <input name="phone" type="tel"></p><!--P.N come from database-->
                         </div>
-
-                        <div class="bio-row">
-                            <p><span>Profile Picture </span>: <input type="file" id="img" name="img" accept="image/*"> </p>
-                        </div>
                         <div class="bio-row">
                             <p><span>Password </span>: <input name="pass" type="password"></p><!--P.N come from database-->
+                        </div>
+                        <div class="bio-row">
+                            <p><span>Birthday</span>: <input name="bd" type="date" ></p><!--Birthdate come from database-->
+                        </div>
+                        <div class="bio-row">
+                            <p><span>Profile Picture </span>: <input type="file" id="img" name="img" accept="image/*"> </p>
                         </div>
                         <div class="bio-row" style="position: relative; top: -10px;" >
                             <input id="u" type="radio" name="type" value="Tenant">
@@ -74,9 +72,12 @@
                             <input id="o" type="radio" name="type" value="Owner">
                             <h4 style="display: inline-block;font-size: 18px"> Owner</h4>
                         </div>
-                       <a href="admin.php"> <i style="color: #1F5662;font-size: 32px" class="fa-solid fa-left-long"></i></a>
-
-                        <button class="btn bio-row" type="submit" name="addUser">Add</button>
+                        <div class="bio-row">
+                            <button class="btn" type="submit" name="addUser" style="position: absolute;margin-right: auto">Add</button>
+                        </div>
+                        <div class="bio-row">
+                            <a href="admin.php"> <i style="color: #1F5662;font-size: 32px" class="fa-solid fa-left-long"></i></a>
+                        </div>
                     </div>
                 </div>
 
