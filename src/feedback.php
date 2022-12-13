@@ -16,16 +16,15 @@
         }
 
         body {
-            background: #4e54c8;
-            background: -webkit-linear-gradient(to right, #8f94fb, #4e54c8);
-            background: linear-gradient(to right, #8f94fb, #4e54c8);
-            font-family: 'Montserrat', sans-serif;
+            background-image:linear-gradient(45deg,#c49f72,#c49f72,#1F5662);
+            font-family: 'Times New Roman', 'Times', 'serif';
+            font-weight: bold;
+            font-size: 20px;
             overflow: hidden;
             height:100vh;
         }
-
         .panel-container {
-            background-color: #12192c;
+            background-color: rgba(221, 221, 221,0.3);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             border-radius: 15px;
             font-size: 90%;
@@ -35,9 +34,10 @@
             align-items: center;
             text-align: center;
             padding: 30px;
-            max-width: 400px;
-            color:#4e54c8;
-            margin:10% auto 2% auto;
+            max-width: 700px;
+            height: 400px;
+            color:#1F5662;
+            margin:8% auto 2% auto;
         }
 
         .panel-container strong {
@@ -74,12 +74,14 @@
 
         .rating:hover small,
         .rating.active small {
-            color: #8f94fb;
+            color: #1F5662;
         }
 
         .btn {
-            background-color: #8f94fb;
-            color: #000;
+            background-color: #1F5662;
+            color: #ffffff;
+            font-weight: bold;
+            font-family: 'Times New Roman', 'Times', 'serif';
             border: 0;
             border-radius: 4px;
             padding: 12px 30px;
@@ -115,7 +117,7 @@
 </head>
 <body>
 <div id="panel" class="panel-container">
-    <strong>How satisfied are you with our <br /> customer support performance?</strong>
+    <strong>How satisfied are you with our site?</strong>
     <div class="ratings-container">
         <div class="rating">
             <img src="https://image.flaticon.com/icons/svg/187/187150.svg" alt="">
@@ -134,7 +136,7 @@
     </div>
     <button class="btn" id="send">Send Review</button>
 </div>
-<div class="credit">Made with <span style="color:tomato">❤</span> by <a  href="https://www.learningrobo.com/">Learning Robo</a></div>
+<div class="credit">Made with <span style="color:tomato">❤</span> by <a  href="#">Sakanat</a></div>
 <script src="script.js"></script>
 
 </body>
