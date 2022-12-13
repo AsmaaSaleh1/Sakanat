@@ -97,12 +97,13 @@ $_SESSION['type']=$type;
                         echo "<script> alert('Doneee') </script>";
             if($db->query($sql)===TRUE){
                 $_SESSION['user_email'] = $uname;
+
                 $_SESSION['type']=$type;
                 $_SESSION['user_full_name']=$name;
                 $notifications_name="New Regestration";
                 $message=$_SESSION['user_email']."Signed up as ".$type;
                 $insert_query = "INSERT INTO inf(notifications_name,message,active)VALUES('".$notifications_name."','".$message."','1')";
-
+$_SESSION['user_id']= mysqli_insert_id($db);
                 $result = mysqli_query($db,$insert_query);
 
                 header("location:index.php");

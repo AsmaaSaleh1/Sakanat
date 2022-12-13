@@ -171,7 +171,7 @@
              $i=0;
             if(mysqli_num_rows($query)>0)
             {
-                while ($rows=mysqli_fetch_assoc($query) and $i<4){
+                while ($rows=mysqli_fetch_assoc($query) and $i<3){
                     $home=$rows['hID'];
                     ?>
 
@@ -301,31 +301,33 @@
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
 
         </div>
-        <?php
 
-        $fb='';
-        $sql="SELECT feedback,fName,photo,lName,photo from user WHERE Email !='sakanat@gmail.com' and feedback !='$fb';";
-        $query=mysqli_query($db,$sql);
-        if(mysqli_num_rows($query)>0)
-        {
-        while($rows=mysqli_fetch_assoc($query)){
-            $name=$rows['fName']." ".$rows['lName'];
-            $photo=$rows['photo'];
-            $fb=$rows['feedback'];
-        }
-        ?>
 
 
         <div class="carousel-inner">
-            <div class="carousel-item active">
+            <?php
+
+            $fb='';
+            $sql="SELECT feedback,fName,photo,lName,photo from user WHERE Email !='sakanat@gmail.com' and feedback !='$fb';";
+            $query=mysqli_query($db,$sql);
+            if(mysqli_num_rows($query)>0) {
+                while ($rows = mysqli_fetch_assoc($query)) {
+                    $name = $rows['fName'] . " " . $rows['lName'];
+                    $photo = $rows['photo'];
+                    $fb = $rows['feedback'];
+                }
+
+            ?>
+            <div class="carousel-item">
                 <img src="<?php echo $photo ?>" class="d-block " alt="...">
                 <h4><?php echo $name ?></h4>
                 <p><?php echo $fb ?></p>
             </div>
-            <?
-
+            <?php
+            }
             ?>
-            <div class="carousel-item">
+
+            <div class="carousel-item active">
                 <img src="img/man.png" class="d-block " alt="...">
                 <h4>Mohammad Awad</h4>
                 <p>So easy to use and I find the home that I was searched</p>
@@ -342,7 +344,7 @@
             </div>
         </div>
     </div>
-    <?php } ?>
+
     <section style="width: 100%;text-align: center">
 
         <h2 style="color: #1F5662;display: inline-block;">Do you enjoy this site? <a style="color: #1F5662" href="feedback.php">Leave feedback</a></h2>

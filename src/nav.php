@@ -1,3 +1,10 @@
+<?php
+$p="admin";
+$p=sha1($p);
+echo $p;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

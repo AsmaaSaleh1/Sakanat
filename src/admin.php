@@ -668,7 +668,7 @@ if (isset($_POST['add_home'])) {
                                 </thead>
                                 <tbody>
                                 <?php
-                                $query = "SELECT * FROM home";
+                                $query = "SELECT * FROM home where accepted='1'";
                                 $query_run = mysqli_query($con, $query);
 
                                 if(mysqli_num_rows($query_run) > 0)

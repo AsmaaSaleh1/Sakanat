@@ -61,7 +61,6 @@ require 'dbcon.php';
                             <form action="code.php" method="POST">
                                 <input type="hidden" name="student_id" value="<?= $student['hID']; ?>">
 
-
                                 <div class="mb-3">
                                     <label>Home Name</label>
                                     <input type="text" name="hname" value="<?=$student['hName'];?>" class="form-control">
