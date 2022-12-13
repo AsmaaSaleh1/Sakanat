@@ -8,8 +8,11 @@ if(isset($_POST['can'])){
 $stmt="UPDATE `booking` SET `canceled`='yes'where bId='$bid'";
         $query = mysqli_query($db, $stmt);
         $booked=0;
-        $stmt2 = "UPDATE `home` SET `booked`='$booked' WHERE hID='$bid'";
+       $hid=$_SESSION['hid'];
+        $stmt2 ="UPDATE `home` SET `booked`='$booked'where hID='$hid'";
+
         $query2 = mysqli_query($db, $stmt2);
+
         $notifications_name='Cancelled';
         $message=$property_id." Cancel his booking";
         $insert_query = "INSERT INTO inf(notifications_name,message,active)VALUES('".$notifications_name."','".$message."','1')";
@@ -85,6 +88,7 @@ $user=$row['userId'];
             if(mysqli_num_rows($query)>0) {
                 while ($rows = mysqli_fetch_assoc($query)) {
             $home=$rows['hID'];
+            $_SESSION['hid']=$home;
             $bId=$rows['bId'];
             $can=$rows['canceled'];
             ?>

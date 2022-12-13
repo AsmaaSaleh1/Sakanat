@@ -343,8 +343,22 @@
         </div>
     </div>
     <?php } ?>
-    <section>
-        <h2 style="color: #1F5662">Do you enjoy this site? Leave feedback</h2>
+    <section style="width: 100%;text-align: center">
+
+        <h2 style="color: #1F5662;display: inline-block;">Do you enjoy this site? <a style="color: #1F5662" href="feedback.php">Leave feedback</a></h2>
+        <svg width="80" height="80" viewBox="0 0 200 200" style="position:relative;right:0">
+            <g transform="translate(100 100)">
+                <path transform="translate(-50 -50)" fill="#1F5662" d="M92.71,7.27L92.71,7.27c-9.71-9.69-25.46-9.69-35.18,0L50,14.79l-7.54-7.52C32.75-2.42,17-2.42,7.29,7.27v0 c-9.71,9.69-9.71,25.41,0,35.1L50,85l42.71-42.63C102.43,32.68,102.43,16.96,92.71,7.27z"></path>
+                <animateTransform
+                        attributeName="transform"
+                        type="scale"
+                        values="1; 1.5; 1.25; 1.5; 1.5; 1;"
+                        dur="1s"
+                        repeatCount="indefinite"
+                        additive="sum">
+                </animateTransform>
+            </g>
+        </svg>
 
     </section>
 

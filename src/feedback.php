@@ -1,4 +1,16 @@
+<?php
+include 'connect.php';
+session_start();
 
+if(isset($_POST['send']) and isset($_SESSION['user_id'])){
+    $fb=$_POST['fb'];
+    $user= $_SESSION['user_id'];
+    $stmt = "UPDATE `user` SET `feedback`='$fb'WHERE userId='$user'";
+    $query = mysqli_query($db, $stmt);
+    header('location:index.php');
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +18,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css" />
-    <title>Let Us Know Your Feedback || Learning Robo</title>
+    <link rel="stylesheet" href="Css/all.min.css">
+    <title>Let Us Know Your Feedback</title>
     <style>
 
         @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
@@ -121,72 +134,76 @@
 </head>
 <body>
 <div id="panel" class="panel-container">
+    <form method="post" action="feedback.php">
     <strong>How satisfied are you with our site?</strong>
     <div class="ratings-container">
         <div class="rating">
-            <img src="https://image.flaticon.com/icons/svg/187/187150.svg" alt="">
+            <i style="font-size: 30px" class="fa-regular fa-face-frown"></i>
             <small>Unhappy</small>
         </div>
 
         <div class="rating">
-            <img src="https://image.flaticon.com/icons/svg/187/187136.svg" alt=""/>
-            <small>Neutral</small>
+            <i style="font-size: 30px" class="fa-regular fa-face-smile"></i>
+            <small style="display: block">Neutral</small>
         </div>
 
         <div class="rating active">
-            <img src="https://image.flaticon.com/icons/svg/187/187133.svg" alt=""/>
+            <i style="font-size: 30px" class="fa-regular fa-face-smile-beam"></i>
             <small>Satisfied</small>
         </div>
     </div>
     <div>
-        <textarea>
+        <textarea name="fb">
 
         </textarea>
     </div>
-    <button class="btn" id="send">Send Review</button>
+    <button type="submit" name="send" class="btn" id="send">Send Review</button>
+    </form>
 </div>
+
 <div class="credit">Made with <span style="color:tomato">❤</span> by <a  href="#">Sakanat</a></div>
-<script src="script.js"></script>
 
 </body>
-<script>
+<!--<script>-->
+<!---->
+<!--    const ratings = document.querySelectorAll('.rating')-->
+<!--    const ratingsContainer = document.querySelector('.ratings-container')-->
+<!--    const sendBtn = document.querySelector('#send')-->
+<!--    const panel = document.querySelector('#panel')-->
+<!--    let selectedRating = 'Satisfied'-->
+<!---->
+<!--    ratingsContainer.addEventListener('click', (e) => {-->
+<!--        if(e.target.parentNode.classList.contains('rating')) {-->
+<!--            removeActive()-->
+<!--            e.target.parentNode.classList.add('active')-->
+<!--            selectedRating = e.target.nextElementSibling.innerHTML-->
+<!--        }-->
+<!--        if(e.target.classList.contains('rating')) {-->
+<!--            removeActive()-->
+<!--            e.target.classList.add('active')-->
+<!--            selectedRating = e.target.nextElementSibling.innerHTML-->
+<!--        }-->
+<!---->
+<!--    })-->
+<!---->
+<!--    sendBtn.addEventListener('click', (e) => {-->
+<!--        panel.innerHTML = `-->
+<!---->
+<!--        Thank You!-->
+<!---->
+<!--        Feedback : ${selectedRating}-->
+<!--        We'll use your feedback to improve our customer support-->
+<!--    `-->
+<!--    })-->
+<!---->
+<!--    function removeActive() {-->
+<!--        for(let i = 0; i < ratings.length; i++) {-->
+<!--            ratings[i].classList.remove('active')-->
+<!--        }-->
+<!--    }-->
+<!---->
+<!---->
+<!--</script>-->
 
-    const ratings = document.querySelectorAll('.rating')
-    const ratingsContainer = document.querySelector('.ratings-container')
-    const sendBtn = document.querySelector('#send')
-    const panel = document.querySelector('#panel')
-    let selectedRating = 'Satisfied'
 
-    ratingsContainer.addEventListener('click', (e) => {
-        if(e.target.parentNode.classList.contains('rating')) {
-            removeActive()
-            e.target.parentNode.classList.add('active')
-            selectedRating = e.target.nextElementSibling.innerHTML
-        }
-        if(e.target.classList.contains('rating')) {
-            removeActive()
-            e.target.classList.add('active')
-            selectedRating = e.target.nextElementSibling.innerHTML
-        }
-
-    })
-
-    sendBtn.addEventListener('click', (e) => {
-        panel.innerHTML = `
-
-        Thank You!
-
-        Feedback : ${selectedRating}
-        We'll use your feedback to improve our customer support
-    `
-    })
-
-    function removeActive() {
-        for(let i = 0; i < ratings.length; i++) {
-            ratings[i].classList.remove('active')
-        }
-    }
-
-
-</script>
 </html>

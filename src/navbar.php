@@ -222,7 +222,7 @@ else
                 }
 
                 else {?>
-                    <li><a style="font-size: 18px;text-decoration: none" href="log_sign.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a style="font-size: 18px;text-decoration: none" href="log_sign.php"><span class="glyphicon glyphicon-log-in"></span><i style="color: #1F5662" class="fa-solid fa-arrow-right-to-bracket"></i> Login</a></li>
                 <?php } ?>
             </ul>
                         </ul>

@@ -16,6 +16,7 @@ include("connect.php");
 .r{
     position: relative;top: 500px
 }
+
         </style>
     </head>
 <body>
@@ -30,7 +31,7 @@ if(mysqli_num_rows($query)>0)
         $property_id=$rows['hID'];
         ?>
 
-      \
+
 
         </body>
         </html>
