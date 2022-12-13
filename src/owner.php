@@ -641,15 +641,15 @@ $accepted=0;
                                     <label for="district">For:</label>
                                     <select class="form-control" name="for" required="required">
                                         <option>---</option>
-                                        <option value="Men">Men</option>
-                                        <option value="Women">Women</option>
+                                        <option value="Men">Male</option>
+                                        <option value="Women">Female</option>
                                         <option value="Family">Family</option>
 
                                     </select>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="vdc/municipality">Area:</label>
+                                    <label for="vdc/municipality">Area (m&sup2;):</label>
                                     <input placeholder="Area" class="form-control" type="text" name="area">
 
                                 </div>

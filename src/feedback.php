@@ -98,6 +98,8 @@ if(isset($_POST['send']) and isset($_SESSION['user_id'])){
             border-radius: 4px;
             padding: 12px 30px;
             cursor: pointer;
+            position: relative;
+            top: 40px;
         }
         .btn:focus {
             outline: 0;
@@ -131,6 +133,50 @@ if(isset($_POST['send']) and isset($_SESSION['user_id'])){
         }
 
     </style>
+    <style>
+        .input-wrap {
+            position: relative;
+            height: 30px;
+            width: 150px;
+        }
+        .input-field {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: none;
+            border: none;
+            outline: none;
+            border-bottom: 2px solid #1F5662;
+            padding: 0;
+            font-size: 18px;
+            font-weight: 600;
+            color: #151111;
+            transition: 0.4s;
+            top: -50px;
+            height: 80px;
+            width: 250px;
+        }
+        label {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: rgb(58, 58, 58);
+            pointer-events: none;
+            transition: 0.4s;
+        }
+
+        .input-field.active {
+            border-bottom-color: #151111;
+        }
+
+        .input-field.active + label {
+            font-size: 0.75rem;
+            top: -2px;
+        }
+
+    </style>
 </head>
 <body>
 <div id="panel" class="panel-container">
@@ -152,58 +198,51 @@ if(isset($_POST['send']) and isset($_SESSION['user_id'])){
             <small>Satisfied</small>
         </div>
     </div>
-    <div>
-        <textarea name="fb">
-
+        <div class="input-wrap">
+        <textarea name="fb" class="input-field" placeholder="Type your feedback herr"  style="height: 80px">
         </textarea>
-    </div>
-    <button type="submit" name="send" class="btn" id="send">Send Review</button>
+
+        </div>
+        <button type="submit" name="send" class="btn" id="send">Send Review</button>
+
     </form>
 </div>
 
 <div class="credit">Made with <span style="color:tomato">❤</span> by <a  href="#">Sakanat</a></div>
 
 </body>
-<!--<script>-->
-<!---->
-<!--    const ratings = document.querySelectorAll('.rating')-->
-<!--    const ratingsContainer = document.querySelector('.ratings-container')-->
-<!--    const sendBtn = document.querySelector('#send')-->
-<!--    const panel = document.querySelector('#panel')-->
-<!--    let selectedRating = 'Satisfied'-->
-<!---->
-<!--    ratingsContainer.addEventListener('click', (e) => {-->
-<!--        if(e.target.parentNode.classList.contains('rating')) {-->
-<!--            removeActive()-->
-<!--            e.target.parentNode.classList.add('active')-->
-<!--            selectedRating = e.target.nextElementSibling.innerHTML-->
-<!--        }-->
-<!--        if(e.target.classList.contains('rating')) {-->
-<!--            removeActive()-->
-<!--            e.target.classList.add('active')-->
-<!--            selectedRating = e.target.nextElementSibling.innerHTML-->
-<!--        }-->
-<!---->
-<!--    })-->
-<!---->
-<!--    sendBtn.addEventListener('click', (e) => {-->
-<!--        panel.innerHTML = `-->
-<!---->
-<!--        Thank You!-->
-<!---->
-<!--        Feedback : ${selectedRating}-->
-<!--        We'll use your feedback to improve our customer support-->
-<!--    `-->
-<!--    })-->
-<!---->
-<!--    function removeActive() {-->
-<!--        for(let i = 0; i < ratings.length; i++) {-->
-<!--            ratings[i].classList.remove('active')-->
-<!--        }-->
-<!--    }-->
-<!---->
-<!---->
-<!--</script>-->
+<script>
+
+    const ratings = document.querySelectorAll('.rating')
+    const ratingsContainer = document.querySelector('.ratings-container')
+    const sendBtn = document.querySelector('#send')
+    const panel = document.querySelector('#panel')
+    let selectedRating = 'Satisfied'
+
+    ratingsContainer.addEventListener('click', (e) => {
+        if(e.target.parentNode.classList.contains('rating')) {
+            removeActive()
+            e.target.parentNode.classList.add('active')
+            selectedRating = e.target.nextElementSibling.innerHTML
+        }
+        if(e.target.classList.contains('rating')) {
+            removeActive()
+            e.target.classList.add('active')
+            selectedRating = e.target.nextElementSibling.innerHTML
+        }
+
+    })
+
+
+
+    function removeActive() {
+        for(let i = 0; i < ratings.length; i++) {
+            ratings[i].classList.remove('active')
+        }
+    }
+
+
+</script>
 
 
 </html>

@@ -35,7 +35,11 @@ if (isset($_POST['add_home'])) {
 
     if (mysqli_num_rows($result1) > 0) {
         while ($rowss = mysqli_fetch_assoc($result1)) {
-            $owner_id = 100;
+            $email = $_POST['owner'];
+            $sql4 = "SELECT * from user where email='$email'";
+            $result4 = mysqli_query($db, $sql4);
+            $users = mysqli_fetch_assoc($result4);
+            $owner_id=$users['userId'];
 
             $sql = "INSERT INTO `home`(`hName`, `city`, `street`, `description`, `booked`, `ownerId`, `gender`, `contact`, `price`, `numOfRoom`, `Area`, `numOfKitchen`, `numOfBath`, `Location`) VALUES ('$name','$city','$street','$desc','$booked','$owner_id','$type','$cont','$price','$rooms','$area','$kit','$bath','$location')";
             $query = mysqli_query($db, $sql);
@@ -459,9 +463,9 @@ if (isset($_POST['add_home'])) {
                                 </div>
                                 <div class="form-group">
                                     <label for="zone">Owner:</label>
-                                    <select style="width: 100%;height: 35px;border-radius: 10px;border: none"  class="form-group">
+                                    <select name="owner" style="width: 100%;height: 35px;border-radius: 10px;border: none"  class="form-group">
                                     <?php
-                                    $sql="SELECT * from `user`";
+                                    $sql="SELECT * from `user` WHERE type='Owner'";
                                     $query_run=mysqli_query($db,$sql);
 
                                     if(mysqli_num_rows($query_run) > 0)
@@ -491,8 +495,8 @@ if (isset($_POST['add_home'])) {
                                     <label for="district">For:</label>
                                     <select class="form-control" name="for" required="required">
                                         <option>---</option>
-                                        <option value="Men">Men</option>
-                                        <option value="Women">Women</option>
+                                        <option value="Men">Male</option>
+                                        <option value="Women">Female</option>
                                         <option value="Family">Family</option>
 
                                     </select>
