@@ -91,6 +91,7 @@ if(isset($_POST['addUser']))
     $phone = $_POST['phone'];
     $mobile = $_POST['mob'];
     $passw=$_POST['pass'];
+    $passw=sha1($passw);
     $bd = $_POST['bd'];
     $img='img/'.$_POST['img'];
     $type=$_POST['type'];
