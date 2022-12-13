@@ -162,7 +162,7 @@ display: flex;
                                         .classList.toggle("active");
                                 }
                             </script>
-                            <button class="btn bio-row" type="submit" name="update">Update</button>
+                            <button class="btn bio-row" type="submit" name="update" style="text-align: center">Update</button>
 
                         </div>
                         <div class="butt">

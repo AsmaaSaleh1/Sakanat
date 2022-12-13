@@ -15,7 +15,20 @@ require 'dbcon.php';
 
     <title>Sakanat</title>
     <style>
-
+        body{
+            background-image:linear-gradient(45deg,#c49f72,#c49f72,#1F5662);
+        }
+        .card-header{
+            background-color: #1F5662;
+        }
+        .card{
+            background-color: #f0f0f0;
+            font-family: 'Times New Roman', 'Times', 'serif';
+        }
+        label{
+            color: #1F5662;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -28,7 +41,7 @@ require 'dbcon.php';
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Home Edit
+                    <h4 style="font-family: 'Times New Roman', 'Times', 'serif'; font-weight: bold;color: white">Home Edit
                         <a href="owner.php" class="btn btn-danger float-end">BACK</a>
                     </h4>
                 </div>
@@ -100,7 +113,7 @@ require 'dbcon.php';
                                     <input type="text" class="form-control" value="<?=$student['Location'];?>" id="" name="location">
                                 </div>
                                 <div class="mb-3">
-                                    <button type="submit" name="update_student" class="btn btn-primary">
+                                    <button type="submit" name="update_student" class="btn btn-primary" style="background-color: #1F5662">
                                         Update Home
                                     </button>
                                 </div>

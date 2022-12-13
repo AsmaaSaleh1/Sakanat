@@ -422,32 +422,32 @@
 
     </section>
 
-    Footer -->
+    <!--Footer -->
     <section class="end">
-        <h3 class="title-diff">Sakanat</h3>
+        <h3 class="title-diff" style="color:#ecb920">Sakanat</h3>
         <div class="contact">
-            <p class="par">Thank you for visit my own website</p>
+            <p class="par" style="color:#ecb920">Thank you for visit my own website</p>
             <div class="social-links">
                 <a href="#" class="twitter">
-                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-twitter" style="color: #dddddd"></i>
                 </a>
                 <a href="#" class="facebook">
-                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-facebook" style="color: #dddddd"></i>
                 </a>
                 <a href="#" class="instagram">
-                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-instagram" style="color: #dddddd"></i>
                 </a>
             </div>
             <div class="copyright">
                 © Copyright <strong><span>Sakanat</span></strong>.
             </div>
-            <div class="links">
+            <div class="links" >
                 <h2>Useful Links</h2>
                 <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="Contact-us.html">Contact</a></li>
-                    <li><a href="#">Brows</a></li>
-                    <li><a href="#">Company Overview</a></li>
+                    <li><a href="#about" style="color: #dddddd">About</a></li>
+                    <li><a href="Contact-us.html" style="color: #dddddd">Contact</a></li>
+                    <li><a href="#" style="color: #dddddd">Brows</a></li>
+                    <li><a href="#" style="color: #dddddd">Company Overview</a></li>
                 </ul>
             </div>
             <div class="up">
