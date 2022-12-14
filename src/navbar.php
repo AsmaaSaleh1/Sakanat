@@ -211,7 +211,7 @@ else
                         <ul class="dropdown-menu">
                             <h5 style="text-align: center;color: #ecb920"><?=$_SESSION['user_full_name']?></h5>
                             <li><a class="dropdown-item" href="prof.php">Profile</a></li>
-                            <li><a class="dropdown-item" href="log_out.php"><i class="fa-solid fa-right-from-bracket"></i>
+                            <li><a class="dropdown-item" href="log_out.php"><i style="color: #1F5662" class="fa-solid fa-right-from-bracket"></i>
                                     Log out</a></li>
 
                         </ul>
@@ -222,7 +222,7 @@ else
                 }
 
                 else {?>
-                    <li><a style="font-size: 18px;text-decoration: none" href="log_sign.php"><span class="glyphicon glyphicon-log-in"></span><i style="color: #1F5662" class="fa-solid fa-arrow-right-to-bracket"></i> Login</a></li>
+                    <li><a style="font-size: 18px;text-decoration: none;color: #1F5662" href="log_sign.php"><span class="glyphicon glyphicon-log-in"></span><i style="color: #1F5662" class="fa-solid fa-arrow-right-to-bracket"></i> Login</a></li>
                 <?php } ?>
             </ul>
                         </ul>

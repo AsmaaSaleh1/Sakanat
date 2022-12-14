@@ -89,10 +89,10 @@ if(mysqli_num_rows($query)>0)
                 <h3 style="font-size: 22px"><?php
                     echo $rows['hName'];?>
                 </h3>
-                <h3 style="font-size: 22px"><?php
-                    echo $rows['city'];?>
-                </h3>
-                <h4><?php echo $rows['street']; ?></h4>
+<!--                <h3 style="font-size: 22px">--><?php
+//                    echo $rows['city'];?>
+<!--                </h3>-->
+<!--                <h4>--><?php //echo $rows['street']; ?><!--</h4>-->
                 <p style="font-size: 16px"><?php echo $rows['description']; ?> </p>
                 <button type="submit" style="font-size: 20px;top: -18px" name="book"><h3><?php echo '<a style="text-decoration:none" href="viewHome.php?property_id='.$rows['hID'].'"  class="" >Read more <i style="position:relative; left: 30px" class="fa-solid fa-angles-right"></i> </a></h3><br>'; ?></button><br>
 

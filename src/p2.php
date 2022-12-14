@@ -22,7 +22,7 @@ if(isset($_POST["savePass"])) {
             $p = $_SESSION['np'];
         }
         else{
-            echo $_SESSION['x'];
+
             $p=$_SESSION['x'];
         }
 

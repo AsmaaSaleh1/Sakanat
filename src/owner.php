@@ -271,7 +271,10 @@ $accepted=0;
                 <?php include('message.php'); ?>
 
                 <div class="row">
+
                     <div class="col-md-12">
+
+
                         <div class="cardd">
                             <div class="card-header">
 

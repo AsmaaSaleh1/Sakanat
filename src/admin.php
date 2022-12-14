@@ -591,9 +591,10 @@ if (isset($_POST['add_home'])) {
                     <input type="text" id="myInput2" onkeyup="myFunction1()" placeholder="Search..." title="Type in a name">
                     <table id="myTable2">
                         <tr class="header">
+                            <th>Photo</th>
                             <th>First Name</th>
                             <th>Last Name</th>
-                            <th>Photo</th>
+
                             <th>Feedback</th>
                             <th></th>
 

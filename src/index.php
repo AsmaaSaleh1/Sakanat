@@ -394,7 +394,7 @@
             </div>
             <div class="cardt team">
                 <div class="img">-->
-                    <img src="img/x.png" alt="">
+                    <img src="img/girl.png" alt="">
                 </div>
                 <div class="content">
                     <div class="info">
