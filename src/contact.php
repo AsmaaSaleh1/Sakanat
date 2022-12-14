@@ -81,8 +81,7 @@ include 'navbar.php';
                             <label>Email</label>
                         </div>
                         <div class="input-wrap">
-        <textarea name="message" class="input-field"  style="height: 80px">
-        </textarea>
+        <textarea name="message" class="input-field"  style="height: 80px"></textarea>
                             <label>Type Your Message...</label>
                         </div>
                         <button style="background-color: transparent;border: none" type="submit" name="send">     <svg type="submit"class="sign" name="send" viewBox="200 100 1000 500" fill="none" xmlns="http://www.w3.org/2000/svg">
