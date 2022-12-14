@@ -307,27 +307,29 @@
         <div class="carousel-inner">
             <?php
 
-            $fb='';
-            $sql="SELECT feedback,fName,photo,lName,photo from user WHERE Email !='sakanat@gmail.com' and feedback !='$fb';";
+            $fb="";
+            $sql="SELECT feedback,fName,photo,lName,photo from user WHERE Email!='sakanat@gmail.com' and feedback !=''";
             $query=mysqli_query($db,$sql);
             if(mysqli_num_rows($query)>0) {
+
                 while ($rows = mysqli_fetch_assoc($query)) {
                     $name = $rows['fName'] . " " . $rows['lName'];
                     $photo = $rows['photo'];
                     $fb = $rows['feedback'];
-                }
 
+                }
             ?>
-            <div class="carousel-item">
+            <div class="carousel-item active">
                 <img src="<?php echo $photo ?>" class="d-block " alt="...">
                 <h4><?php echo $name ?></h4>
                 <p><?php echo $fb ?></p>
             </div>
             <?php
+
             }
             ?>
 
-            <div class="carousel-item active">
+            <div class="carousel-item ">
                 <img src="img/man.png" class="d-block " alt="...">
                 <h4>Mohammad Awad</h4>
                 <p>So easy to use and I find the home that I was searched</p>

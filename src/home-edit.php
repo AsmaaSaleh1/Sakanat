@@ -109,7 +109,7 @@ require 'dbcon.php';
                                 </div>
                                 <div class="mb-3">
                                     <label for="">Location in map:</label>
-                                    <input type="text" class="form-control" value="<?=$student['Location'];?>" id="" name="location">
+                                    <input type="text" style="height: 100px" class="form-control" value="<?=$student['Location'];?>" id="" name="location">
                                 </div>
                                 <div class="mb-3">
                                     <button type="submit" name="update_student" class="btn btn-primary" style="background-color: #1F5662">

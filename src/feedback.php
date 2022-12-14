@@ -199,8 +199,7 @@ if(isset($_POST['send']) and isset($_SESSION['user_id'])){
         </div>
     </div>
         <div class="input-wrap">
-        <textarea name="fb" class="input-field" placeholder="Type your feedback herr"  style="height: 80px">
-        </textarea>
+        <textarea name="fb" class="input-field" placeholder="Type your feedback herr"  style="height: 80px"></textarea>
 
         </div>
         <button type="submit" name="send" class="btn" id="send">Send Review</button>

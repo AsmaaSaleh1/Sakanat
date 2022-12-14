@@ -503,7 +503,7 @@ if (isset($_POST['add_home'])) {
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="vdc/municipality">Area:</label>
+                                    <label for="vdc/municipality">Area (m&sup2;):</label>
                                     <input placeholder="Area" class="form-control" type="text" name="area">
 
                                 </div>

@@ -132,6 +132,10 @@
     <span class="prev" onclick="prevNum()"></span>
     <div id="box"></div>
 </div>
+
+<div class="mapouter"><div class="gmap_canvas"><iframe src="https://maps.google.com/maps?q=An%20Najah%20&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" id="gmap_canvas" frameborder="0" scrolling="no" style="width: 750px; height: 400px;"></iframe><a href="https://technologg.com/" style="display:none">technologg</a><style>.mapouter{position:relative;text-align:right;height:400px;width:750px;}</style><style>.gmap_canvas{overflow:hidden;background:none!important;height:400px;width:750px;}</style></div></div>
+<input type="text" value="https://maps.google.com/maps?q=An%20Najah%20&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" id="gmap_canvas" frameborder="0" scrolling="no" style="width: 750px; height: 400px;">
+
 <script>
     var numbers = document.getElementById('box');
     for(i=0; i<100; i++){
