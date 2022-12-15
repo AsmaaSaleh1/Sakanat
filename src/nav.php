@@ -508,7 +508,7 @@ include 'navbar.php';
 
                                             foreach ($query_run as $items) {
                                                 $home = $items['hID'];
-                                                echo 'ok';
+
 ?>
                                     <div class="col-md-4 mt-3">
                                         <div class="card">
