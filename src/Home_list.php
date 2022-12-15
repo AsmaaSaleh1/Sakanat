@@ -48,7 +48,7 @@
 </head>
 <body>
 
-<div class="container z py-5">
+<div class="container z">
     <div class="row mt-4 r">
 <?php
 try {

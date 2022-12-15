@@ -29,6 +29,8 @@ else
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="Css/all.min.css"> </head>
+<!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
 
 <style>
@@ -150,7 +152,9 @@ else
             <nav style="margin: 0;padding: 0" id="head" class="navbar nb navbar-expand-lg sticky-top">
                 <div class="container-fluid">
                     <a style="color: #1F5662;font-size: 28px" class="navbar-brand nvb" href="index.php">Sakanat</a>
-
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
                     <div class="collapse navbar-collapse" id="navbarScroll">
                         <?php
                         if(isset($_SESSION["user_email"]) and $_SESSION["user_email"]=="sakanat@gmail.com"){
@@ -222,7 +226,7 @@ else
                 }
 
                 else {?>
-                    <li><a style="font-size: 18px;text-decoration: none;color: #1F5662" href="log_sign.php"><span class="glyphicon glyphicon-log-in"></span><i style="color: #1F5662" class="fa-solid fa-arrow-right-to-bracket"></i> Login</a></li>
+                    <li><a style="font-size: 18px;text-decoration: none;color: #1F5662" href="log_sign.php"><span class="glyphicon glyphicon-log-in"></span><i style="color: #1F5662;font-size: 16px" class="fa-solid fa-arrow-right-to-bracket"></i> Login</a></li>
                 <?php } ?>
             </ul>
                         </ul>
