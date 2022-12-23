@@ -1,7 +1,6 @@
 <?php
     include 'navbar.php';
 
-
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -74,7 +73,7 @@
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
+        </div>+
         <div class="carousel-inner">
             <div class="carousel-item active" data-be-interval="4000">
 

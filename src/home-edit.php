@@ -50,32 +50,33 @@ require 'dbcon.php';
                     <?php
                     if(isset($_GET['id']))
                     {
-                        $student_id = mysqli_real_escape_string($con, $_GET['id']);
-                        $query = "SELECT * FROM home WHERE hID='$student_id' ";
+                        $homeID = mysqli_real_escape_string($con, $_GET['id']);
+
+                        $query = "SELECT * FROM home WHERE hID='$homeID' ";
                         $query_run = mysqli_query($con, $query);
 
                         if(mysqli_num_rows($query_run) > 0)
                         {
-                            $student = mysqli_fetch_array($query_run);
+                            $home = mysqli_fetch_array($query_run);
                             ?>
                             <form action="code.php" method="POST">
-                                <input type="hidden" name="student_id" value="<?= $student['hID']; ?>">
+                                <input type="hidden" name="student_id" value="<?= $home['hID']; ?>">
 
                                 <div class="mb-3">
                                     <label>Home Name</label>
-                                    <input type="text" name="hname" value="<?=$student['hName'];?>" class="form-control">
+                                    <input type="text" name="hname" value="<?=$home['hName'];?>" class="form-control">
                                 </div>
                                 <div class="mb-3">
                                     <label>City</label>
-                                    <input type="text" name="city" value="<?=$student['city'];?>" class="form-control">
+                                    <input type="text" name="city" value="<?=$home['city'];?>" class="form-control">
                                 </div>
                                 <div class="mb-3">
                                     <label>Street</label>
-                                    <input type="text" name="street" value="<?=$student['street'];?>" class="form-control">
+                                    <input type="text" name="street" value="<?=$home['street'];?>" class="form-control">
                                 </div>
                                 <div class="mb-3">
                                     <label>Contact</label>
-                                    <input type="text" name="con" value="<?=$student['contact'];?>" class="form-control">
+                                    <input type="text" name="con" value="<?=$home['contact'];?>" class="form-control">
                                 </div>
                                 <div class="mb-3">
                                     <label>For</label>
@@ -88,28 +89,28 @@ require 'dbcon.php';
                                     </select>                                </div>
                                 <div class="mb-3">
                                     <label>Description</label>
-                                    <input type="text" name="desc" value="<?=$student['description'];?>" class="form-control">
+                                    <input type="text" name="desc" value="<?=$home['description'];?>" class="form-control">
                                 </div>
                                 <div class="mb-3">
                                     <label>Rent/M</label>
-                                    <input type="text" name="price" value="<?=$student['price'];?>" class="form-control">
+                                    <input type="text" name="price" value="<?=$home['price'];?>" class="form-control">
                                 </div>
                                 <div class="mb-3">
                                     <label for="total_rooms">Number of Rooms:</label>
-                                    <input type="number" class="form-control" id="total_rooms" value="<?=$student['numOfRoom'];?>" name="total_rooms">
+                                    <input type="number" class="form-control" id="total_rooms" value="<?=$home['numOfRoom'];?>" name="total_rooms">
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="kitchen">Number of Kitchen:</label>
-                                    <input type="number" class="form-control" id="kitchen" value="<?=$student['numOfKitchen'];?>" name="kitchen">
+                                    <input type="number" class="form-control" id="kitchen" value="<?=$home['numOfKitchen'];?>" name="kitchen">
                                 </div>
                                 <div class="mb-3">
                                     <label for="bathroom">Number of Bathroom/Washroom:</label>
-                                    <input type="number" class="form-control" id="bathroom" value="<?=$student['numOfBath'];?>" name="bathroom">
+                                    <input type="number" class="form-control" id="bathroom" value="<?=$home['numOfBath'];?>" name="bathroom">
                                 </div>
                                 <div class="mb-3">
                                     <label for="">Location in map:</label>
-                                    <input type="text" style="height: 100px" class="form-control" value="<?=$student['Location'];?>" id="" name="location">
+                                    <input type="text" style="height: 100px" class="form-control" value="<?=$home['Location'];?>" id="" name="location">
                                 </div>
                                 <div class="mb-3">
                                     <button type="submit" name="update_student" class="btn btn-primary" style="background-color: #1F5662">

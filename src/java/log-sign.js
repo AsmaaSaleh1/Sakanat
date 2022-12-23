@@ -54,20 +54,19 @@ function showHide() {
     }
 
 }
-
 const loader=document.querySelector('.load');
 const main2=document.querySelector('.main');
 function inIt(){
     setTimeout(()=>{
         loader.style.display ='none';
         main.style.display ='flex';
-        setTimeout(()=>(main.style.opacity=1),5000);
-    },10000);
+        setTimeout(()=>(main.style.opacity=1),50);
+    },2000);
 }
 inIt();
 
 let valueDisplays = document.querySelectorAll(".num");
-let interval = 40000;
+let interval = 4000;
 
 valueDisplays.forEach((valueDisplay) => {
     let startValue = 0;
@@ -81,5 +80,3 @@ valueDisplays.forEach((valueDisplay) => {
         }
     }, duration);
 });
-
-/*For contact button*/

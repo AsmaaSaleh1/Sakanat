@@ -4,7 +4,7 @@ include 'connect.php';
 $property_id=$_SESSION['user_email'];
 if(isset($_POST['can'])){
     if(isset($_SESSION['bid'])) {
-        $bid=$_SESSION['bid'];
+        $bid=mysqli_real_escape_string($db, $_SESSION['bid']);
 $stmt="UPDATE `booking` SET `canceled`='yes'where bId='$bid'";
         $query = mysqli_query($db, $stmt);
         $booked=0;
@@ -143,7 +143,9 @@ $user=$row['userId'];
                         <?php
                         if($can=='No'){
                         ?>
-                        <button name="can" style="position: absolute;left: 500px;top: 150px;">Cancele</button>
+
+
+                        <button name="can" style="position: absolute;left: 500px;top: 150px;"><a name="can" href="p3.php?bookid=<?= $rows['bId']; ?>"></a>Cancele</button>
                             <?php  $_SESSION['bid']=$bId;
                             $_SESSION['hid']=$home;}
                            else{

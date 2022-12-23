@@ -25,7 +25,7 @@ if(isset($_POST["savePass"])) {
 
             $p=$_SESSION['x'];
         }
-
+$p=sha1($p);
         $email = $_SESSION['user_email'];
         $fname = $_POST['fname'];
         $lname = $_POST['lname'];

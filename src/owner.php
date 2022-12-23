@@ -230,8 +230,8 @@ $accepted=0;
                     </div>
                     <div class="modal-body">
                         <?php
-                        $bid=$_SESSION['bid'];
-                        $sql="SELECT fName,lName,photo,comment,rate from user JOIN review on user.userId=review.userId WHERE review.HID='$bid'";
+                        $bid=$_SESSION['home'];
+                        $sql="SELECT fName,lName,photo,comment,rate from user JOIN review on user.userId=review.userId WHERE review.HID='37'";
                         $query=mysqli_query($db,$sql);
 
                         if(mysqli_num_rows($query)>0) {
@@ -315,6 +315,7 @@ $accepted=0;
                                         foreach($query_run as $rows)
                                         {
                                             $hid=$rows['hID'];
+                                            $_SESSION['bid']=$hid;
                                             if($rows['booked']==0)
                                                 $booked='No';
                                             else
@@ -355,10 +356,11 @@ $accepted=0;
                                                     <a href="viewHome.php?property_id=<?=  $rows['hID']; ?>" class="btn btn-info btn-sm">View</a>
                                                     <a href="home-edit.php?id=<?=  $rows['hID']; ?>" class="btn btn-success btn-sm">Edit</a>
                                                     <?php
-                                                   $_SESSION['bid']=$rows['hID'];
+                                                    $home=$rows['hID'];
+                                                   $_SESSION['home']=$home;
                                                     ?>
 
-                                                    <a type="button" class="btn" data-toggle="modal" data-target="#myModal"><i class="fa-solid fa-star"></i></a>
+                                                    <a  type="button" class="btn" data-toggle="modal" data-target="#myModal"><i class="fa-solid fa-star"></i></a>
 
                                                     <form action="code.php" method="POST" class="d-inline">
                                                         <button type="submit" name="delete_home" value="<?= $rows['hID'];?>" class="btn btn-sm"><i style="font-size: 20px;color: red" class="fa-solid fa-trash-can"></i></button>

@@ -2,7 +2,9 @@
 session_start();
 if(isset($_POST['update'])and isset($_POST['pass']) and isset($_POST['conf'])){
     $p=$_POST['pass'];
+    $p=sha1($p);
     $c=$_POST['conf'];
+    $c=sha1($c);
     $email=$_SESSION['email'];
     if($p==$c){
 include 'connect.php';
